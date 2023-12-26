@@ -8,7 +8,7 @@ public class App {
         var cli = new RouterViewCLIAdapter();
         var type = "CORE";
 
-        System.out.println("hola mundo 5");
+        System.out.println("hola mundo 6");
         System.out.println(cli.obtainRelatedRouters(type));
     }
 }
