@@ -8,6 +8,6 @@ public final class NetworkAmountSpecification extends AbstractSpecification<Rout
 
     @Override
     public boolean isSatisfiedBy(Router router) {
-        return router.retrieveNetworks().size() <=MAXIMUM_ALLOWED_NETWORKS;
+        return router.retrieveNetworks().size() <= MAXIMUM_ALLOWED_NETWORKS;
     }
 }
