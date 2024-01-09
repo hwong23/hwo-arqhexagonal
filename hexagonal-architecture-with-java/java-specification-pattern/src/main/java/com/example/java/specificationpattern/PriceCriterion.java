@@ -15,7 +15,7 @@ public class PriceCriterion  implements SearchCriteria {
     public boolean isSatisfiedBy (Product product){
         boolean result = false;
 
-        switch( operator) {
+        switch( operator ) {
             case equal:
                 result = Math.abs(product.getPrice() - target) <= DELTA;
                 break;

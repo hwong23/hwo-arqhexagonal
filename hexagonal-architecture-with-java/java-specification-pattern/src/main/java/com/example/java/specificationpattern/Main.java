@@ -21,7 +21,7 @@ public class Main {
                 .filter(t -> t.satisfies(criteria))
                 .collect(Collectors.toList());
 
-        for( Television television : televisionList) {
+        for( Television television : televisionList ) {
             System.out.println(television);
         }
     }
