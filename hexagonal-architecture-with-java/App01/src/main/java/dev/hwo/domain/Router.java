@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 public class Router {
 
     private final RouterType routerType;
-
     private final RouterId routerId;
 
     public Router(RouterType routerType, RouterId routerId) {
@@ -44,6 +43,6 @@ public class Router {
         return "Router{" +
                 "routerType=" + routerType +
                 ", routerId=" + routerId +
-                '}';
+                "}\n";
     }
 }
