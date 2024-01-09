@@ -1,10 +1,10 @@
-package dev.davivieira.framework.adapters.input.stdin;
+package dev.hwo.framework.adapters.input.stdin;
 
-import dev.davivieira.application.ports.input.RouterViewInputPort;
-import dev.davivieira.application.usecases.RouterViewUseCase;
-import dev.davivieira.domain.Router;
-import dev.davivieira.domain.RouterType;
-import dev.davivieira.framework.adapters.output.file.RouterViewFileAdapter;
+import dev.hwo.application.ports.input.RouterViewInputPort;
+import dev.hwo.application.usecases.RouterViewUseCase;
+import dev.hwo.domain.Router;
+import dev.hwo.domain.RouterType;
+import dev.hwo.framework.adapters.output.file.RouterViewFileAdapter;
 
 import java.util.List;
 

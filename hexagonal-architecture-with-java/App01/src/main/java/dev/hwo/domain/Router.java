@@ -1,4 +1,4 @@
-package dev.davivieira.domain;
+package dev.hwo.domain;
 
 import java.util.List;
 import java.util.function.Predicate;
