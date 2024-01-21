@@ -11,4 +11,12 @@ public class Prima {
     public Prima ( double cuota ) {
         valorCouta = cuota;
     }
+
+    
+    @Override
+    public String toString() {
+        return "Prima {" +
+                "id=" + "0x2FD" +
+                ", cuota=" + valorCouta + '}';
+    }
 }
