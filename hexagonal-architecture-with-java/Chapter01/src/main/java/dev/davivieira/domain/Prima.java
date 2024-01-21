@@ -6,13 +6,16 @@ import java.util.stream.Collectors;
 
 
 public class Prima {
-    private final double valorCouta;
+    private final ValorCuota cuotaPrima;
 
     public Prima ( double cuota ) {
         valorCouta = cuota;
     }
 
-    
+    public ValorCuota verCuota () {
+        return cuotaPrima;
+    }
+
     @Override
     public String toString() {
         return "Prima {" +
