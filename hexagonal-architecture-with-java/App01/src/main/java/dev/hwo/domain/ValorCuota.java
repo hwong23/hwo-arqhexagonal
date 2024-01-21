@@ -1,4 +1,4 @@
-package dev.davivieira.domain;
+package dev.hwo.domain;
 
 public class ValorCuota {
     private final double cuota;
