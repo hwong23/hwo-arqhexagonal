@@ -3,7 +3,7 @@ package dev.hwo.domain;
 public class ValorCuota {
     private final double cuota;
 
-    public ValorCuota (valor) {
+    public ValorCuota (double valor) {
         this.cuota = valor;
     }
 
