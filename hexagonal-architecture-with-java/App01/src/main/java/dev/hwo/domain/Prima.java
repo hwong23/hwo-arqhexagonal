@@ -14,14 +14,19 @@ public class Prima {
         this.cuotaPrima = cuota;
     }
 
-    public ValorCuota verCuota () {
+    public ValorCuota objCuota () {
         return cuotaPrima;
     }
+
+    private static Predicate<Prima> esCorrecta() {
+        return p -> p.objCuota() != null;
+    }
+
 
     @Override
     public String toString() {
         return "Prima {" +
                 "id=" + "0x2FD" +
-                ", cuota=" + "1000" + '}';
+                ", cuota=" + cuotaPrima.toString() + '}';
     }
 }
