@@ -2,9 +2,9 @@ package dev.mimutual.application.ports.output;
 
 import java.util.List;
 
-import dev.mimutual.domain.entity.Router;
+import dev.mimutual.domain.entity.Prima;
 
 public interface RouterViewOutputPort {
 
-    List<Router> fetchRouters();
+    List<Prima> fetchRouters();
 }

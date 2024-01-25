@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 import dev.mimutual.application.ports.output.RouterViewOutputPort;
-import dev.mimutual.domain.entity.Router;
+import dev.mimutual.domain.entity.Prima;
 import dev.mimutual.domain.vo.RouterId;
 import dev.mimutual.domain.vo.RouterType;
 
@@ -17,12 +17,12 @@ public class RouterViewFileAdapter implements RouterViewOutputPort {
     private static RouterViewFileAdapter instance;
 
     @Override
-    public List<Router> fetchRouters() {
+    public List<Prima> fetchRouters() {
         return readFileAsString();
     }
 
-    private static List<Router> readFileAsString() {
-        List<Router> routers = new ArrayList<>();
+    private static List<Prima> readFileAsString() {
+        List<Prima> routers = new ArrayList<>();
         try (Stream<String> stream = new BufferedReader(
                 new InputStreamReader(
                         Objects.requireNonNull(RouterViewFileAdapter.class.getClassLoader().
@@ -31,7 +31,7 @@ public class RouterViewFileAdapter implements RouterViewOutputPort {
                 String[] routerEntry = line.split(";");
                 var id = routerEntry[0];
                 var type = routerEntry[1];
-                Router router = new Router(RouterType.valueOf(type),RouterId.withId(id));
+                Prima router = new Prima(RouterType.valueOf(type),RouterId.withId(id));
                 routers.add(router);
             });
         } catch (Exception e) {

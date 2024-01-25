@@ -3,9 +3,9 @@ package dev.mimutual.application.usecases;
 import java.util.List;
 import java.util.function.Predicate;
 
-import dev.mimutual.domain.entity.Router;
+import dev.mimutual.domain.entity.Prima;
 
 public interface RouterViewUseCase {
 
-    List<Router> getRouters(Predicate<Router> filter);
+    List<Prima> getRouters(Predicate<Prima> filter);
 }

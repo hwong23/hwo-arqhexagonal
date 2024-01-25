@@ -8,28 +8,28 @@ import dev.mimutual.domain.vo.Network;
 import dev.mimutual.domain.vo.RouterId;
 import dev.mimutual.domain.vo.RouterType;
 
-public class Router {
+public class Prima {
 
     private final RouterType routerType;
     private final RouterId routerId;
-    private Switch networkSwitch;
+    private Cobertura networkSwitch;
 
-    public Router(RouterType routerType, RouterId routerId) {
+    public Prima(RouterType routerType, RouterId routerId) {
         this.routerType = routerType;
         this.routerId = routerId;
     }
 
-    public static Predicate<Router> filterRouterByType(RouterType routerType){
+    public static Predicate<Prima> filterRouterByType(RouterType routerType){
         return routerType.equals(RouterType.CORE)
-                ? Router.isCore() :
-                Router.isEdge();
+                ? Prima.isCore() :
+                Prima.isEdge();
     }
 
-    public static Predicate<Router> isCore(){
+    public static Predicate<Prima> isCore(){
         return p -> p.getRouterType() == RouterType.CORE;
     }
 
-    public static Predicate<Router> isEdge(){
+    public static Predicate<Prima> isEdge(){
         return p -> p.getRouterType() == RouterType.EDGE;
     }
 

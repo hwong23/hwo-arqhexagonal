@@ -1,6 +1,6 @@
 package dev.mimutual.domain.service;
 
-import dev.mimutual.domain.entity.Router;
+import dev.mimutual.domain.entity.Prima;
 import dev.mimutual.domain.specification.CIDRSpecification;
 import dev.mimutual.domain.specification.NetworkAmountSpecification;
 import dev.mimutual.domain.specification.NetworkAvailabilitySpecification;
@@ -9,7 +9,7 @@ import dev.mimutual.domain.vo.Network;
 
 public class NetworkOperation {
 
-    public static Router createNewNetwork(Router router, Network network) {
+    public static Prima createNewNetwork(Prima router, Network network) {
         var availabilitySpec = new NetworkAvailabilitySpecification(network.address(), network.name(), network.cidr());
         var cidrSpec = new CIDRSpecification();
         var routerTypeSpec = new RouterTypeSpecification();

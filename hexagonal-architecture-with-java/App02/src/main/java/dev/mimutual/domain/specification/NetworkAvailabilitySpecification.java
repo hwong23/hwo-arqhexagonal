@@ -1,9 +1,9 @@
 package dev.mimutual.domain.specification;
 
-import dev.mimutual.domain.entity.Router;
+import dev.mimutual.domain.entity.Prima;
 import dev.mimutual.domain.vo.IP;
 
-public final class NetworkAvailabilitySpecification extends AbstractSpecification<Router> {
+public final class NetworkAvailabilitySpecification extends AbstractSpecification<Prima> {
 
     private final IP address;
     private final String name;
@@ -16,11 +16,11 @@ public final class NetworkAvailabilitySpecification extends AbstractSpecificatio
     }
 
     @Override
-    public boolean isSatisfiedBy(Router router) {
+    public boolean isSatisfiedBy(Prima router) {
         return router!=null && isNetworkAvailable(router);
     }
 
-    private boolean isNetworkAvailable(Router router) {
+    private boolean isNetworkAvailable(Prima router) {
         return router.retrieveNetworks().stream().noneMatch(
                 network -> network.address().equals(address) &&
                 network.name().equals(name) &&
