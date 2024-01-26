@@ -12,7 +12,7 @@ public class Prima {
 
     private final RouterType primaType;
     private final RouterId primaId;
-    private Cobertura networkSwitch;
+    private Plan networkSwitch;
 
     public Prima(RouterType routerType, RouterId routerId) {
         this.primaType = routerType;
