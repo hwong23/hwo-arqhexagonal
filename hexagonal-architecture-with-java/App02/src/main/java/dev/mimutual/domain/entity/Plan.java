@@ -5,17 +5,17 @@ import java.util.List;
 
 import dev.mimutual.domain.vo.IP;
 import dev.mimutual.domain.vo.Cobertura;
-import dev.mimutual.domain.vo.SwitchId;
-import dev.mimutual.domain.vo.SwitchType;
+import dev.mimutual.domain.vo.PlanId;
+import dev.mimutual.domain.vo.PlanType;
 
 public class Plan {
 
-    private final SwitchType switchType;
-    private final SwitchId switchId;
+    private final PlanType switchType;
+    private final PlanId switchId;
     private final List<Cobertura> networks;
     private final IP address;
 
-    public Plan (SwitchType switchType, SwitchId switchId, List<Cobertura> networks, IP address){
+    public Plan (PlanType switchType, PlanId switchId, List<Cobertura> networks, IP address){
         this.switchType = switchType;
         this.switchId = switchId;
         this.networks = networks;
