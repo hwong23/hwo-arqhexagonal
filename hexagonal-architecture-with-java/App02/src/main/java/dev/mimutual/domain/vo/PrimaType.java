@@ -1,6 +1,6 @@
 package dev.mimutual.domain.vo;
 
-public enum RouterType {
+public enum PrimaType {
     EDGE,
     CORE
 }

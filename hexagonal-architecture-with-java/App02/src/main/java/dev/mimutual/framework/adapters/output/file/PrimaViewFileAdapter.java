@@ -9,8 +9,8 @@ import java.util.stream.Stream;
 
 import dev.mimutual.application.ports.output.PrimaViewOutputPort;
 import dev.mimutual.domain.entity.Prima;
-import dev.mimutual.domain.vo.RouterId;
-import dev.mimutual.domain.vo.RouterType;
+import dev.mimutual.domain.vo.PrimaId;
+import dev.mimutual.domain.vo.PrimaType;
 
 public class PrimaViewFileAdapter implements PrimaViewOutputPort {
 
@@ -31,7 +31,7 @@ public class PrimaViewFileAdapter implements PrimaViewOutputPort {
                 String[] routerEntry = line.split(";");
                 var id = routerEntry[0];
                 var type = routerEntry[1];
-                Prima router = new Prima(RouterType.valueOf(type),RouterId.withId(id));
+                Prima router = new Prima(PrimaType.valueOf(type),PrimaId.withId(id));
                 routers.add(router);
             });
         } catch (Exception e) {

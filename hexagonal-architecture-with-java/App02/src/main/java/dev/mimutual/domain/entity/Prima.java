@@ -5,32 +5,32 @@ import java.util.function.Predicate;
 
 import dev.mimutual.domain.vo.IP;
 import dev.mimutual.domain.vo.Network;
-import dev.mimutual.domain.vo.RouterId;
-import dev.mimutual.domain.vo.RouterType;
+import dev.mimutual.domain.vo.PrimaId;
+import dev.mimutual.domain.vo.PrimaType;
 
 public class Prima {
 
-    private final RouterType primaType;
-    private final RouterId primaId;
+    private final PrimaType primaType;
+    private final PrimaId primaId;
     private Plan networkSwitch;
 
-    public Prima(RouterType routerType, RouterId routerId) {
+    public Prima(PrimaType routerType, PrimaId routerId) {
         this.primaType = routerType;
         this.primaId = routerId;
     }
 
-    public static Predicate<Prima> filterPrimaByType (RouterType routerType) {
-        return routerType.equals(RouterType.CORE)
+    public static Predicate<Prima> filterPrimaByType (PrimaType routerType) {
+        return routerType.equals(PrimaType.CORE)
                 ? Prima.isCore() :
                 Prima.isEdge();
     }
 
     public static Predicate<Prima> isCore(){
-        return p -> p.getPrimaType() == RouterType.CORE;
+        return p -> p.getPrimaType() == PrimaType.CORE;
     }
 
     public static Predicate<Prima> isEdge(){
-        return p -> p.getPrimaType() == RouterType.EDGE;
+        return p -> p.getPrimaType() == PrimaType.EDGE;
     }
 
     public void addNetworkToSwitch(Network network){
@@ -45,7 +45,7 @@ public class Prima {
         return networkSwitch.getNetworks();
     }
 
-    public RouterType getPrimaType(){
+    public PrimaType getPrimaType(){
         return primaType;
     }
 
