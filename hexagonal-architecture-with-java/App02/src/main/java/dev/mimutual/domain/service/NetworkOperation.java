@@ -5,11 +5,11 @@ import dev.mimutual.domain.specification.CIDRSpecification;
 import dev.mimutual.domain.specification.NetworkAmountSpecification;
 import dev.mimutual.domain.specification.NetworkAvailabilitySpecification;
 import dev.mimutual.domain.specification.RouterTypeSpecification;
-import dev.mimutual.domain.vo.Network;
+import dev.mimutual.domain.vo.Cobertura;
 
 public class NetworkOperation {
 
-    public static Prima createNewNetwork(Prima router, Network network) {
+    public static Prima createNewNetwork(Prima router, Cobertura network) {
         var availabilitySpec = new NetworkAvailabilitySpecification(network.address(), network.name(), network.cidr());
         var cidrSpec = new CIDRSpecification();
         var routerTypeSpec = new RouterTypeSpecification();
@@ -22,7 +22,7 @@ public class NetworkOperation {
             throw new IllegalArgumentException("Address already exist");
 
         if(amountSpec.and(routerTypeSpec).isSatisfiedBy(router)) {
-            Network newNetwork = router.createNetwork(network.address(), network.name(), network.cidr());
+            Cobertura newNetwork = router.createNetwork(network.address(), network.name(), network.cidr());
             router.addNetworkToSwitch(newNetwork);
         }
         return router;

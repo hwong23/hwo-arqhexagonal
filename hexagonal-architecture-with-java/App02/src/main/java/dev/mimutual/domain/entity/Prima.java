@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 import dev.mimutual.domain.vo.IP;
-import dev.mimutual.domain.vo.Network;
+import dev.mimutual.domain.vo.Cobertura;
 import dev.mimutual.domain.vo.PrimaId;
 import dev.mimutual.domain.vo.PrimaType;
 
@@ -12,7 +12,7 @@ public class Prima {
 
     private final PrimaType primaType;
     private final PrimaId primaId;
-    private Plan networkSwitch;
+    private Plan planSwitch;
 
     public Prima(PrimaType routerType, PrimaId routerId) {
         this.primaType = routerType;
@@ -33,16 +33,16 @@ public class Prima {
         return p -> p.getPrimaType() == PrimaType.EDGE;
     }
 
-    public void addNetworkToSwitch(Network network){
-        this.networkSwitch = networkSwitch.addNetwork(network, this);
+    public void addNetworkToSwitch(Cobertura network){
+        this.planSwitch = planSwitch.addNetwork(network, this);
     }
 
-    public Network createNetwork(IP address, String name, int cidr){
-        return new Network(address, name, cidr);
+    public Cobertura createNetwork(IP address, String name, int cidr){
+        return new Cobertura(address, name, cidr);
     }
 
-    public List<Network> retrieveNetworks(){
-        return networkSwitch.getNetworks();
+    public List<Cobertura> retrieveNetworks(){
+        return planSwitch.getNetworks();
     }
 
     public PrimaType getPrimaType(){
