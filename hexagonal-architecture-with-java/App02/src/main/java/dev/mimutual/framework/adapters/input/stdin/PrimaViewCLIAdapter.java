@@ -6,7 +6,7 @@ import dev.mimutual.application.ports.input.PrimaViewInputPort;
 import dev.mimutual.application.usecases.PrimaViewUseCase;
 import dev.mimutual.domain.entity.Prima;
 import dev.mimutual.domain.vo.RouterType;
-import dev.mimutual.framework.adapters.output.file.RouterViewFileAdapter;
+import dev.mimutual.framework.adapters.output.file.PrimaViewFileAdapter;
 
 public class PrimaViewCLIAdapter {
 
@@ -17,12 +17,12 @@ public class PrimaViewCLIAdapter {
     }
 
     private void setAdapters() {
-        this.primaViewUseCase = new PrimaViewInputPort(RouterViewFileAdapter.getInstance());
+        this.primaViewUseCase = new PrimaViewInputPort(PrimaViewFileAdapter.getInstance());
     }
 
 
     public List<Prima> obtainRelatedPrimas(String type) {
         return primaViewUseCase.getRouters(
-                Prima.filterRouterByType(RouterType.valueOf(type)));
+                Prima.filterPrimaByType(RouterType.valueOf(type)));
     }
 }

@@ -12,9 +12,9 @@ import dev.mimutual.domain.entity.Prima;
 import dev.mimutual.domain.vo.RouterId;
 import dev.mimutual.domain.vo.RouterType;
 
-public class RouterViewFileAdapter implements RouterViewOutputPort {
+public class PrimaViewFileAdapter implements RouterViewOutputPort {
 
-    private static RouterViewFileAdapter instance;
+    private static PrimaViewFileAdapter instance;
 
     @Override
     public List<Prima> fetchRouters() {
@@ -25,7 +25,7 @@ public class RouterViewFileAdapter implements RouterViewOutputPort {
         List<Prima> routers = new ArrayList<>();
         try (Stream<String> stream = new BufferedReader(
                 new InputStreamReader(
-                        Objects.requireNonNull(RouterViewFileAdapter.class.getClassLoader().
+                        Objects.requireNonNull(PrimaViewFileAdapter.class.getClassLoader().
                                 getResourceAsStream("routers.txt")))).lines()) {
             stream.forEach(line ->{
                 String[] routerEntry = line.split(";");
@@ -40,12 +40,12 @@ public class RouterViewFileAdapter implements RouterViewOutputPort {
         return routers;
     }
 
-    private RouterViewFileAdapter() {
+    private PrimaViewFileAdapter() {
     }
 
-    public static RouterViewFileAdapter getInstance() {
+    public static PrimaViewFileAdapter getInstance() {
         if (instance == null) {
-            instance = new RouterViewFileAdapter();
+            instance = new PrimaViewFileAdapter();
         }
         return instance;
     }

@@ -19,7 +19,7 @@ public class Prima {
         this.routerId = routerId;
     }
 
-    public static Predicate<Prima> filterRouterByType (RouterType routerType) {
+    public static Predicate<Prima> filterPrimaByType (RouterType routerType) {
         return routerType.equals(RouterType.CORE)
                 ? Prima.isCore() :
                 Prima.isEdge();
@@ -51,7 +51,7 @@ public class Prima {
 
     @Override
     public String toString() {
-        return "Router{" +
+        return "Prima{" +
                 "routerType=" + routerType +
                 ", routerId=" + routerId +
                 '}';
