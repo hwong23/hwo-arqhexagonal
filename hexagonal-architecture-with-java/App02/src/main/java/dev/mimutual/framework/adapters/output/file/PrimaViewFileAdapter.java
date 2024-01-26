@@ -7,17 +7,17 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import dev.mimutual.application.ports.output.RouterViewOutputPort;
+import dev.mimutual.application.ports.output.PrimaViewOutputPort;
 import dev.mimutual.domain.entity.Prima;
 import dev.mimutual.domain.vo.RouterId;
 import dev.mimutual.domain.vo.RouterType;
 
-public class PrimaViewFileAdapter implements RouterViewOutputPort {
+public class PrimaViewFileAdapter implements PrimaViewOutputPort {
 
     private static PrimaViewFileAdapter instance;
 
     @Override
-    public List<Prima> fetchRouters() {
+    public List<Prima> fetchPrimas() {
         return readFileAsString();
     }
 

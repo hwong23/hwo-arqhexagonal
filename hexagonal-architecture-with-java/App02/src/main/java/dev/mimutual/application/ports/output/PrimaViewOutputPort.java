@@ -4,7 +4,7 @@ import java.util.List;
 
 import dev.mimutual.domain.entity.Prima;
 
-public interface RouterViewOutputPort {
+public interface PrimaViewOutputPort {
 
-    List<Prima> fetchRouters();
+    List<Prima> fetchPrimas();
 }
