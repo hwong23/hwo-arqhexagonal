@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 import dev.mimutual.domain.entity.Prima;
 
-public interface RouterViewUseCase {
+public interface PrimaViewUseCase {
 
     List<Prima> getRouters(Predicate<Prima> filter);
 }

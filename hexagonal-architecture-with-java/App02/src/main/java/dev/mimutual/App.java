@@ -1,11 +1,11 @@
 package dev.mimutual;
 
-import dev.mimutual.framework.adapters.input.stdin.RouterViewCLIAdapter;
+import dev.mimutual.framework.adapters.input.stdin.PrimaViewCLIAdapter;
 
 public class App {
 
     public static void main(String... args) {
-        var cli = new RouterViewCLIAdapter();
+        var cli = new PrimaViewCLIAdapter();
         var type = "CORE";
 
         System.out.println( "App02.Referencia");
