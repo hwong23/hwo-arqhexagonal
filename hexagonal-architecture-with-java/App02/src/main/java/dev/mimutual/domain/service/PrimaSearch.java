@@ -8,8 +8,8 @@ import dev.mimutual.domain.entity.Prima;
 
 public class PrimaSearch {
 
-    public static List<Prima> retrieveRouter(List<Prima> routers, Predicate<Prima> predicate) {
-        return routers.stream()
+    public static List<Prima> retrievePrima(List<Prima> primas, Predicate<Prima> predicate) {
+        return primas.stream()
                 .filter(predicate)
                 .collect(Collectors.<Prima>toList());
     }

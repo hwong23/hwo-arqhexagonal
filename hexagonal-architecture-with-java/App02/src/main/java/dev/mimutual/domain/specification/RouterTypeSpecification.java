@@ -7,6 +7,6 @@ public final class RouterTypeSpecification extends AbstractSpecification<Prima> 
 
     @Override
     public boolean isSatisfiedBy(Prima router) {
-        return router.getRouterType().equals(RouterType.EDGE) || router.getRouterType().equals(RouterType.CORE);
+        return router.getPrimaType().equals(RouterType.EDGE) || router.getPrimaType().equals(RouterType.CORE);
     }
 }
