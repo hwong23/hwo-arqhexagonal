@@ -10,15 +10,15 @@ import dev.mimutual.domain.service.RouterSearch;
 
 public class PrimaViewInputPort implements PrimaViewUseCase {
 
-    private PrimaViewOutputPort routerListOutputPort;
+    private PrimaViewOutputPort primaListOutputPort;
 
-    public PrimaViewInputPort (PrimaViewOutputPort routerViewOutputPort) {
-        this.routerListOutputPort = routerViewOutputPort;
+    public PrimaViewInputPort (PrimaViewOutputPort primaViewOutputPort) {
+        this.primaListOutputPort = primaViewOutputPort;
     }
 
     @Override
     public List<Prima> getPrima(Predicate<Prima> filter) {
-        var routers = routerListOutputPort.fetchPrimas();
+        var routers = primaListOutputPort.fetchPrimas();
         return RouterSearch.retrieveRouter(routers, filter);
     }
 }
