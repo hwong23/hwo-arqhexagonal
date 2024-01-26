@@ -10,19 +10,19 @@ import dev.mimutual.framework.adapters.output.file.RouterViewFileAdapter;
 
 public class PrimaViewCLIAdapter {
 
-    private PrimaViewUseCase routerViewUseCase;
+    private PrimaViewUseCase primaViewUseCase;
 
     public PrimaViewCLIAdapter() {
         setAdapters();
     }
 
     private void setAdapters() {
-        this.routerViewUseCase = new PrimaViewInputPort(RouterViewFileAdapter.getInstance());
+        this.primaViewUseCase = new PrimaViewInputPort(RouterViewFileAdapter.getInstance());
     }
 
 
     public List<Prima> obtainRelatedRouters(String type) {
-        return routerViewUseCase.getRouters(
+        return primaViewUseCase.getRouters(
                 Prima.filterRouterByType(RouterType.valueOf(type)));
     }
 }

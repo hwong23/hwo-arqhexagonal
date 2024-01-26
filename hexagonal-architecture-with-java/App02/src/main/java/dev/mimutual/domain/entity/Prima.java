@@ -19,7 +19,7 @@ public class Prima {
         this.routerId = routerId;
     }
 
-    public static Predicate<Prima> filterRouterByType(RouterType routerType){
+    public static Predicate<Prima> filterRouterByType (RouterType routerType) {
         return routerType.equals(RouterType.CORE)
                 ? Prima.isCore() :
                 Prima.isEdge();
