@@ -20,7 +20,7 @@ public class PrimaId {
 
     @Override
     public String toString() {
-        return "RouterId{" +
+        return "PrimaId{" +
                 "id='" + id + '\'' +
                 '}';
     }
