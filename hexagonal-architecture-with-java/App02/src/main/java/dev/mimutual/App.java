@@ -9,7 +9,7 @@ public class App {
         var type = "CORE";
 
         System.out.println( "App02.Referencia");
-        System.out.println(cli.obtainRelatedRouters(type));
+        System.out.println(cli.obtainRelatedPrimas(type));
 
     }
 }

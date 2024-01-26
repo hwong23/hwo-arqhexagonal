@@ -21,7 +21,7 @@ public class PrimaViewCLIAdapter {
     }
 
 
-    public List<Prima> obtainRelatedRouters(String type) {
+    public List<Prima> obtainRelatedPrimas(String type) {
         return primaViewUseCase.getRouters(
                 Prima.filterRouterByType(RouterType.valueOf(type)));
     }
