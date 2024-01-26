@@ -17,7 +17,7 @@ public class PrimaViewInputPort implements PrimaViewUseCase {
     }
 
     @Override
-    public List<Prima> getRouters(Predicate<Prima> filter) {
+    public List<Prima> getPrima(Predicate<Prima> filter) {
         var routers = routerListOutputPort.fetchRouters();
         return RouterSearch.retrieveRouter(routers, filter);
     }

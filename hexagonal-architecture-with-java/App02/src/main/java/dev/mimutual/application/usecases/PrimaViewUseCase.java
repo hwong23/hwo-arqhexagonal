@@ -7,5 +7,5 @@ import dev.mimutual.domain.entity.Prima;
 
 public interface PrimaViewUseCase {
 
-    List<Prima> getRouters(Predicate<Prima> filter);
+    List<Prima> getPrima(Predicate<Prima> filter);
 }

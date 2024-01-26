@@ -22,7 +22,7 @@ public class PrimaViewCLIAdapter {
 
 
     public List<Prima> obtainRelatedPrimas(String type) {
-        return primaViewUseCase.getRouters(
+        return primaViewUseCase.getPrima(
                 Prima.filterPrimaByType(RouterType.valueOf(type)));
     }
 }
