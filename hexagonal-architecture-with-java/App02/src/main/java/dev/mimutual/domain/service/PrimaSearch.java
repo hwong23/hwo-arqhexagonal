@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import dev.mimutual.domain.entity.Prima;
 
-public class RouterSearch {
+public class PrimaSearch {
 
     public static List<Prima> retrieveRouter(List<Prima> routers, Predicate<Prima> predicate) {
         return routers.stream()
