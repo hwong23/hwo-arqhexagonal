@@ -1,12 +1,12 @@
 package dev.davivieira;
 
-import dev.davivieira.domain.entity.Router;
-import dev.davivieira.domain.specification.CIDRSpecification;
-import dev.davivieira.domain.specification.NetworkAvailabilitySpecification;
-import dev.davivieira.domain.vo.IP;
-import dev.davivieira.domain.vo.Network;
-import dev.davivieira.domain.vo.RouterId;
-import dev.davivieira.framework.adapters.output.file.RouterNetworkFileAdapter;
+import dev.com.domain.entity.Router;
+import dev.com.domain.specification.CIDRSpecification;
+import dev.com.domain.specification.NetworkAvailabilitySpecification;
+import dev.com.domain.vo.IP;
+import dev.com.domain.vo.Network;
+import dev.com.domain.vo.RouterId;
+import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
