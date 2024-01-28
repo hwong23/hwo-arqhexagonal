@@ -14,28 +14,27 @@ import io.cucumber.java.en.When;
 
 public class AddNetworkStepsTest {
 
-    private PrimaId routerId;
-
-    private Prima router;
-
-    private final RouterNetworkFileAdapter routerNetworkFileAdapter =  RouterNetworkFileAdapter.getInstance();
-
-    private final Network network = new Network(new IP("20.0.0.0"), "Marketing", 8);
+    private PrimaId PrimaId;
+    private Prima prima;
+    private final RouterNetworkFileAdapter routerNetworkFileAdapter = 
+        RouterNetworkFileAdapter.getInstance();
+    private final Network network = 
+        new Network(new IP("20.0.0.0"), "Marketing", 8);
 
     @Given("I provide a router ID and the network details")
     public void obtain_routerId() {
-        this.routerId = PrimaId.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003");
+        this.PrimaId = PrimaId.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003");
     }
 
     @When("I found the router")
     public void lookup_router() {
-        router = routerNetworkFileAdapter.fetchRouterById(routerId);
+        prima = routerNetworkFileAdapter.fetchRouterById(PrimaId);
     }
 
     @And("The network address is valid and doesn't already exists")
     public void check_address_validity_and_existence() {
         var availabilitySpec = new NetworkAvailabilitySpecification(network.getAddress(), network.getName(), network.getCidr());
-        if(!availabilitySpec.isSatisfiedBy(router))
+        if(!availabilitySpec.isSatisfiedBy(prima))
             throw new IllegalArgumentException("Address already exist");
     }
 
@@ -48,6 +47,6 @@ public class AddNetworkStepsTest {
 
     @Then("Add the network to the router")
     public void add_network() {
-        router.addNetworkToSwitch(network);
+        prima.addNetworkToSwitch(network);
     }
 }
