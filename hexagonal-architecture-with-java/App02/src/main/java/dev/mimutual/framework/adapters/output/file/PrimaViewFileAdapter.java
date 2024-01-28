@@ -22,7 +22,7 @@ public class PrimaViewFileAdapter implements PrimaViewOutputPort {
     }
 
     private static List<Prima> readFileAsString() {
-        List<Prima> routers = new ArrayList<>();
+        List<Prima> primas = new ArrayList<>();
         try (Stream<String> stream = new BufferedReader(
                 new InputStreamReader(
                         Objects.requireNonNull(PrimaViewFileAdapter.class.getClassLoader().
@@ -31,13 +31,15 @@ public class PrimaViewFileAdapter implements PrimaViewOutputPort {
                 String[] routerEntry = line.split(";");
                 var id = routerEntry[0];
                 var type = routerEntry[1];
-                Prima router = new Prima(PrimaType.valueOf(type),PrimaId.withId(id));
-                routers.add(router);
+                
+                // mapeo al dominio
+                Prima prima = new Prima(PrimaType.valueOf(type),PrimaId.withId(id));
+                primas.add(prima);
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return routers;
+        return primas;
     }
 
     private PrimaViewFileAdapter() {
