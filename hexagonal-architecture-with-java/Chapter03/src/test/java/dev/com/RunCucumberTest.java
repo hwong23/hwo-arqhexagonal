@@ -1,4 +1,4 @@
-package dev.davivieira;
+package dev.com;
 
 
 import io.cucumber.junit.Cucumber;
