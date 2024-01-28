@@ -9,7 +9,7 @@ import dev.com.application.usecases.RouterNetworkUseCase;
 import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.IP;
 import dev.com.domain.vo.Network;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
 
 public class RouterNetworkCLIAdapter {
@@ -20,7 +20,7 @@ public class RouterNetworkCLIAdapter {
         setAdapters();
     }
 
-    public Prima addNetwork(RouterId routerId, Network network){
+    public Prima addNetwork(PrimaId routerId, Network network){
         return routerNetworkUseCase.addNetworkToRouter(routerId, network);
     }
 

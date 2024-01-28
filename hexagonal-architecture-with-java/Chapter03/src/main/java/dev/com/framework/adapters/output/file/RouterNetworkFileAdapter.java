@@ -15,7 +15,7 @@ public class RouterNetworkFileAdapter implements RouterNetworkOutputPort {
     private List<Prima> routers = new ArrayList<>();
 
     @Override
-    public Prima fetchRouterById(RouterId routerId) {
+    public Prima fetchRouterById(PrimaId routerId) {
         Prima retrievedRouter = null;
         for(Prima router: routers){
             if(router.getRouterId().getId().equals(routerId.getId())){
@@ -27,10 +27,10 @@ public class RouterNetworkFileAdapter implements RouterNetworkOutputPort {
     }
 
     private void createSampleRouter() {
-        var routerId = RouterId.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003");
+        var routerId = PrimaId.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003");
         var network = new Network(new IP("10.0.0.0"), "HR", 8);
         var networkSwitch = new Switch(SwitchType.LAYER3, SwitchId.withoutId(), List.of(network), new IP("9.0.0.9"));
-        var router = new Prima(RouterType.EDGE, routerId, networkSwitch);
+        var router = new Prima(PrimaType.EDGE, routerId, networkSwitch);
         routers.add(router);
     }
 

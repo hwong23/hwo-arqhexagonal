@@ -2,9 +2,9 @@ package dev.com.application.usecases;
 
 import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.Network;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.PrimaId;
 
 public interface RouterNetworkUseCase {
 
-    Prima addNetworkToRouter(RouterId routerId, Network network);
+    Prima addNetworkToRouter(PrimaId routerId, Network network);
 }

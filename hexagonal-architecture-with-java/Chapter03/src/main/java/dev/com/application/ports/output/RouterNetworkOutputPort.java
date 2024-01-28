@@ -1,10 +1,10 @@
 package dev.com.application.ports.output;
 
 import dev.com.domain.entity.Prima;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.PrimaId;
 
 public interface RouterNetworkOutputPort {
-    Prima fetchRouterById(RouterId routerId);
+    Prima fetchRouterById(PrimaId routerId);
 
     boolean persistRouter(Prima router);
 }

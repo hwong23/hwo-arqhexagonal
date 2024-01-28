@@ -5,7 +5,7 @@ import dev.com.application.usecases.RouterNetworkUseCase;
 import dev.com.domain.entity.Prima;
 import dev.com.domain.service.NetworkOperation;
 import dev.com.domain.vo.Network;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.PrimaId;
 
 public class RouterNetworkInputPort implements RouterNetworkUseCase {
 
@@ -16,12 +16,12 @@ public class RouterNetworkInputPort implements RouterNetworkUseCase {
     }
 
     @Override
-    public Prima addNetworkToRouter(RouterId routerId, Network network) {
+    public Prima addNetworkToRouter(PrimaId routerId, Network network) {
         var router = fetchRouter(routerId);
         return createNetwork(router, network);
     }
 
-    private Prima fetchRouter(RouterId routerId) {
+    private Prima fetchRouter(PrimaId routerId) {
         return routerNetworkOutputPort.fetchRouterById(routerId);
     }
 

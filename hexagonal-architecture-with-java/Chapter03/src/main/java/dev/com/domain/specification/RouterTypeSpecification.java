@@ -1,12 +1,12 @@
 package dev.com.domain.specification;
 
 import dev.com.domain.entity.Prima;
-import dev.com.domain.vo.RouterType;
+import dev.com.domain.vo.PrimaType;
 
 public final class RouterTypeSpecification extends AbstractSpecification<Prima> {
 
     @Override
     public boolean isSatisfiedBy(Prima router) {
-        return router.getRouterType().equals(RouterType.EDGE) || router.getRouterType().equals(RouterType.CORE);
+        return router.getRouterType().equals(PrimaType.EDGE) || router.getRouterType().equals(PrimaType.CORE);
     }
 }
