@@ -22,7 +22,7 @@ public class Switch {
         this.address = address;
     }
 
-    public Switch addNetwork(Network network, Router router) {
+    public Switch addNetwork(Network network, Prima router) {
         List<Network> newNetworks = new ArrayList<>(router.retrieveNetworks());
         newNetworks.add(network);
 

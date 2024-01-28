@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.com.application.ports.output.RouterNetworkOutputPort;
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.entity.Switch;
 import dev.com.domain.vo.*;
 
@@ -12,12 +12,12 @@ public class RouterNetworkFileAdapter implements RouterNetworkOutputPort {
 
     private static RouterNetworkFileAdapter instance;
 
-    private List<Router> routers = new ArrayList<>();
+    private List<Prima> routers = new ArrayList<>();
 
     @Override
-    public Router fetchRouterById(RouterId routerId) {
-        Router retrievedRouter = null;
-        for(Router router: routers){
+    public Prima fetchRouterById(RouterId routerId) {
+        Prima retrievedRouter = null;
+        for(Prima router: routers){
             if(router.getRouterId().getId().equals(routerId.getId())){
                 retrievedRouter = router;
                 break;
@@ -30,12 +30,12 @@ public class RouterNetworkFileAdapter implements RouterNetworkOutputPort {
         var routerId = RouterId.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003");
         var network = new Network(new IP("10.0.0.0"), "HR", 8);
         var networkSwitch = new Switch(SwitchType.LAYER3, SwitchId.withoutId(), List.of(network), new IP("9.0.0.9"));
-        var router = new Router(RouterType.EDGE, routerId, networkSwitch);
+        var router = new Prima(RouterType.EDGE, routerId, networkSwitch);
         routers.add(router);
     }
 
     @Override
-    public boolean persistRouter(Router router){
+    public boolean persistRouter(Prima router){
         return this.routers.add(router);
     }
 

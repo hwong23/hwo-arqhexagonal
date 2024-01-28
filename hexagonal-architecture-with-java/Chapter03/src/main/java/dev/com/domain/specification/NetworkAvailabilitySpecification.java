@@ -1,10 +1,10 @@
 package dev.com.domain.specification;
 
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.IP;
 import dev.com.domain.vo.Network;
 
-public final class NetworkAvailabilitySpecification extends AbstractSpecification<Router> {
+public final class NetworkAvailabilitySpecification extends AbstractSpecification<Prima> {
 
     private final IP address;
     private final String name;
@@ -17,11 +17,11 @@ public final class NetworkAvailabilitySpecification extends AbstractSpecificatio
     }
 
     @Override
-    public boolean isSatisfiedBy(Router router) {
+    public boolean isSatisfiedBy(Prima router) {
         return router!=null && isNetworkAvailable(router);
     }
 
-    private boolean isNetworkAvailable(Router router) {
+    private boolean isNetworkAvailable(Prima router) {
         return router.retrieveNetworks().stream().noneMatch(
                 network -> network.address().equals(address) &&
                         network.name().equals(name) &&

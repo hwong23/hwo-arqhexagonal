@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 import dev.com.application.ports.output.RouterViewOutputPort;
 import dev.com.application.usecases.RouterViewUseCase;
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.service.RouterSearch;
 
 public class RouterViewInputPort implements RouterViewUseCase {
@@ -17,7 +17,7 @@ public class RouterViewInputPort implements RouterViewUseCase {
     }
 
     @Override
-    public List<Router> getRouters(Predicate<Router> filter) {
+    public List<Prima> getRouters(Predicate<Prima> filter) {
         var routers = routerListOutputPort.fetchRouters();
         return RouterSearch.retrieveRouter(routers, filter);
     }

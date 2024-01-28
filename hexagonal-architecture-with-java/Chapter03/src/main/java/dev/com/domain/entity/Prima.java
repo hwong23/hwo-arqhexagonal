@@ -5,34 +5,34 @@ import java.util.function.Predicate;
 
 import dev.com.domain.vo.*;
 
-public class Router {
+public class Prima {
 
     private final RouterType routerType;
     private final RouterId routerId;
     private Switch networkSwitch;
 
-    public Router(RouterType routerType, RouterId routerId) {
+    public Prima(RouterType routerType, RouterId routerId) {
         this.routerType = routerType;
         this.routerId = routerId;
     }
 
-    public Router(RouterType routerType, RouterId routerId, Switch networkSwitch) {
+    public Prima(RouterType routerType, RouterId routerId, Switch networkSwitch) {
         this.routerType = routerType;
         this.routerId = routerId;
         this.networkSwitch = networkSwitch;
     }
 
-    public static Predicate<Router> filterRouterByType(RouterType routerType){
+    public static Predicate<Prima> filterRouterByType(RouterType routerType){
         return routerType.equals(RouterType.CORE)
-                ? Router.isCore() :
-                Router.isEdge();
+                ? Prima.isCore() :
+                Prima.isEdge();
     }
 
-    public static Predicate<Router> isCore(){
+    public static Predicate<Prima> isCore(){
         return p -> p.getRouterType() == RouterType.CORE;
     }
 
-    public static Predicate<Router> isEdge(){
+    public static Predicate<Prima> isEdge(){
         return p -> p.getRouterType() == RouterType.EDGE;
     }
 

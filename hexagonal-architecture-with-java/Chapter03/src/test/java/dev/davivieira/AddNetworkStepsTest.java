@@ -1,6 +1,6 @@
 package dev.davivieira;
 
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.specification.CIDRSpecification;
 import dev.com.domain.specification.NetworkAvailabilitySpecification;
 import dev.com.domain.vo.IP;
@@ -16,7 +16,7 @@ public class AddNetworkStepsTest {
 
     private RouterId routerId;
 
-    private Router router;
+    private Prima router;
 
     private final RouterNetworkFileAdapter routerNetworkFileAdapter =  RouterNetworkFileAdapter.getInstance();
 

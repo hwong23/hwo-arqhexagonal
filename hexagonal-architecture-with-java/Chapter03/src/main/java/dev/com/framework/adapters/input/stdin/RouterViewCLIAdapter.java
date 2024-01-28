@@ -4,7 +4,7 @@ import java.util.List;
 
 import dev.com.application.ports.input.RouterViewInputPort;
 import dev.com.application.usecases.RouterViewUseCase;
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.RouterType;
 import dev.com.framework.adapters.output.file.RouterViewFileAdapter;
 
@@ -16,9 +16,9 @@ public class RouterViewCLIAdapter {
         setAdapters();
     }
 
-    public List<Router> obtainRelatedRouters(String type) {
+    public List<Prima> obtainRelatedRouters(String type) {
         return routerViewUseCase.getRouters(
-                Router.filterRouterByType(RouterType.valueOf(type)));
+                Prima.filterRouterByType(RouterType.valueOf(type)));
     }
 
     private void setAdapters(){
