@@ -12,14 +12,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AddNetworkStepsTest {
+public class AddCoberturaStepsTest {
 
     private RouterId routerId;
-
     private Router router;
-
-    private final RouterNetworkFileAdapter routerNetworkFileAdapter =  RouterNetworkFileAdapter.getInstance();
-
+    private final RouterNetworkFileAdapter routerNetworkFileAdapter =  
+        RouterNetworkFileAdapter.getInstance();
     private final Network network = new Network(new IP("20.0.0.0"), "Marketing", 8);
 
     @Given("I provide a router ID and the network details")

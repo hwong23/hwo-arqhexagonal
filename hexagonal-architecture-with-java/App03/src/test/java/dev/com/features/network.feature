@@ -1,4 +1,4 @@
-@addNetworkToRouter
+@addCoberturaToPrima
 Feature: Add network to a router
   I want to be able to add a network to an existent router
 

@@ -4,7 +4,7 @@ import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.Cobertura;
 import dev.com.domain.vo.PrimaId;
 
-public interface RouterNetworkUseCase {
+public interface PrimaCoberturaUseCase {
 
     Prima addNetworkToRouter(PrimaId routerId, Cobertura network);
 }

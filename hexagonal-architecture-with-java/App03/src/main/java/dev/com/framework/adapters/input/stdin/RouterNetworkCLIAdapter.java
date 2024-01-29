@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import dev.com.application.ports.input.RouterNetworkInputPort;
-import dev.com.application.usecases.RouterNetworkUseCase;
+import dev.com.application.ports.input.PrimaCoberturaInputPort;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.IP;
 import dev.com.domain.vo.Cobertura;
@@ -14,14 +14,14 @@ import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
 
 public class RouterNetworkCLIAdapter {
 
-    private RouterNetworkUseCase routerNetworkUseCase;
+    private PrimaCoberturaUseCase routerNetworkUseCase;
 
     public RouterNetworkCLIAdapter(){
         setAdapters();
     }
 
     private void setAdapters(){
-        this.routerNetworkUseCase = new RouterNetworkInputPort(
+        this.routerNetworkUseCase = new PrimaCoberturaInputPort(
             RouterNetworkFileAdapter.getInstance());
     }
     
