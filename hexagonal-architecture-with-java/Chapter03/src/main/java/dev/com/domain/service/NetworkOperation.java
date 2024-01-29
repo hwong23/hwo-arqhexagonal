@@ -5,11 +5,11 @@ import dev.com.domain.specification.CIDRSpecification;
 import dev.com.domain.specification.NetworkAmountSpecification;
 import dev.com.domain.specification.NetworkAvailabilitySpecification;
 import dev.com.domain.specification.RouterTypeSpecification;
-import dev.com.domain.vo.Network;
+import dev.com.domain.vo.Cobertura;
 
 public class NetworkOperation {
 
-    public static Prima createNewNetwork(Prima router, Network network) {
+    public static Prima createNewNetwork(Prima router, Cobertura network) {
         var availabilitySpec = new NetworkAvailabilitySpecification(network.getAddress(), network.getName(), network.getCidr());
         var cidrSpec = new CIDRSpecification();
         var routerTypeSpec = new RouterTypeSpecification();
@@ -22,7 +22,7 @@ public class NetworkOperation {
             throw new IllegalArgumentException("Address already exist");
 
         if(amountSpec.and(routerTypeSpec).isSatisfiedBy(router)) {
-            Network newNetwork = router.createNetwork(network.getAddress(), network.getName(), network.getCidr());
+            Cobertura newNetwork = router.createNetwork(network.getAddress(), network.getName(), network.getCidr());
             router.addNetworkToSwitch(newNetwork);
         }
         return router;

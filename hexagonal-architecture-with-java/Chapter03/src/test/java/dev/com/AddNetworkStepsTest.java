@@ -4,7 +4,7 @@ import dev.com.domain.entity.Prima;
 import dev.com.domain.specification.CIDRSpecification;
 import dev.com.domain.specification.NetworkAvailabilitySpecification;
 import dev.com.domain.vo.IP;
-import dev.com.domain.vo.Network;
+import dev.com.domain.vo.Cobertura;
 import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
 import io.cucumber.java.en.And;
@@ -18,8 +18,8 @@ public class AddNetworkStepsTest {
     private Prima prima;
     private final RouterNetworkFileAdapter routerNetworkFileAdapter = 
         RouterNetworkFileAdapter.getInstance();
-    private final Network network = 
-        new Network(new IP("20.0.0.0"), "Marketing", 8);
+    private final Cobertura network = 
+        new Cobertura(new IP("20.0.0.0"), "Marketing", 8);
 
     @Given("I provide a router ID and the network details")
     public void obtain_routerId() {

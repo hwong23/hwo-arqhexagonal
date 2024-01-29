@@ -2,7 +2,7 @@ package dev.com.domain.specification;
 
 import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.IP;
-import dev.com.domain.vo.Network;
+import dev.com.domain.vo.Cobertura;
 
 public final class NetworkAvailabilitySpecification 
     extends AbstractSpecification<Prima> {

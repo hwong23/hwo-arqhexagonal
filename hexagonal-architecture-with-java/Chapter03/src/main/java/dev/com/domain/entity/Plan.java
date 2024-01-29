@@ -4,32 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.com.domain.vo.IP;
-import dev.com.domain.vo.Network;
+import dev.com.domain.vo.Cobertura;
 import dev.com.domain.vo.SwitchId;
 import dev.com.domain.vo.SwitchType;
 
-public class Switch {
+public class Plan {
 
     private final SwitchType switchType;
     private final SwitchId switchId;
-    private final List<Network> networks;
+    private final List<Cobertura> networks;
     private final IP address;
 
-    public Switch (SwitchType switchType, SwitchId switchId, List<Network> networks, IP address){
+    public Plan (SwitchType switchType, SwitchId switchId, List<Cobertura> networks, IP address){
         this.switchType = switchType;
         this.switchId = switchId;
         this.networks = networks;
         this.address = address;
     }
 
-    public Switch addNetwork(Network network, Prima router) {
-        List<Network> newNetworks = new ArrayList<>(router.retrieveNetworks());
+    public Plan addNetwork(Cobertura network, Prima router) {
+        List<Cobertura> newNetworks = new ArrayList<>(router.retrieveNetworks());
         newNetworks.add(network);
 
-        return new Switch(this.switchType, this.switchId, newNetworks, this.address);
+        return new Plan(this.switchType, this.switchId, newNetworks, this.address);
     }
 
-    public List<Network> getNetworks() {
+    public List<Cobertura> getNetworks() {
         return networks;
     }
 

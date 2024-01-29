@@ -9,14 +9,14 @@ public class Prima {
 
     private final PrimaType routerType;
     private final PrimaId routerId;
-    private Switch networkSwitch;
+    private Plan networkSwitch;
 
     public Prima(PrimaType routerType, PrimaId routerId) {
         this.routerType = routerType;
         this.routerId = routerId;
     }
 
-    public Prima(PrimaType routerType, PrimaId routerId, Switch networkSwitch) {
+    public Prima(PrimaType routerType, PrimaId routerId, Plan networkSwitch) {
         this.routerType = routerType;
         this.routerId = routerId;
         this.networkSwitch = networkSwitch;
@@ -36,15 +36,15 @@ public class Prima {
         return p -> p.getRouterType() == PrimaType.EDGE;
     }
 
-    public void addNetworkToSwitch(Network network){
+    public void addNetworkToSwitch(Cobertura network){
         this.networkSwitch = networkSwitch.addNetwork(network, this);
     }
 
-    public Network createNetwork(IP address, String name, int cidr){
-        return new Network(address, name, cidr);
+    public Cobertura createNetwork(IP address, String name, int cidr){
+        return new Cobertura(address, name, cidr);
     }
 
-    public List<Network> retrieveNetworks(){
+    public List<Cobertura> retrieveNetworks(){
         return networkSwitch.getNetworks();
     }
 

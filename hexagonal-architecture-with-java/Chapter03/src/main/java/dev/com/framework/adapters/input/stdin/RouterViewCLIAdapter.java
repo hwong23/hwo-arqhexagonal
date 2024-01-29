@@ -16,12 +16,13 @@ public class RouterViewCLIAdapter {
         setAdapters();
     }
 
+    private void setAdapters(){
+        this.routerViewUseCase = new RouterViewInputPort(RouterViewFileAdapter.getInstance());
+    }
+
+
     public List<Prima> obtainRelatedRouters(String type) {
         return routerViewUseCase.getRouters(
                 Prima.filterRouterByType(PrimaType.valueOf(type)));
-    }
-
-    private void setAdapters(){
-        this.routerViewUseCase = new RouterViewInputPort(RouterViewFileAdapter.getInstance());
     }
 }
