@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev.davivieira</groupId>
+    <groupId>dev.com</groupId>
     <artifactId>chapter04</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -91,7 +91,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>dev.davivieira.App</mainClass>
+                            <mainClass>dev.com.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -109,7 +109,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        dev.davivieira.App
+                                        dev.com.App
                                     </mainClass>
                                 </manifest>
                             </archive>
