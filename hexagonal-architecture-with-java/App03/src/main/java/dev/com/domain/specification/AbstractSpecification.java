@@ -1,6 +1,7 @@
 package dev.com.domain.specification;
 
-public abstract sealed class AbstractSpecification<T> implements Specification<T> permits
+public abstract sealed class AbstractSpecification<T> implements Specification<T> 
+permits
         AndSpecification,
         CIDRSpecification,
         NetworkAmountSpecification,

@@ -8,6 +8,6 @@ public final class NetworkAmountSpecification extends AbstractSpecification<Prim
 
     @Override
     public boolean isSatisfiedBy(Prima router) {
-        return router.retrieveNetworks().size() <=MAXIMUM_ALLOWED_NETWORKS;
+        return router.retrieveNetworks().size() <= MAXIMUM_ALLOWED_NETWORKS;
     }
 }
