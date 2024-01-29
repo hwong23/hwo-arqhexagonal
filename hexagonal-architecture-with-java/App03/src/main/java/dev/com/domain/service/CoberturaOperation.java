@@ -7,10 +7,11 @@ import dev.com.domain.specification.NetworkAvailabilitySpecification;
 import dev.com.domain.specification.RouterTypeSpecification;
 import dev.com.domain.vo.Cobertura;
 
-public class NetworkOperation {
+public class CoberturaOperation {
 
-    public static Prima createNewNetwork(Prima router, Cobertura network) {
-        var availabilitySpec = new NetworkAvailabilitySpecification(network.getAddress(), network.getName(), network.getCidr());
+    public static Prima createNewCobertura(Prima prima, Cobertura network) {
+        var availabilitySpec = new NetworkAvailabilitySpecification(
+            network.getAddress(), network.getName(), network.getCidr());
         var cidrSpec = new CIDRSpecification();
         var routerTypeSpec = new RouterTypeSpecification();
         var amountSpec = new NetworkAmountSpecification();
@@ -18,13 +19,13 @@ public class NetworkOperation {
         if(cidrSpec.isSatisfiedBy(network.getCidr()))
             throw new IllegalArgumentException("CIDR is below "+CIDRSpecification.MINIMUM_ALLOWED_CIDR);
 
-        if(!availabilitySpec.isSatisfiedBy(router))
+        if(!availabilitySpec.isSatisfiedBy(prima))
             throw new IllegalArgumentException("Address already exist");
 
-        if(amountSpec.and(routerTypeSpec).isSatisfiedBy(router)) {
-            Cobertura newNetwork = router.createNetwork(network.getAddress(), network.getName(), network.getCidr());
-            router.addNetworkToSwitch(newNetwork);
+        if(amountSpec.and(routerTypeSpec).isSatisfiedBy(prima)) {
+            Cobertura newNetwork = prima.createNetwork(network.getAddress(), network.getName(), network.getCidr());
+            prima.addNetworkToSwitch(newNetwork);
         }
-        return router;
+        return prima;
     }
 }

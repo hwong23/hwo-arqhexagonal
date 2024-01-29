@@ -6,5 +6,5 @@ import dev.com.domain.vo.PrimaId;
 
 public interface PrimaCoberturaUseCase {
 
-    Prima addNetworkToRouter(PrimaId routerId, Cobertura network);
+    Prima addCoberturaToPrima(PrimaId routerId, Cobertura network);
 }

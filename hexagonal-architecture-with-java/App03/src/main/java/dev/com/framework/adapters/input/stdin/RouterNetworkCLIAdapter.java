@@ -27,6 +27,6 @@ public class RouterNetworkCLIAdapter {
     
     
     public Prima addNetwork(PrimaId routerId, Cobertura network){
-        return routerNetworkUseCase.addNetworkToRouter(routerId, network);
+        return routerNetworkUseCase.addCoberturaToPrima(routerId, network);
     }
 }
