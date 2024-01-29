@@ -17,19 +17,19 @@ public class PrimaCoberturaInputPort implements PrimaCoberturaUseCase {
 
     // Acciones del CU
     @Override
-    public Prima addCoberturaToPrima (PrimaId routerId, Cobertura network) {
-        var router = fetchPrima(routerId);
-        return createCobertura(router, network);
+    public Prima addCoberturaToPrima (PrimaId primaId, Cobertura cobertura) {
+        var router = fetchPrima(primaId);
+        return createCobertura(router, cobertura);
     }
 
-    private Prima fetchPrima (PrimaId routerId) {
-        return routerNetworkOutputPort.fetchRouterById(routerId);
+    private Prima fetchPrima (PrimaId primaId) {
+        return routerNetworkOutputPort.fetchRouterById(primaId);
     }
 
-    private Prima createCobertura (Prima router, Cobertura network) {
-        var newRouter = CoberturaOperation.createNewCobertura(router, network);
-        return persistCobertura(router) ? newRouter :
-                router;
+    private Prima createCobertura (Prima prima, Cobertura cobertura) {
+        var newPrima = CoberturaOperation.createNewCobertura(prima, cobertura);
+        return persistCobertura(prima) ? newPrima :
+                prima;
     }
 
     private boolean persistCobertura (Prima router) {

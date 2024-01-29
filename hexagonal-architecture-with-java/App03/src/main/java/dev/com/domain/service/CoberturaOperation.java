@@ -26,6 +26,7 @@ public class CoberturaOperation {
             Cobertura newNetwork = prima.createNetwork(network.getAddress(), network.getName(), network.getCidr());
             prima.addNetworkToSwitch(newNetwork);
         }
+        
         return prima;
     }
 }
