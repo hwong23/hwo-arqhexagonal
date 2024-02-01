@@ -58,10 +58,10 @@ public class Prima {
 
     @Override
     public String toString() {
-        return "Router{" +
-                "routerType=" + routerType +
-                ", routerId=" + routerId +
-                ", networkSwitch=" + networkSwitch +
+        return "Prima{" +
+                "primaType=" + routerType +
+                ", primaId=" + routerId +
+                ", coberturaSwitch=" + networkSwitch +
                 '}';
     }
 }
