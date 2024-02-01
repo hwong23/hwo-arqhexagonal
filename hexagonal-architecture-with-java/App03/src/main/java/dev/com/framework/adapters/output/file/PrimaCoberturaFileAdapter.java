@@ -8,9 +8,9 @@ import dev.com.domain.entity.Prima;
 import dev.com.domain.entity.Plan;
 import dev.com.domain.vo.*;
 
-public class RouterNetworkFileAdapter implements RouterNetworkOutputPort {
+public class PrimaCoberturaFileAdapter implements RouterNetworkOutputPort {
 
-    private static RouterNetworkFileAdapter instance;
+    private static PrimaCoberturaFileAdapter instance;
 
     private List<Prima> primas = new ArrayList<>();
 
@@ -43,13 +43,13 @@ public class RouterNetworkFileAdapter implements RouterNetworkOutputPort {
         return this.primas.add(prima);
     }
 
-    private RouterNetworkFileAdapter(){
+    private PrimaCoberturaFileAdapter(){
         createSampleRouter();
     }
 
-    public static RouterNetworkFileAdapter getInstance() {
+    public static PrimaCoberturaFileAdapter getInstance() {
         if (instance == null) {
-            instance = new RouterNetworkFileAdapter();
+            instance = new PrimaCoberturaFileAdapter();
         }
 
         return instance;

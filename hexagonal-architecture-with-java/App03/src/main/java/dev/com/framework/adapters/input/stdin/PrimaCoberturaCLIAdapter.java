@@ -10,7 +10,7 @@ import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.IP;
 import dev.com.domain.vo.Cobertura;
 import dev.com.domain.vo.PrimaId;
-import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
+import dev.com.framework.adapters.output.file.PrimaCoberturaFileAdapter;
 
 public class PrimaCoberturaCLIAdapter {
 
@@ -22,7 +22,7 @@ public class PrimaCoberturaCLIAdapter {
 
     private void setAdapters(){
         this.primaCoberturaUseCase = new PrimaCoberturaInputPort(
-            RouterNetworkFileAdapter.getInstance());
+            PrimaCoberturaFileAdapter.getInstance());
     }
     
     
