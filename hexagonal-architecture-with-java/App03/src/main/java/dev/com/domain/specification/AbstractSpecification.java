@@ -6,7 +6,7 @@ permits
         CIDRSpecification,
         NetworkAmountSpecification,
         NetworkAvailabilitySpecification,
-        RouterTypeSpecification
+        PrimaTypeSpecification
 {
 
     public abstract boolean isSatisfiedBy(T t);
