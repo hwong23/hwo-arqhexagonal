@@ -3,12 +3,12 @@ package dev.com.framework.adapters.output.file;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.com.application.ports.output.RouterNetworkOutputPort;
+import dev.com.application.ports.output.PrimaCoberturaOutputPort;
 import dev.com.domain.entity.Prima;
 import dev.com.domain.entity.Plan;
 import dev.com.domain.vo.*;
 
-public class PrimaCoberturaFileAdapter implements RouterNetworkOutputPort {
+public class PrimaCoberturaFileAdapter implements PrimaCoberturaOutputPort {
 
     private static PrimaCoberturaFileAdapter instance;
 
