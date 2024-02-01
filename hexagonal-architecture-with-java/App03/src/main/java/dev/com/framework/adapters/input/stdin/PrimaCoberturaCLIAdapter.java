@@ -12,21 +12,21 @@ import dev.com.domain.vo.Cobertura;
 import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
 
-public class RouterNetworkCLIAdapter {
+public class PrimaCoberturaCLIAdapter {
 
-    private PrimaCoberturaUseCase routerNetworkUseCase;
+    private PrimaCoberturaUseCase primaCoberturaUseCase;
 
-    public RouterNetworkCLIAdapter(){
+    public PrimaCoberturaCLIAdapter(){
         setAdapters();
     }
 
     private void setAdapters(){
-        this.routerNetworkUseCase = new PrimaCoberturaInputPort(
+        this.primaCoberturaUseCase = new PrimaCoberturaInputPort(
             RouterNetworkFileAdapter.getInstance());
     }
     
     
-    public Prima addNetwork(PrimaId routerId, Cobertura network){
-        return routerNetworkUseCase.addCoberturaToPrima(routerId, network);
+    public Prima addCobertura(PrimaId routerId, Cobertura cobertura){
+        return primaCoberturaUseCase.addCoberturaToPrima(routerId, cobertura);
     }
 }
