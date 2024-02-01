@@ -2,7 +2,7 @@ package dev.com.domain.specification;
 
 import dev.com.domain.entity.Prima;
 
-public final class NetworkAmountSpecification extends AbstractSpecification<Prima> {
+public final class CoberturaAmountSpecification extends AbstractSpecification<Prima> {
 
     final static public int MAXIMUM_ALLOWED_NETWORKS = 6;
 

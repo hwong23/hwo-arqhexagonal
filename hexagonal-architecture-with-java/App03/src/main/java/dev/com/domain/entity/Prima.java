@@ -36,7 +36,7 @@ public class Prima {
         return p -> p.getRouterType() == PrimaType.EDGE;
     }
 
-    public void addNetworkToSwitch(Cobertura network){
+    public void addCoberturaToPlan(Cobertura network){
         this.networkSwitch = networkSwitch.addNetwork(network, this);
     }
 
