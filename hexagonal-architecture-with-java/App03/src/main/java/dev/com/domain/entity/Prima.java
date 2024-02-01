@@ -45,7 +45,7 @@ public class Prima {
     }
 
     public List<Cobertura> retrieveNetworks(){
-        return networkSwitch.getNetworks();
+        return networkSwitch.getCoberturas();
     }
 
     public PrimaType getRouterType(){

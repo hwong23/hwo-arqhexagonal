@@ -12,13 +12,13 @@ public class Plan {
 
     private final SwitchType switchType;
     private final SwitchId switchId;
-    private final List<Cobertura> networks;
+    private final List<Cobertura> coberturas;
     private final IP address;
 
     public Plan (SwitchType switchType, SwitchId switchId, List<Cobertura> networks, IP address){
         this.switchType = switchType;
         this.switchId = switchId;
-        this.networks = networks;
+        this.coberturas = networks;
         this.address = address;
     }
 
@@ -29,16 +29,16 @@ public class Plan {
         return new Plan(this.switchType, this.switchId, newNetworks, this.address);
     }
 
-    public List<Cobertura> getNetworks() {
-        return networks;
+    public List<Cobertura> getCoberturas() {
+        return coberturas;
     }
 
     @Override
     public String toString() {
-        return "Switch{" +
+        return "Plan{" +
                 "switchType=" + switchType +
                 ", switchId=" + switchId +
-                ", networks=" + networks +
+                ", coberturas=" + coberturas +
                 ", address=" + address +
                 '}';
     }

@@ -10,7 +10,7 @@ public record Cobertura(IP address, String name, int cidr) {
 
     @Override
     public String toString() {
-        return "Network{" +
+        return "Cobertura{" +
                 "address=" + address +
                 ", name='" + name + '\'' +
                 ", cidr=" + cidr +
