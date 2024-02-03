@@ -1,4 +1,4 @@
-package dev.com.application.ports.output;
+package dev.com.application.funcionalidad.salida;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import dev.com.application.ports.output.RouterViewOutputPort;
+import dev.com.application.funcionalidad.salida.RouterViewOutputPort;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterId;
 import dev.com.domain.vo.RouterType;

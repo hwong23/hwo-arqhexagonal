@@ -2,8 +2,8 @@ package dev.com;
 
 import com.sun.net.httpserver.HttpServer;
 
-import dev.com.application.ports.input.RouterNetworkInputPort;
-import dev.com.application.ports.output.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.entrada.RouterNetworkInputPort;
+import dev.com.application.funcionalidad.salida.RouterNetworkOutputPort;
 import dev.com.application.usecases.RouterNetworkUseCase;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
 import dev.com.framework.adapters.input.rest.RouterNetworkRestAdapter;

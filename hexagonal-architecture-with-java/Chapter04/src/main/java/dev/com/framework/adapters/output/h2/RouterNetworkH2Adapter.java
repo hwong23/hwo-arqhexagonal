@@ -1,6 +1,6 @@
 package dev.com.framework.adapters.output.h2;
 
-import dev.com.application.ports.output.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.salida.RouterNetworkOutputPort;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterId;
 import dev.com.framework.adapters.output.h2.data.RouterData;

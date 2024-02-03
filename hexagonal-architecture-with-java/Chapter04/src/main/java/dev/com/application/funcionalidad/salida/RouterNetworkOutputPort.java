@@ -1,4 +1,4 @@
-package dev.com.application.ports.output;
+package dev.com.application.funcionalidad.salida;
 
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterId;

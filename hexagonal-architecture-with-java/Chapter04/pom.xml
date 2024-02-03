@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.com</groupId>
-    <artifactId>chapter04</artifactId>
+    <artifactId>App04</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

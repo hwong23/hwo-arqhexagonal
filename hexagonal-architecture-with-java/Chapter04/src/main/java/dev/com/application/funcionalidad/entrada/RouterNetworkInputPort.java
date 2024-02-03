@@ -1,6 +1,6 @@
-package dev.com.application.ports.input;
+package dev.com.application.funcionalidad.entrada;
 
-import dev.com.application.ports.output.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.salida.RouterNetworkOutputPort;
 import dev.com.application.usecases.RouterNetworkUseCase;
 import dev.com.domain.entity.Router;
 import dev.com.domain.service.NetworkOperation;

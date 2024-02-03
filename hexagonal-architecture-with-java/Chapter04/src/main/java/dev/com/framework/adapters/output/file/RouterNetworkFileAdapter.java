@@ -3,7 +3,7 @@ package dev.com.framework.adapters.output.file;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dev.com.application.ports.output.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.salida.RouterNetworkOutputPort;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterId;
 import dev.com.framework.adapters.output.file.json.RouterJson;
