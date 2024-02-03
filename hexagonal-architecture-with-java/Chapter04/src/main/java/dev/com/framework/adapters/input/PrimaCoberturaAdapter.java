@@ -3,25 +3,25 @@ package dev.com.framework.adapters.input;
 import java.util.Map;
 
 import dev.com.application.usecases.PrimaCoberturaUseCase;
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.IP;
-import dev.com.domain.vo.Network;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.Cobertura;
+import dev.com.domain.vo.PrimaId;
 
 public abstract class PrimaCoberturaAdapter {
 
-    protected Router prima;
+    protected Prima prima;
     protected PrimaCoberturaUseCase primaCoberturaUseCase;
 
-    protected Router addCoberturaToPrima(Map<String, String> params)
+    protected Prima addCoberturaToPrima(Map<String, String> params)
     {
-        var routerId = RouterId.withId(params.get("routerId"));
-        var network = new Network(IP.fromAddress(params.get("address")),
+        var primaId = PrimaId.withId(params.get("routerId"));
+        var cobertura = new Cobertura(IP.fromAddress(params.get("address")),
                 params.get("name"),
                 Integer.valueOf(params.get("cidr")));
 
-        return primaCoberturaUseCase.addNetworkToRouter(routerId, network);
+        return primaCoberturaUseCase.addCoberturaToPrima(primaId, cobertura);
     }
 
-    public abstract Router processRequest(Object requestParams);
+    public abstract Prima processRequest(Object requestParams);
 }

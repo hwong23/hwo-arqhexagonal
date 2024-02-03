@@ -4,22 +4,22 @@ import java.util.List;
 
 import dev.com.domain.vo.*;
 
-public class Router {
+public class Prima {
 
     private RouterType routerType;
-    private RouterId routerId;
+    private PrimaId routerId;
     private Switch networkSwitch;
 
-    public Router(){
+    public Prima(){
 
     }
 
-    public Router(RouterType routerType, RouterId routerId) {
+    public Prima(RouterType routerType, PrimaId routerId) {
         this.routerType = routerType;
         this.routerId = routerId;
     }
 
-    public Router(RouterType routerType, RouterId routerId, Switch networkSwitch) {
+    public Prima(RouterType routerType, PrimaId routerId, Switch networkSwitch) {
         this.routerType = routerType;
         this.routerId = routerId;
         this.networkSwitch = networkSwitch;
@@ -29,15 +29,15 @@ public class Router {
         return this.routerType == type;
     }
 
-    public void addNetworkToSwitch(Network network){
+    public void addNetworkToSwitch(Cobertura network){
         this.networkSwitch = networkSwitch.addNetwork(network, this);
     }
 
-    public Network createNetwork(IP address, String name, int cidr){
-        return new Network(address, name, cidr);
+    public Cobertura createNetwork(IP address, String name, int cidr){
+        return new Cobertura(address, name, cidr);
     }
 
-    public List<Network> retrieveNetworks(){
+    public List<Cobertura> retrieveNetworks(){
         return networkSwitch.getNetworks();
     }
 
@@ -45,7 +45,7 @@ public class Router {
         return routerType;
     }
 
-    public RouterId getRouterId() {
+    public PrimaId getRouterId() {
         return routerId;
     }
 

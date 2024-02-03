@@ -1,11 +1,11 @@
 package dev.davivieira;
 
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.specification.CIDRSpecification;
 import dev.com.domain.specification.NetworkAvailabilitySpecification;
 import dev.com.domain.vo.IP;
-import dev.com.domain.vo.Network;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.Cobertura;
+import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.output.file.PrimaCoberturaFileAdapter;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -14,15 +14,15 @@ import io.cucumber.java.en.When;
 
 public class AddCoberturaStepsTest {
 
-    private RouterId routerId;
-    private Router router;
+    private PrimaId routerId;
+    private Prima router;
     private final PrimaCoberturaFileAdapter routerNetworkFileAdapter =  
         PrimaCoberturaFileAdapter.getInstance();
-    private final Network network = new Network(new IP("20.0.0.0"), "Marketing", 8);
+    private final Cobertura network = new Cobertura(new IP("20.0.0.0"), "Marketing", 8);
 
     @Given("I provide a router ID and the network details")
     public void obtain_routerId() {
-        this.routerId = RouterId.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003");
+        this.routerId = PrimaId.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003");
     }
 
     @When("I found the router")

@@ -1,10 +1,10 @@
 package dev.com.application.usecases;
 
-import dev.com.domain.entity.Router;
-import dev.com.domain.vo.Network;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.entity.Prima;
+import dev.com.domain.vo.Cobertura;
+import dev.com.domain.vo.PrimaId;
 
 public interface PrimaCoberturaUseCase {
 
-    Router addNetworkToRouter(RouterId routerId, Network network);
+    Prima addCoberturaToPrima(PrimaId routerId, Cobertura network);
 }

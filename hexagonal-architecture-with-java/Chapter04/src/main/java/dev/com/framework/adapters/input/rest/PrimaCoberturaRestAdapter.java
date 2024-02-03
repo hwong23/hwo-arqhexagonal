@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
 
 import dev.com.application.usecases.PrimaCoberturaUseCase;
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
 
@@ -27,7 +27,7 @@ public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
      * that is always cast to an HttpServer type.
      */
     @Override
-    public Router processRequest(Object requestParams){
+    public Prima processRequest(Object requestParams){
         Map<String, String> params = new HashMap<>();
         if(requestParams instanceof HttpServer) {
             var httpserver = (HttpServer) requestParams;

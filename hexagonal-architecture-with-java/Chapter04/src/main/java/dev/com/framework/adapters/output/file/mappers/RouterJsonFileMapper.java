@@ -3,15 +3,15 @@ package dev.com.framework.adapters.output.file.mappers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.entity.Switch;
 import dev.com.domain.vo.*;
 import dev.com.framework.adapters.output.file.json.*;
 
 public class RouterJsonFileMapper {
 
-    public static Router toDomain(RouterJson routerJson){
-        var routerId = RouterId.withId(routerJson.getRouterId().toString());
+    public static Prima toDomain(RouterJson routerJson){
+        var routerId = PrimaId.withId(routerJson.getRouterId().toString());
         var routerType = RouterType.valueOf(routerJson.getRouterType().name());
         var switchId = SwitchId.withId(routerJson.getNetworkSwitch().getSwitchId().toString());
         var switchType = SwitchType.valueOf(routerJson.getNetworkSwitch().getSwitchType().toString());
@@ -20,10 +20,10 @@ public class RouterJsonFileMapper {
 
         var networkSwitch = new Switch(switchId, switchType, networks, ip);
 
-        return new Router(routerType, routerId, networkSwitch);
+        return new Prima(routerType, routerId, networkSwitch);
     }
 
-    public static RouterJson toJson(Router router){
+    public static RouterJson toJson(Prima router){
         var routerId = router.getRouterId().getUUID();
         var routerTypeJson = RouterTypeJson.valueOf(router.getRouterType().toString());
         var switchIdJson = router.getNetworkSwitch().getSwitchId().getUUID();
@@ -36,17 +36,17 @@ public class RouterJsonFileMapper {
         return new RouterJson(routerId, routerTypeJson, switchJson);
     }
 
-    private static List<Network> getNetworksFromJson(List<NetworkJson> networkJson){
+    private static List<Cobertura> getNetworksFromJson(List<NetworkJson> networkJson){
         return networkJson
                 .stream()
-                .map(json ->  new Network(
+                .map(json ->  new Cobertura(
                         IP.fromAddress(json.getIp().getAddress()),
                         json.getNetworkName(),
                         Integer.valueOf(json.getCidr())))
                 .collect(Collectors.toList());
     }
 
-    private static List<NetworkJson>  getNetworksFromDomain(List<Network> networks){
+    private static List<NetworkJson>  getNetworksFromDomain(List<Cobertura> networks){
         return networks
                 .stream()
                 .map(network -> new NetworkJson(
