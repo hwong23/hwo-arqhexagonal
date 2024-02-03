@@ -15,9 +15,9 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class RouterNetworkFileAdapter implements PrimaFuncionalidadOutputFuncionalidad {
+public class PrimaCoberturaFileAdapter implements PrimaFuncionalidadOutputFuncionalidad {
 
-    private static RouterNetworkFileAdapter instance;
+    private static PrimaCoberturaFileAdapter instance;
     private List<RouterJson> routers;
     private InputStream resource;
     private ObjectMapper objectMapper;
@@ -59,7 +59,7 @@ public class RouterNetworkFileAdapter implements PrimaFuncionalidadOutputFuncion
         }
     }
 
-    private RouterNetworkFileAdapter() {
+    private PrimaCoberturaFileAdapter() {
         this.objectMapper = new ObjectMapper();
         this.resource = getClass().
                 getClassLoader().
@@ -67,9 +67,9 @@ public class RouterNetworkFileAdapter implements PrimaFuncionalidadOutputFuncion
         readJsonFile();
     }
 
-    public static RouterNetworkFileAdapter getInstance() {
+    public static PrimaCoberturaFileAdapter getInstance() {
         if (instance == null) {
-            instance = new RouterNetworkFileAdapter();
+            instance = new PrimaCoberturaFileAdapter();
         }
         return instance;
     }

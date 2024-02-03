@@ -6,7 +6,7 @@ import dev.com.domain.specification.NetworkAvailabilitySpecification;
 import dev.com.domain.vo.IP;
 import dev.com.domain.vo.Network;
 import dev.com.domain.vo.RouterId;
-import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
+import dev.com.framework.adapters.output.file.PrimaCoberturaFileAdapter;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,8 +16,8 @@ public class AddCoberturaStepsTest {
 
     private RouterId routerId;
     private Router router;
-    private final RouterNetworkFileAdapter routerNetworkFileAdapter =  
-        RouterNetworkFileAdapter.getInstance();
+    private final PrimaCoberturaFileAdapter routerNetworkFileAdapter =  
+        PrimaCoberturaFileAdapter.getInstance();
     private final Network network = new Network(new IP("20.0.0.0"), "Marketing", 8);
 
     @Given("I provide a router ID and the network details")

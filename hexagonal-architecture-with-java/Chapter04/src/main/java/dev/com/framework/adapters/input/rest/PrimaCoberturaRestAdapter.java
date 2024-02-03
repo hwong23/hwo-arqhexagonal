@@ -3,9 +3,9 @@ package dev.com.framework.adapters.input.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
 
-import dev.com.application.usecases.RouterNetworkUseCase;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Router;
-import dev.com.framework.adapters.input.RouterNetworkAdapter;
+import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
 
 import java.io.OutputStream;
@@ -16,9 +16,9 @@ import java.util.regex.Pattern;
 import static java.util.stream.Collectors.*;
 import java.net.URLDecoder;
 
-public class PrimaCoberturaRestAdapter extends RouterNetworkAdapter {
+public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
 
-    public PrimaCoberturaRestAdapter(RouterNetworkUseCase routerNetworkUseCase){
+    public PrimaCoberturaRestAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 
@@ -35,9 +35,9 @@ public class PrimaCoberturaRestAdapter extends RouterNetworkAdapter {
                 if ("GET".equals(exchange.getRequestMethod())) {
                     var query = exchange.getRequestURI().getRawQuery();
                     httpParams(query, params);
-                    router = this.addNetworkToRouter(params);
+                    prima = this.addCoberturaToPrima(params);
                     ObjectMapper mapper = new ObjectMapper();
-                    var routerJson = mapper.writeValueAsString(RouterJsonFileMapper.toJson(router));
+                    var routerJson = mapper.writeValueAsString(RouterJsonFileMapper.toJson(prima));
                     exchange.getResponseHeaders().set("Content-Type", "application/json");
                     exchange.sendResponseHeaders(200, routerJson.getBytes().length);
                     OutputStream output = exchange.getResponseBody();
@@ -51,7 +51,7 @@ public class PrimaCoberturaRestAdapter extends RouterNetworkAdapter {
             httpserver.setExecutor(null);
             httpserver.start();
         }
-        return router;
+        return prima;
     }
 
     private void httpParams(String query, Map<String, String> params) {
