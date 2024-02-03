@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import dev.com.application.funcionalidad.salida.RouterViewOutputPort;
+import dev.com.application.funcionalidad.salida.PrimaViewOutputFuncionalidad;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterId;
 import dev.com.domain.vo.RouterType;
 
-public class RouterViewFileAdapter implements RouterViewOutputPort {
+public class RouterViewFileAdapter implements PrimaViewOutputFuncionalidad {
 
     private static RouterViewFileAdapter instance;
 

@@ -2,8 +2,8 @@ package dev.com;
 
 import com.sun.net.httpserver.HttpServer;
 
-import dev.com.application.funcionalidad.entrada.RouterNetworkInputPort;
-import dev.com.application.funcionalidad.salida.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.entrada.PrimaCoberturaInputFuncionalidad;
+import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
 import dev.com.application.usecases.RouterNetworkUseCase;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
 import dev.com.framework.adapters.input.rest.RouterNetworkRestAdapter;
@@ -19,7 +19,7 @@ public class App {
 
     private RouterNetworkAdapter inputAdapter;
     private RouterNetworkUseCase usecase;
-    private RouterNetworkOutputPort outputPort;
+    private PrimaFuncionalidadOutputFuncionalidad outputPort;
 
     public static void main(String... args)  {
         var adapter = "cli";
@@ -33,13 +33,13 @@ public class App {
         switch (adapter) {
             case "rest" -> {
                 outputPort = RouterNetworkH2Adapter.getInstance();
-                usecase = new RouterNetworkInputPort(outputPort);
+                usecase = new PrimaCoberturaInputFuncionalidad(outputPort);
                 inputAdapter = new RouterNetworkRestAdapter(usecase);
                 rest();
             }
             default -> {
                 outputPort = RouterNetworkFileAdapter.getInstance();
-                usecase = new RouterNetworkInputPort(outputPort);
+                usecase = new PrimaCoberturaInputFuncionalidad(outputPort);
                 inputAdapter = new RouterNetworkCLIAdapter(usecase);
                 cli();
             }

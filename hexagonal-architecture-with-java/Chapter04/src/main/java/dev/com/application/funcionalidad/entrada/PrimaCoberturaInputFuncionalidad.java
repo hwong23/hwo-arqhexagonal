@@ -1,17 +1,17 @@
 package dev.com.application.funcionalidad.entrada;
 
-import dev.com.application.funcionalidad.salida.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
 import dev.com.application.usecases.RouterNetworkUseCase;
 import dev.com.domain.entity.Router;
 import dev.com.domain.service.NetworkOperation;
 import dev.com.domain.vo.Network;
 import dev.com.domain.vo.RouterId;
 
-public class RouterNetworkInputPort implements RouterNetworkUseCase {
+public class PrimaCoberturaInputFuncionalidad implements RouterNetworkUseCase {
 
-    private final RouterNetworkOutputPort routerNetworkOutputPort;
+    private final PrimaFuncionalidadOutputFuncionalidad routerNetworkOutputPort;
 
-    public RouterNetworkInputPort(RouterNetworkOutputPort routerNetworkOutputPort){
+    public PrimaCoberturaInputFuncionalidad(PrimaFuncionalidadOutputFuncionalidad routerNetworkOutputPort){
         this.routerNetworkOutputPort = routerNetworkOutputPort;
     }
 

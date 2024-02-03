@@ -4,7 +4,7 @@ import java.util.List;
 
 import dev.com.domain.entity.Router;
 
-public interface RouterViewOutputPort {
+public interface PrimaViewOutputFuncionalidad {
 
     List<Router> fetchRelatedRouters();
 }

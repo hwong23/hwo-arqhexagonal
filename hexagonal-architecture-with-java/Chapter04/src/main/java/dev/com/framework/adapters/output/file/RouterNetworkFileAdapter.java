@@ -3,7 +3,7 @@ package dev.com.framework.adapters.output.file;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dev.com.application.funcionalidad.salida.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterId;
 import dev.com.framework.adapters.output.file.json.RouterJson;
@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class RouterNetworkFileAdapter implements RouterNetworkOutputPort {
+public class RouterNetworkFileAdapter implements PrimaFuncionalidadOutputFuncionalidad {
 
     private static RouterNetworkFileAdapter instance;
     private List<RouterJson> routers;

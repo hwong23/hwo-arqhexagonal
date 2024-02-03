@@ -1,6 +1,6 @@
 package dev.com.framework.adapters.output.h2;
 
-import dev.com.application.funcionalidad.salida.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterId;
 import dev.com.framework.adapters.output.h2.data.RouterData;
@@ -10,7 +10,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
 
-public class RouterNetworkH2Adapter implements RouterNetworkOutputPort {
+public class RouterNetworkH2Adapter implements PrimaFuncionalidadOutputFuncionalidad {
 
     private static RouterNetworkH2Adapter instance;
 
