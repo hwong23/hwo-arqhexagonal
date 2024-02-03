@@ -16,9 +16,9 @@ import java.util.regex.Pattern;
 import static java.util.stream.Collectors.*;
 import java.net.URLDecoder;
 
-public class RouterNetworkRestAdapter extends RouterNetworkAdapter {
+public class PrimaCoberturaRestAdapter extends RouterNetworkAdapter {
 
-    public RouterNetworkRestAdapter(RouterNetworkUseCase routerNetworkUseCase){
+    public PrimaCoberturaRestAdapter(RouterNetworkUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 

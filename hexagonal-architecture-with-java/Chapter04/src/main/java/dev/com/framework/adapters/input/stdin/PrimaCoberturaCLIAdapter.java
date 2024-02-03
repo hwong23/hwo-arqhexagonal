@@ -12,9 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class RouterNetworkCLIAdapter extends RouterNetworkAdapter {
+public class PrimaCoberturaCLIAdapter extends RouterNetworkAdapter {
 
-    public RouterNetworkCLIAdapter(RouterNetworkUseCase routerNetworkUseCase){
+    public PrimaCoberturaCLIAdapter(RouterNetworkUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 

@@ -6,8 +6,8 @@ import dev.com.application.funcionalidad.entrada.PrimaCoberturaInputFuncionalida
 import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
 import dev.com.application.usecases.RouterNetworkUseCase;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
-import dev.com.framework.adapters.input.rest.RouterNetworkRestAdapter;
-import dev.com.framework.adapters.input.stdin.RouterNetworkCLIAdapter;
+import dev.com.framework.adapters.input.rest.PrimaCoberturaRestAdapter;
+import dev.com.framework.adapters.input.stdin.PrimaCoberturaCLIAdapter;
 import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
 import dev.com.framework.adapters.output.h2.RouterNetworkH2Adapter;
 
@@ -34,13 +34,13 @@ public class App {
             case "rest" -> {
                 outputPort = RouterNetworkH2Adapter.getInstance();
                 usecase = new PrimaCoberturaInputFuncionalidad(outputPort);
-                inputAdapter = new RouterNetworkRestAdapter(usecase);
+                inputAdapter = new PrimaCoberturaRestAdapter(usecase);
                 rest();
             }
             default -> {
                 outputPort = RouterNetworkFileAdapter.getInstance();
                 usecase = new PrimaCoberturaInputFuncionalidad(outputPort);
-                inputAdapter = new RouterNetworkCLIAdapter(usecase);
+                inputAdapter = new PrimaCoberturaCLIAdapter(usecase);
                 cli();
             }
         }
