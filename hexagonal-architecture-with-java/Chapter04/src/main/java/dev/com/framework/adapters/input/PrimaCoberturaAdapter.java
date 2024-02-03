@@ -11,7 +11,7 @@ import dev.com.domain.vo.RouterId;
 public abstract class PrimaCoberturaAdapter {
 
     protected Router prima;
-    protected PrimaCoberturaUseCase routerNetworkUseCase;
+    protected PrimaCoberturaUseCase primaCoberturaUseCase;
 
     protected Router addCoberturaToPrima(Map<String, String> params)
     {
@@ -20,7 +20,7 @@ public abstract class PrimaCoberturaAdapter {
                 params.get("name"),
                 Integer.valueOf(params.get("cidr")));
 
-        return routerNetworkUseCase.addNetworkToRouter(routerId, network);
+        return primaCoberturaUseCase.addNetworkToRouter(routerId, network);
     }
 
     public abstract Router processRequest(Object requestParams);

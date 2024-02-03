@@ -19,7 +19,7 @@ import java.net.URLDecoder;
 public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
 
     public PrimaCoberturaRestAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
-        this.routerNetworkUseCase = routerNetworkUseCase;
+        this.primaCoberturaUseCase = routerNetworkUseCase;
     }
 
     /**

@@ -14,8 +14,8 @@ import java.util.Scanner;
 
 public class PrimaCoberturaCLIAdapter extends PrimaCoberturaAdapter {
 
-    public PrimaCoberturaCLIAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
-        this.routerNetworkUseCase = routerNetworkUseCase;
+    public PrimaCoberturaCLIAdapter(PrimaCoberturaUseCase primaCoberturaUseCase){
+        this.primaCoberturaUseCase = primaCoberturaUseCase;
     }
 
     @Override
