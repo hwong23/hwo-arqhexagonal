@@ -11,7 +11,7 @@ mvn clean package
 **To test the REST adapter**
 ```
 java -jar target/chapter04-1.0-SNAPSHOT-jar-with-dependencies.jar rest
-curl -vv "http://localhost:8080/network/add?routerId=ca23800e-9b5a-11eb-a8b3-0242ac130003&address=40.0.0.0&name=Finance&cidr=8"
+curl -vv "http://localhost:8090/network/add?routerId=ca23800e-9b5a-11eb-a8b3-0242ac130003&address=40.0.0.0&name=Finance&cidr=8"
 ```
 
 **To test the CLI adapter**

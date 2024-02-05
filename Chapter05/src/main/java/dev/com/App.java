@@ -60,7 +60,7 @@ public class App {
     private void rest() {
         try {
             System.out.println("REST endpoint listening on port 8080...");
-            var httpserver = HttpServer.create(new InetSocketAddress(8080), 0);
+            var httpserver = HttpServer.create(new InetSocketAddress(8090), 0);
             inputAdapter.processRequest(httpserver);
         } catch (IOException e){
             e.printStackTrace();
