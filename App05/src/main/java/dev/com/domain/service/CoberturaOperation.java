@@ -7,7 +7,7 @@ import dev.com.domain.specification.NetworkAvailabilitySpecification;
 import dev.com.domain.specification.RouterTypeSpecification;
 import dev.com.domain.vo.Network;
 
-public class NetworkOperation {
+public class CoberturaOperation {
 
     public static Prima createNewNetwork(Prima router, Network network) {
         var availabilitySpec = new NetworkAvailabilitySpecification(network.getAddress(), network.getName(), network.getCidr());

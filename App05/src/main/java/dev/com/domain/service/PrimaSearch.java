@@ -6,7 +6,7 @@ import java.util.List;
 import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.RouterType;
 
-public class RouterSearch {
+public class PrimaSearch {
 
     public static List<Prima> getRouters(RouterType type, List<Prima> routers) {
         var routersList = new ArrayList<Prima>();

@@ -4,7 +4,7 @@ import dev.com.application.funcionalidad.output.NotifyEventOutputPort;
 import dev.com.application.funcionalidad.output.PrimaCoberturaOutputPort;
 import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Prima;
-import dev.com.domain.service.NetworkOperation;
+import dev.com.domain.service.CoberturaOperation;
 import dev.com.domain.vo.Network;
 import dev.com.domain.vo.RouterId;
 
@@ -43,7 +43,7 @@ public class PrimaCoberturaInputPort implements PrimaCoberturaUseCase {
 
     private Prima createNetwork(Prima router, Network network) {
         try {
-            var routerWithNewNetwork = NetworkOperation.createNewNetwork(router, network);
+            var routerWithNewNetwork = CoberturaOperation.createNewNetwork(router, network);
             return persistNetwork(routerWithNewNetwork) ?
                     routerWithNewNetwork: router;
         } catch (Exception e){
