@@ -41,6 +41,7 @@ public class App {
                 usecase = new PrimaCoberturaInputPort(primaOutputPort, notifyOutputPort);
                 inputAdapter = new PrimaCoberturaRestAdapter(usecase);
                 rest();
+                
                 NotifyEventWebSocketAdapter.startServer();
             }
             default -> {
