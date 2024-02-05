@@ -3,9 +3,9 @@ package dev.com.domain.specification;
 public abstract sealed class AbstractSpecification<T> implements Specification<T> permits
         AndSpecification,
         CIDRSpecification,
-        NetworkAmountSpecification,
-        NetworkAvailabilitySpecification,
-        RouterTypeSpecification
+        CoberturaAmountSpecification,
+        CoberturaAvailabilitySpecification,
+        PrimaTypeSpecification
 {
 
     public abstract boolean isSatisfiedBy(T t);

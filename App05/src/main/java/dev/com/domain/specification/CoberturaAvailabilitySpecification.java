@@ -4,13 +4,13 @@ import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.IP;
 import dev.com.domain.vo.Network;
 
-public final class NetworkAvailabilitySpecification extends AbstractSpecification<Prima> {
+public final class CoberturaAvailabilitySpecification extends AbstractSpecification<Prima> {
 
     private final IP address;
     private final String name;
     private final int cidr;
 
-    public NetworkAvailabilitySpecification(IP address, String name, int cidr) {
+    public CoberturaAvailabilitySpecification(IP address, String name, int cidr) {
         this.address = address;
         this.name = name;
         this.cidr = cidr;

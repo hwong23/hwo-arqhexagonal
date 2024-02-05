@@ -2,18 +2,18 @@ package dev.com.domain.service;
 
 import dev.com.domain.entity.Prima;
 import dev.com.domain.specification.CIDRSpecification;
-import dev.com.domain.specification.NetworkAmountSpecification;
-import dev.com.domain.specification.NetworkAvailabilitySpecification;
-import dev.com.domain.specification.RouterTypeSpecification;
+import dev.com.domain.specification.CoberturaAmountSpecification;
+import dev.com.domain.specification.CoberturaAvailabilitySpecification;
+import dev.com.domain.specification.PrimaTypeSpecification;
 import dev.com.domain.vo.Network;
 
 public class CoberturaOperation {
 
     public static Prima createNewNetwork(Prima router, Network network) {
-        var availabilitySpec = new NetworkAvailabilitySpecification(network.getAddress(), network.getName(), network.getCidr());
+        var availabilitySpec = new CoberturaAvailabilitySpecification(network.getAddress(), network.getName(), network.getCidr());
         var cidrSpec = new CIDRSpecification();
-        var routerTypeSpec = new RouterTypeSpecification();
-        var amountSpec = new NetworkAmountSpecification();
+        var routerTypeSpec = new PrimaTypeSpecification();
+        var amountSpec = new CoberturaAmountSpecification();
 
         if(cidrSpec.isSatisfiedBy(network.getCidr()))
             throw new IllegalArgumentException("CIDR is below "+CIDRSpecification.MINIMUM_ALLOWED_CIDR);
