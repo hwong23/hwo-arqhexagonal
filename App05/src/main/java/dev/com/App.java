@@ -22,7 +22,7 @@ public class App {
 
     private RouterNetworkAdapter inputAdapter;
     private RouterNetworkUseCase usecase;
-    private RouterNetworkOutputPort routerOutputPort;
+    private RouterNetworkOutputPort primaOutputPort;
     private NotifyEventOutputPort notifyOutputPort;
 
     public static void main(String... args) throws IOException, InterruptedException {
@@ -36,16 +36,16 @@ public class App {
     void setAdapter(String adapter) throws IOException, InterruptedException {
         switch (adapter) {
             case "rest" -> {
-                routerOutputPort = PrimaCoberturaH2Adapter.getInstance();
+                primaOutputPort = PrimaCoberturaH2Adapter.getInstance();
                 notifyOutputPort = NotifyEventKafkaAdapter.getInstance();
-                usecase = new PrimaCoberturaInputPort(routerOutputPort, notifyOutputPort);
+                usecase = new PrimaCoberturaInputPort(primaOutputPort, notifyOutputPort);
                 inputAdapter = new PrimaCoberturaRestAdapter(usecase);
                 rest();
                 NotifyEventWebSocketAdapter.startServer();
             }
             default -> {
-                routerOutputPort = RouterNetworkFileAdapter.getInstance();
-                usecase = new PrimaCoberturaInputPort(routerOutputPort);
+                primaOutputPort = RouterNetworkFileAdapter.getInstance();
+                usecase = new PrimaCoberturaInputPort(primaOutputPort);
                 inputAdapter = new RouterNetworkCLIAdapter(usecase);
                 cli();
             }
