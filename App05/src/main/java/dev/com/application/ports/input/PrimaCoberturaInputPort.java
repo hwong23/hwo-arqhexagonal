@@ -8,19 +8,19 @@ import dev.com.domain.service.NetworkOperation;
 import dev.com.domain.vo.Network;
 import dev.com.domain.vo.RouterId;
 
-public class RouterNetworkInputPort implements RouterNetworkUseCase {
+public class PrimaCoberturaInputPort implements RouterNetworkUseCase {
 
     private RouterNetworkOutputPort routerNetworkOutputPort;
 
     private NotifyEventOutputPort notifyEventOutputPort;
 
-    public RouterNetworkInputPort(RouterNetworkOutputPort routerNetworkOutputPort,
+    public PrimaCoberturaInputPort(RouterNetworkOutputPort routerNetworkOutputPort,
                                   NotifyEventOutputPort notifyEventOutputPort){
         this.routerNetworkOutputPort = routerNetworkOutputPort;
         this.notifyEventOutputPort = notifyEventOutputPort;
     }
 
-    public RouterNetworkInputPort(RouterNetworkOutputPort routerNetworkOutputPort){
+    public PrimaCoberturaInputPort(RouterNetworkOutputPort routerNetworkOutputPort){
         this.routerNetworkOutputPort = routerNetworkOutputPort;
     }
 

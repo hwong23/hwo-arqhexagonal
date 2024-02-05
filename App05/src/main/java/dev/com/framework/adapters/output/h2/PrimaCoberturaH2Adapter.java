@@ -10,14 +10,14 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
 
-public class RouterNetworkH2Adapter implements RouterNetworkOutputPort {
+public class PrimaCoberturaH2Adapter implements RouterNetworkOutputPort {
 
-    private static RouterNetworkH2Adapter instance;
+    private static PrimaCoberturaH2Adapter instance;
 
     @PersistenceContext
     private EntityManager em;
 
-    private RouterNetworkH2Adapter(){
+    private PrimaCoberturaH2Adapter(){
         setUpH2Database();
     }
 
@@ -40,9 +40,9 @@ public class RouterNetworkH2Adapter implements RouterNetworkOutputPort {
         this.em = em;
     }
 
-    public static RouterNetworkH2Adapter getInstance() {
+    public static PrimaCoberturaH2Adapter getInstance() {
         if (instance == null) {
-            instance = new RouterNetworkH2Adapter();
+            instance = new PrimaCoberturaH2Adapter();
         }
         return instance;
     }

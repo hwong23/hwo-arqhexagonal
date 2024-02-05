@@ -2,16 +2,16 @@ package dev.com;
 
 import com.sun.net.httpserver.HttpServer;
 
-import dev.com.application.ports.input.RouterNetworkInputPort;
+import dev.com.application.ports.input.PrimaCoberturaInputPort;
 import dev.com.application.ports.output.NotifyEventOutputPort;
 import dev.com.application.ports.output.RouterNetworkOutputPort;
 import dev.com.application.usecases.RouterNetworkUseCase;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
-import dev.com.framework.adapters.input.rest.RouterNetworkRestAdapter;
+import dev.com.framework.adapters.input.rest.PrimaCoberturaRestAdapter;
 import dev.com.framework.adapters.input.stdin.RouterNetworkCLIAdapter;
 import dev.com.framework.adapters.input.websocket.NotifyEventWebSocketAdapter;
 import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
-import dev.com.framework.adapters.output.h2.RouterNetworkH2Adapter;
+import dev.com.framework.adapters.output.h2.PrimaCoberturaH2Adapter;
 import dev.com.framework.adapters.output.kafka.NotifyEventKafkaAdapter;
 
 import java.io.IOException;
@@ -36,16 +36,16 @@ public class App {
     void setAdapter(String adapter) throws IOException, InterruptedException {
         switch (adapter) {
             case "rest" -> {
-                routerOutputPort = RouterNetworkH2Adapter.getInstance();
+                routerOutputPort = PrimaCoberturaH2Adapter.getInstance();
                 notifyOutputPort = NotifyEventKafkaAdapter.getInstance();
-                usecase = new RouterNetworkInputPort(routerOutputPort, notifyOutputPort);
-                inputAdapter = new RouterNetworkRestAdapter(usecase);
+                usecase = new PrimaCoberturaInputPort(routerOutputPort, notifyOutputPort);
+                inputAdapter = new PrimaCoberturaRestAdapter(usecase);
                 rest();
                 NotifyEventWebSocketAdapter.startServer();
             }
             default -> {
                 routerOutputPort = RouterNetworkFileAdapter.getInstance();
-                usecase = new RouterNetworkInputPort(routerOutputPort);
+                usecase = new PrimaCoberturaInputPort(routerOutputPort);
                 inputAdapter = new RouterNetworkCLIAdapter(usecase);
                 cli();
             }
