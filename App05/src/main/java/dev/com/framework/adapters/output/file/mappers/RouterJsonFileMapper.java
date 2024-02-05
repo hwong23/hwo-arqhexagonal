@@ -3,14 +3,14 @@ package dev.com.framework.adapters.output.file.mappers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import dev.com.domain.entity.Router;
-import dev.com.domain.entity.Switch;
+import dev.com.domain.entity.Prima;
+import dev.com.domain.entity.Plan;
 import dev.com.domain.vo.*;
 import dev.com.framework.adapters.output.file.json.*;
 
 public class RouterJsonFileMapper {
 
-    public static Router toDomain(RouterJson routerJson){
+    public static Prima toDomain(RouterJson routerJson){
         var routerId = RouterId.withId(routerJson.getRouterId().toString());
         var routerType = RouterType.valueOf(routerJson.getRouterType().name());
         var switchId = SwitchId.withId(routerJson.getNetworkSwitch().getSwitchId().toString());
@@ -18,12 +18,12 @@ public class RouterJsonFileMapper {
         var ip = IP.fromAddress(routerJson.getNetworkSwitch().getIp().getAddress());
         var networks =  getNetworksFromJson(routerJson.getNetworkSwitch().getNetworks());
 
-        var networkSwitch = new Switch(switchId, switchType, networks, ip);
+        var networkSwitch = new Plan(switchId, switchType, networks, ip);
 
-        return new Router(routerType, routerId, networkSwitch);
+        return new Prima(routerType, routerId, networkSwitch);
     }
 
-    public static RouterJson toJson(Router router){
+    public static RouterJson toJson(Prima router){
         var routerId = router.getRouterId().getUUID();
         var routerTypeJson = RouterTypeJson.valueOf(router.getRouterType().toString());
         var switchIdJson = router.getNetworkSwitch().getSwitchId().getUUID();

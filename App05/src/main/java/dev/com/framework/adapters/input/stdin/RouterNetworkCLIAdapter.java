@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dev.com.application.usecases.PrimaCoberturaUseCase;
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
 
@@ -19,7 +19,7 @@ public class RouterNetworkCLIAdapter extends RouterNetworkAdapter {
     }
 
     @Override
-    public Router processRequest(Object requestParams){
+    public Prima processRequest(Object requestParams){
         var params = stdinParams(requestParams);
         router = this.addNetworkToRouter(params);
         ObjectMapper mapper = new ObjectMapper();

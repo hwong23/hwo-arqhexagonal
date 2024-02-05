@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import dev.com.application.funcionalidad.output.PrimaViewOutputPort;
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.RouterId;
 import dev.com.domain.vo.RouterType;
 
@@ -17,19 +17,19 @@ public class RouterViewFileAdapter implements PrimaViewOutputPort {
     private static RouterViewFileAdapter instance;
 
     @Override
-    public List<Router> fetchRelatedRouters() {
+    public List<Prima> fetchRelatedRouters() {
         return readFileAsString();
     }
 
-    private static List<Router> readFileAsString() {
-        List<Router> routers = new ArrayList<>();
+    private static List<Prima> readFileAsString() {
+        List<Prima> routers = new ArrayList<>();
 
         try (Stream<String> stream = Files.lines(Paths.get(RouterViewFileAdapter.class.getResource("/routers.txt").getPath()))) {
             stream.forEach(line ->{
                 String[] routerEntry = line.split(";");
                 var id = routerEntry[0];
                 var type = routerEntry[1];
-                Router router = new Router(RouterType.valueOf(type),RouterId.withId(id));
+                Prima router = new Prima(RouterType.valueOf(type),RouterId.withId(id));
                 routers.add(router);
             });
         } catch (IOException e){

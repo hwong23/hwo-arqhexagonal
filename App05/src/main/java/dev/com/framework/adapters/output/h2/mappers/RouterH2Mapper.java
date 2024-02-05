@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import dev.com.domain.entity.Router;
-import dev.com.domain.entity.Switch;
+import dev.com.domain.entity.Prima;
+import dev.com.domain.entity.Plan;
 import dev.com.domain.vo.*;
 import dev.com.framework.adapters.output.h2.data.*;
 
 public class RouterH2Mapper {
 
-    public static Router toDomain(RouterData routerData){
+    public static Prima toDomain(RouterData routerData){
         var routerType = RouterType.valueOf(routerData.getRouterType().name());
 
         var routerId = RouterId.withId(routerData.getRouterId().toString());
@@ -20,13 +20,13 @@ public class RouterH2Mapper {
         var ip = IP.fromAddress(routerData.getNetworkSwitch().getIp().getAddress());
         var networks =  getNetworksFromData(routerData.getNetworkSwitch().getNetworks());
 
-        var networkSwitch = new Switch(switchId, switchType,networks, ip);
+        var networkSwitch = new Plan(switchId, switchType,networks, ip);
 
-        return new Router(routerType, routerId, networkSwitch);
+        return new Prima(routerType, routerId, networkSwitch);
     }
 
 
-    public static RouterData toH2(Router router){
+    public static RouterData toH2(Prima router){
         var routerTypeData = RouterTypeData.valueOf(router.getRouterType().toString());
 
         var routerId = router.getRouterId().getUUID();

@@ -1,6 +1,6 @@
 package dev.com.domain.service;
 
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.specification.CIDRSpecification;
 import dev.com.domain.specification.NetworkAmountSpecification;
 import dev.com.domain.specification.NetworkAvailabilitySpecification;
@@ -9,7 +9,7 @@ import dev.com.domain.vo.Network;
 
 public class NetworkOperation {
 
-    public static Router createNewNetwork(Router router, Network network) {
+    public static Prima createNewNetwork(Prima router, Network network) {
         var availabilitySpec = new NetworkAvailabilitySpecification(network.getAddress(), network.getName(), network.getCidr());
         var cidrSpec = new CIDRSpecification();
         var routerTypeSpec = new RouterTypeSpecification();
