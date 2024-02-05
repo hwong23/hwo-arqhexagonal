@@ -1,18 +1,18 @@
-package dev.com.application.ports.input;
+package dev.com.application.funcionalidad.input;
 
 import java.util.List;
 
-import dev.com.application.ports.output.RouterViewOutputPort;
-import dev.com.application.usecases.RouterViewUseCase;
+import dev.com.application.funcionalidad.output.PrimaViewOutputPort;
+import dev.com.application.usecases.PrimaViewUseCase;
 import dev.com.domain.entity.Router;
 import dev.com.domain.service.RouterSearch;
 import dev.com.domain.vo.RouterType;
 
-public class RouterViewInputPort implements RouterViewUseCase {
+public class PrimaViewInputPort implements PrimaViewUseCase {
 
-    private RouterViewOutputPort routerListOutputPort;
+    private PrimaViewOutputPort routerListOutputPort;
 
-    public RouterViewInputPort(RouterViewOutputPort routerGraphOutputPort) {
+    public PrimaViewInputPort(PrimaViewOutputPort routerGraphOutputPort) {
         this.routerListOutputPort = routerGraphOutputPort;
     }
 

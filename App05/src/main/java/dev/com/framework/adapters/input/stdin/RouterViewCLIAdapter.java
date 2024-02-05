@@ -2,15 +2,15 @@ package dev.com.framework.adapters.input.stdin;
 
 import java.util.List;
 
-import dev.com.application.ports.input.RouterViewInputPort;
-import dev.com.application.usecases.RouterViewUseCase;
-import dev.com.application.usecases.RouterViewUseCase.RelatedRoutersCommand;
+import dev.com.application.funcionalidad.input.PrimaViewInputPort;
+import dev.com.application.usecases.PrimaViewUseCase;
+import dev.com.application.usecases.PrimaViewUseCase.RelatedRoutersCommand;
 import dev.com.domain.entity.Router;
 import dev.com.framework.adapters.output.file.RouterViewFileAdapter;
 
 public class RouterViewCLIAdapter {
 
-    RouterViewUseCase routerViewUseCase;
+    PrimaViewUseCase routerViewUseCase;
 
     public RouterViewCLIAdapter(){
         setAdapters();
@@ -22,6 +22,6 @@ public class RouterViewCLIAdapter {
     }
 
     private void setAdapters(){
-        this.routerViewUseCase = new RouterViewInputPort(RouterViewFileAdapter.getInstance());
+        this.routerViewUseCase = new PrimaViewInputPort(RouterViewFileAdapter.getInstance());
     }
 }

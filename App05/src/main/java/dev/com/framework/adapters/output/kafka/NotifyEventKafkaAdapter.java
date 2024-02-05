@@ -10,7 +10,7 @@ import org.apache.kafka.common.serialization.LongSerializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-import dev.com.application.ports.output.NotifyEventOutputPort;
+import dev.com.application.funcionalidad.output.NotifyEventOutputPort;
 import dev.com.framework.adapters.input.websocket.WebSocketClientAdapter;
 
 import java.net.URI;

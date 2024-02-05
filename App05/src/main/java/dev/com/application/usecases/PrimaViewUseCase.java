@@ -5,7 +5,7 @@ import java.util.List;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterType;
 
-public interface RouterViewUseCase {
+public interface PrimaViewUseCase {
 
     List<Router> getRelatedRouters(RelatedRoutersCommand relatedRoutersCommand);
 

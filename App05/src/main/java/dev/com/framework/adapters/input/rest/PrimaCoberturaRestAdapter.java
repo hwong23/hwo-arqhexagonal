@@ -3,7 +3,7 @@ package dev.com.framework.adapters.input.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
 
-import dev.com.application.usecases.RouterNetworkUseCase;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Router;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
@@ -21,7 +21,7 @@ import static java.util.stream.Collectors.*;
 
 public class PrimaCoberturaRestAdapter extends RouterNetworkAdapter {
 
-    public PrimaCoberturaRestAdapter(RouterNetworkUseCase routerNetworkUseCase){
+    public PrimaCoberturaRestAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 

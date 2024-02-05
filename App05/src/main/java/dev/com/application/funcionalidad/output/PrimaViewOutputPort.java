@@ -1,10 +1,10 @@
-package dev.com.application.ports.output;
+package dev.com.application.funcionalidad.output;
 
 import java.util.List;
 
 import dev.com.domain.entity.Router;
 
-public interface RouterViewOutputPort {
+public interface PrimaViewOutputPort {
 
     List<Router> fetchRelatedRouters();
 }

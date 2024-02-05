@@ -1,6 +1,6 @@
 package dev.com.framework.adapters.output.h2;
 
-import dev.com.application.ports.output.RouterNetworkOutputPort;
+import dev.com.application.funcionalidad.output.PrimaCoberturaOutputPort;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.RouterId;
 import dev.com.framework.adapters.output.h2.data.RouterData;
@@ -10,7 +10,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
 
-public class PrimaCoberturaH2Adapter implements RouterNetworkOutputPort {
+public class PrimaCoberturaH2Adapter implements PrimaCoberturaOutputPort {
 
     private static PrimaCoberturaH2Adapter instance;
 

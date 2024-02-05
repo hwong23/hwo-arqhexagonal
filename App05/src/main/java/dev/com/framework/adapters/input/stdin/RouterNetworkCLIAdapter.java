@@ -3,7 +3,7 @@ package dev.com.framework.adapters.input.stdin;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dev.com.application.usecases.RouterNetworkUseCase;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Router;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class RouterNetworkCLIAdapter extends RouterNetworkAdapter {
     
-    public RouterNetworkCLIAdapter(RouterNetworkUseCase routerNetworkUseCase){
+    public RouterNetworkCLIAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 

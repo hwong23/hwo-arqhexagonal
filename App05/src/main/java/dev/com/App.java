@@ -2,10 +2,10 @@ package dev.com;
 
 import com.sun.net.httpserver.HttpServer;
 
-import dev.com.application.ports.input.PrimaCoberturaInputPort;
-import dev.com.application.ports.output.NotifyEventOutputPort;
-import dev.com.application.ports.output.RouterNetworkOutputPort;
-import dev.com.application.usecases.RouterNetworkUseCase;
+import dev.com.application.funcionalidad.input.PrimaCoberturaInputPort;
+import dev.com.application.funcionalidad.output.NotifyEventOutputPort;
+import dev.com.application.funcionalidad.output.PrimaCoberturaOutputPort;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
 import dev.com.framework.adapters.input.rest.PrimaCoberturaRestAdapter;
 import dev.com.framework.adapters.input.stdin.RouterNetworkCLIAdapter;
@@ -21,8 +21,8 @@ import java.util.Scanner;
 public class App {
 
     private RouterNetworkAdapter inputAdapter;
-    private RouterNetworkUseCase usecase;
-    private RouterNetworkOutputPort primaOutputPort;
+    private PrimaCoberturaUseCase usecase;
+    private PrimaCoberturaOutputPort primaOutputPort;
     private NotifyEventOutputPort notifyOutputPort;
 
     public static void main(String... args) throws IOException, InterruptedException {

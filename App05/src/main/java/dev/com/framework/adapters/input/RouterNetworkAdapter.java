@@ -2,7 +2,7 @@ package dev.com.framework.adapters.input;
 
 import java.util.Map;
 
-import dev.com.application.usecases.RouterNetworkUseCase;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Router;
 import dev.com.domain.vo.IP;
 import dev.com.domain.vo.Network;
@@ -11,7 +11,7 @@ import dev.com.domain.vo.RouterId;
 public abstract class RouterNetworkAdapter {
 
     protected Router router;
-    protected RouterNetworkUseCase routerNetworkUseCase;
+    protected PrimaCoberturaUseCase routerNetworkUseCase;
 
     public Router addNetworkToRouter(Map<String, String> params){
         var routerId = RouterId.withId(params.get("routerId"));

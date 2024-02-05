@@ -1,26 +1,26 @@
-package dev.com.application.ports.input;
+package dev.com.application.funcionalidad.input;
 
-import dev.com.application.ports.output.NotifyEventOutputPort;
-import dev.com.application.ports.output.RouterNetworkOutputPort;
-import dev.com.application.usecases.RouterNetworkUseCase;
+import dev.com.application.funcionalidad.output.NotifyEventOutputPort;
+import dev.com.application.funcionalidad.output.PrimaCoberturaOutputPort;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Router;
 import dev.com.domain.service.NetworkOperation;
 import dev.com.domain.vo.Network;
 import dev.com.domain.vo.RouterId;
 
-public class PrimaCoberturaInputPort implements RouterNetworkUseCase {
+public class PrimaCoberturaInputPort implements PrimaCoberturaUseCase {
 
-    private RouterNetworkOutputPort routerNetworkOutputPort;
+    private PrimaCoberturaOutputPort routerNetworkOutputPort;
 
     private NotifyEventOutputPort notifyEventOutputPort;
 
-    public PrimaCoberturaInputPort(RouterNetworkOutputPort routerNetworkOutputPort,
+    public PrimaCoberturaInputPort(PrimaCoberturaOutputPort routerNetworkOutputPort,
                                   NotifyEventOutputPort notifyEventOutputPort){
         this.routerNetworkOutputPort = routerNetworkOutputPort;
         this.notifyEventOutputPort = notifyEventOutputPort;
     }
 
-    public PrimaCoberturaInputPort(RouterNetworkOutputPort routerNetworkOutputPort){
+    public PrimaCoberturaInputPort(PrimaCoberturaOutputPort routerNetworkOutputPort){
         this.routerNetworkOutputPort = routerNetworkOutputPort;
     }
 
