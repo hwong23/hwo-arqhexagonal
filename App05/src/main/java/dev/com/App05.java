@@ -8,7 +8,7 @@ import dev.com.application.funcionalidad.output.PrimaCoberturaOutputPort;
 import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
 import dev.com.framework.adapters.input.rest.PrimaCoberturaRestAdapter;
-import dev.com.framework.adapters.input.stdin.RouterNetworkCLIAdapter;
+import dev.com.framework.adapters.input.stdin.PrimaCoberturaCLIAdapter;
 import dev.com.framework.adapters.input.websocket.NotifyEventWebSocketAdapter;
 import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
 import dev.com.framework.adapters.output.h2.PrimaCoberturaH2Adapter;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.Scanner;
 
-public class App {
+public class App05 {
 
     private PrimaCoberturaAdapter inputAdapter;
     private PrimaCoberturaUseCase usecase;
@@ -30,7 +30,7 @@ public class App {
         if(args.length>0) {
             adapter = args[0];
         }
-        new App().setAdapter(adapter);
+        new App05().setAdapter(adapter);
     }
 
     void setAdapter(String adapter) throws IOException, InterruptedException {
@@ -47,7 +47,7 @@ public class App {
             default -> {
                 primaOutputPort = RouterNetworkFileAdapter.getInstance();
                 usecase = new PrimaCoberturaInputPort(primaOutputPort);
-                inputAdapter = new RouterNetworkCLIAdapter(usecase);
+                inputAdapter = new PrimaCoberturaCLIAdapter(usecase);
                 cli();
             }
         }

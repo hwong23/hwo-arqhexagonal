@@ -8,11 +8,11 @@ import dev.com.application.usecases.PrimaViewUseCase.RelatedRoutersCommand;
 import dev.com.domain.entity.Prima;
 import dev.com.framework.adapters.output.file.RouterViewFileAdapter;
 
-public class RouterViewCLIAdapter {
+public class PrimaViewCLIAdapter {
 
     PrimaViewUseCase routerViewUseCase;
 
-    public RouterViewCLIAdapter(){
+    public PrimaViewCLIAdapter(){
         setAdapters();
     }
 

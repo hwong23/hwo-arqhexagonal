@@ -12,9 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class RouterNetworkCLIAdapter extends PrimaCoberturaAdapter {
+public class PrimaCoberturaCLIAdapter extends PrimaCoberturaAdapter {
     
-    public RouterNetworkCLIAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
+    public PrimaCoberturaCLIAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 
@@ -37,16 +37,16 @@ public class RouterNetworkCLIAdapter extends PrimaCoberturaAdapter {
         Map<String, String> params = new HashMap<>();
         if(requestParams instanceof Scanner){
             var scanner = (Scanner) requestParams;
-            System.out.println("Please inform the Router ID:");
+            System.out.println("Por favor informe la Prima ID:");
             var routerId = scanner.nextLine();
             params.put("routerId", routerId);
-            System.out.println("Please inform the IP address:");
+            System.out.println("Informe la direcicón IP:");
             var address = scanner.nextLine();
             params.put("address", address);
-            System.out.println("Please inform the Network Name:");
+            System.out.println("Informe nombre de Cobertura:");
             var name = scanner.nextLine();
             params.put("name", name);
-            System.out.println("Please inform the CIDR:");
+            System.out.println("Por fabvor informe the CIDR:");
             var cidr = scanner.nextLine();
             params.put("cidr", cidr);
         }
