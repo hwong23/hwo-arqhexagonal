@@ -7,7 +7,7 @@ import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.service.CoberturaService;
 import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
-import dev.davivieira.topologyinventory.domain.vo.Network;
+import dev.davivieira.topologyinventory.domain.vo.Cobertura;
 import lombok.NoArgsConstructor;
 
 import java.util.function.Predicate;
@@ -22,9 +22,9 @@ public class NetworkManagementInputPort implements NetworkManagementUseCase {
     }
 
     @Override
-    public Network createNetwork(
+    public Cobertura createNetwork(
             IP networkAddress, String networkName, int networkCidr) {
-        return Network
+        return Cobertura
                 .builder()
                 .networkAddress(networkAddress)
                 .networkName(networkName)
@@ -33,7 +33,7 @@ public class NetworkManagementInputPort implements NetworkManagementUseCase {
     }
 
     @Override
-    public Plan addNetworkToSwitch(Network network, Plan networkSwitch) {
+    public Plan addNetworkToSwitch(Cobertura network, Plan networkSwitch) {
         Id routerId = networkSwitch.getRouterId();
         Id switchId = networkSwitch.getId();
         EdgePrima edgeRouter = (EdgePrima) routerManagementOutputPort
@@ -55,7 +55,7 @@ public class NetworkManagementInputPort implements NetworkManagementUseCase {
         Plan switchToRemoveNetwork = edgeRouter
                 .getSwitches()
                 .get(switchId);
-        Predicate<Network> networkPredicate = Network.getNetworkNamePredicate(networkName);
+        Predicate<Cobertura> networkPredicate = Cobertura.getNetworkNamePredicate(networkName);
         var network = CoberturaService.
                 findNetwork(switchToRemoveNetwork.getSwitchNetworks(), networkPredicate);
         switchToRemoveNetwork.removeNetworkFromSwitch(network);

@@ -2,7 +2,7 @@ package dev.davivieira.topologyinventory.application;
 
 import dev.davivieira.topologyinventory.domain.service.CoberturaService;
 import dev.davivieira.topologyinventory.domain.vo.IP;
-import dev.davivieira.topologyinventory.domain.vo.Network;
+import dev.davivieira.topologyinventory.domain.vo.Cobertura;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -33,7 +33,7 @@ public class NetworkAdd extends ApplicationTestData {
 
     @Then("I add the network to the switch")
     public void i_add_the_network_to_the_switch(){
-        var predicate = Network.getNetworkNamePredicate("Finance");
+        var predicate = Cobertura.getNetworkNamePredicate("Finance");
         var networks = this.
                 networkManagementUseCase.
                 addNetworkToSwitch(network, networkSwitch).

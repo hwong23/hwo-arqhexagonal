@@ -42,7 +42,7 @@ public class RouterManagementGenericAdapter {
                                    Model model,
                                    IP ip,
                                    Location location,
-                                   RouterType routerType){
+                                   PrimaType routerType){
         var router = routerManagementUseCase.createRouter(
                 null,
                 vendor,

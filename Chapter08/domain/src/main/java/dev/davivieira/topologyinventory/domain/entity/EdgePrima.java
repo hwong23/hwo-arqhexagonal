@@ -7,7 +7,7 @@ import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Location;
 import dev.davivieira.topologyinventory.domain.vo.Model;
-import dev.davivieira.topologyinventory.domain.vo.RouterType;
+import dev.davivieira.topologyinventory.domain.vo.PrimaType;
 import dev.davivieira.topologyinventory.domain.vo.Vendor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,7 +24,7 @@ public final class EdgePrima extends Prima {
     private Map<Id, Plan> switches;
 
     @Builder
-    public EdgePrima(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType, Map<Id, Plan> switches) {
+    public EdgePrima(Id id, Vendor vendor, Model model, IP ip, Location location, PrimaType routerType, Map<Id, Plan> switches) {
         super(id, vendor, model, ip, location, routerType);
         this.switches = switches;
     }

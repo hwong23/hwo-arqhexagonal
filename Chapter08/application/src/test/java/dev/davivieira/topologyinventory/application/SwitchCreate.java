@@ -2,7 +2,7 @@ package dev.davivieira.topologyinventory.application;
 
 import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Model;
-import dev.davivieira.topologyinventory.domain.vo.SwitchType;
+import dev.davivieira.topologyinventory.domain.vo.PlanType;
 import dev.davivieira.topologyinventory.domain.vo.Vendor;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,7 +23,7 @@ public class SwitchCreate extends ApplicationTestData {
                 Model.XYZ0001,
                 IP.fromAddress("20.0.0.100"),
                 locationA,
-                SwitchType.LAYER3
+                PlanType.LAYER3
         );
     }
 
@@ -34,6 +34,6 @@ public class SwitchCreate extends ApplicationTestData {
         assertEquals(Model.XYZ0001,networkSwitch.getModel());
         assertEquals(IP.fromAddress("20.0.0.100"), networkSwitch.getIp());
         assertEquals(locationA, networkSwitch.getLocation());
-        assertEquals(SwitchType.LAYER3, networkSwitch.getSwitchType());
+        assertEquals(PlanType.LAYER3, networkSwitch.getSwitchType());
     }
 }

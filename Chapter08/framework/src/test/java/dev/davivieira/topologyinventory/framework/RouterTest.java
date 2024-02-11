@@ -34,14 +34,14 @@ public class RouterTest extends FrameworkTestData {
                 Model.XYZ0001,
                 IP.fromAddress(ipAddress),
                 locationA,
-                RouterType.EDGE).getId();
+                PrimaType.EDGE).getId();
         var router = this.routerManagementGenericAdapter.retrieveRouter(routerId);
         assertEquals(routerId, router.getId());
         assertEquals(Vendor.DLINK, router.getVendor());
         assertEquals(Model.XYZ0001, router.getModel());
         assertEquals(ipAddress, router.getIp().getIpAddress());
         assertEquals(locationA, router.getLocation());
-        assertEquals(RouterType.EDGE, router.getRouterType());
+        assertEquals(PrimaType.EDGE, router.getRouterType());
     }
 
     @Test

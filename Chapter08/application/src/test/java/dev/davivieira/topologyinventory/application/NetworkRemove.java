@@ -1,7 +1,7 @@
 package dev.davivieira.topologyinventory.application;
 
 import dev.davivieira.topologyinventory.domain.service.CoberturaService;
-import dev.davivieira.topologyinventory.domain.vo.Network;
+import dev.davivieira.topologyinventory.domain.vo.Cobertura;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class NetworkRemove extends ApplicationTestData{
 
-    Predicate<Network> predicate;
+    Predicate<Cobertura> predicate;
 
     public NetworkRemove(){
         loadData();
@@ -22,7 +22,7 @@ public class NetworkRemove extends ApplicationTestData{
 
     @Given("I know the network I want to remove")
     public void i_know_the_network_i_want_to_remove(){
-        predicate = Network.
+        predicate = Cobertura.
                 getNetworkNamePredicate("TestNetwork");
         network = CoberturaService.
                 findNetwork(networks, predicate);

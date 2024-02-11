@@ -39,7 +39,7 @@ public class SwitchTest extends FrameworkTestData {
                 Model.XYZ0004,
                 IP.fromAddress(expectedSwitchIP),
                 locationA,
-                SwitchType.LAYER3,
+                PlanType.LAYER3,
                 id);
         String actualSwitchIP = edgeRouter.getSwitches()
                 .entrySet()

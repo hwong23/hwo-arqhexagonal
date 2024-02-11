@@ -20,7 +20,7 @@ public class RouterH2Mapper {
                 Model.valueOf(routerData.getRouterModel().toString()),
                 IP.fromAddress(routerData.getIp().getAddress()),
                 locationDataToLocation(routerData.getRouterLocation()),
-                RouterType.valueOf(routerData.getRouterType().name()));
+                PrimaType.valueOf(routerData.getRouterType().name()));
         if(routerData.getRouterType().equals(RouterTypeData.CORE)){
             var coreRouter = (CorePrima) router;
             coreRouter.setRouters(getRoutersFromData(routerData.getRouters()));
@@ -41,7 +41,7 @@ public class RouterH2Mapper {
                 routerLocation(locationDomainToLocationData(router.getLocation())).
                 routerType(RouterTypeData.valueOf(router.getRouterType().toString())).
                 build();
-        if(router.getRouterType().equals(RouterType.CORE)) {
+        if(router.getRouterType().equals(PrimaType.CORE)) {
             var coreRouter = (CorePrima) router;
             routerData.setRouters(getRoutersFromDomain(coreRouter.getRouters()));
         } else {
@@ -59,7 +59,7 @@ public class RouterH2Mapper {
                 model(Model.valueOf(switchData.getSwitchModel().toString())).
                 ip(IP.fromAddress(switchData.getIp().getAddress())).
                 location(locationDataToLocation(switchData.getSwitchLocation())).
-                switchType(SwitchType.valueOf(switchData.getSwitchType().toString())).
+                switchType(PlanType.valueOf(switchData.getSwitchType().toString())).
                 switchNetworks(getNetworksFromData(switchData.getNetworks())).
                 build();
     }
@@ -139,10 +139,10 @@ public class RouterH2Mapper {
         return switchDataList;
     }
 
-    private static List<Network> getNetworksFromData(List<NetworkData> networkData){
-        List<Network> networks = new ArrayList<>();
+    private static List<Cobertura> getNetworksFromData(List<NetworkData> networkData){
+        List<Cobertura> networks = new ArrayList<>();
         networkData.forEach(data ->{
-            var network = new Network(
+            var network = new Cobertura(
                     IP.fromAddress(data.getIp().getAddress()),
                     data.getName(),
                     data.getCidr());
@@ -151,7 +151,7 @@ public class RouterH2Mapper {
         return networks;
     }
 
-    private static List<NetworkData>  getNetworksFromDomain(List<Network> networks, UUID routerId){
+    private static List<NetworkData>  getNetworksFromDomain(List<Cobertura> networks, UUID routerId){
         List<NetworkData> networkDataList = new ArrayList<>();
         if(networks!=null) {
             networks.forEach(network -> {

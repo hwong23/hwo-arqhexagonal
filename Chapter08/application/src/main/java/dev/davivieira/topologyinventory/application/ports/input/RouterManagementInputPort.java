@@ -23,7 +23,7 @@ public class RouterManagementInputPort implements RouterManagementUseCase {
                                Model model,
                                IP ip,
                                Location location,
-                               RouterType routerType) {
+                               PrimaType routerType) {
         return RouterFactory.getRouter(null,
                 vendor,
                 model,

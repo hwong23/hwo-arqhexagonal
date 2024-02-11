@@ -11,21 +11,21 @@ import java.util.function.Predicate;
 @Getter
 @ToString
 @EqualsAndHashCode
-public class Network {
+public class Cobertura {
 
     private IP networkAddress;
     private String networkName;
     private int networkCidr;
 
-    public static Predicate<Network> getNetworkProtocolPredicate(Protocol protocol){
+    public static Predicate<Cobertura> getNetworkProtocolPredicate(Protocol protocol){
         return s -> s.getNetworkAddress().getProtocol().equals(protocol);
     }
 
-    public static Predicate<Network> getNetworkNamePredicate(String name){
+    public static Predicate<Cobertura> getNetworkNamePredicate(String name){
         return s -> s.getNetworkName().equals(name);
     }
 
-    public Network(IP networkAddress, String networkName, int networkCidr){
+    public Cobertura(IP networkAddress, String networkName, int networkCidr){
         if(networkCidr <1 || networkCidr>32){
             throw new IllegalArgumentException("Invalid CIDR value");
         }

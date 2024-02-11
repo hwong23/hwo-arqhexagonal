@@ -8,7 +8,7 @@ import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Location;
 import dev.davivieira.topologyinventory.domain.vo.Model;
-import dev.davivieira.topologyinventory.domain.vo.RouterType;
+import dev.davivieira.topologyinventory.domain.vo.PrimaType;
 import dev.davivieira.topologyinventory.domain.vo.Vendor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,7 +26,7 @@ public final class CorePrima extends Prima {
     private Map<Id, Prima> routers;
 
     @Builder
-    public CorePrima(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType, Map<Id, Prima> routers) {
+    public CorePrima(Id id, Vendor vendor, Model model, IP ip, Location location, PrimaType routerType, Map<Id, Prima> routers) {
         super(id, vendor, model, ip, location, routerType);
         this.routers = routers == null ? new HashMap<Id, Prima>() : routers;
     }

@@ -4,7 +4,7 @@ import dev.davivieira.topologyinventory.domain.entity.Equipment;
 import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.exception.GenericSpecificationException;
 import dev.davivieira.topologyinventory.domain.vo.IP;
-import dev.davivieira.topologyinventory.domain.vo.Network;
+import dev.davivieira.topologyinventory.domain.vo.Cobertura;
 
 public final class NetworkAvailabilitySpec extends AbstractSpecification<Equipment> {
 
@@ -12,7 +12,7 @@ public final class NetworkAvailabilitySpec extends AbstractSpecification<Equipme
     private final String name;
     private final int cidr;
 
-    public NetworkAvailabilitySpec(Network network){
+    public NetworkAvailabilitySpec(Cobertura network){
         this.address = network.getNetworkAddress();
         this.name = network.getNetworkName();
         this.cidr = network.getNetworkCidr();
@@ -31,7 +31,7 @@ public final class NetworkAvailabilitySpec extends AbstractSpecification<Equipme
 
     private boolean isNetworkAvailable(Equipment switchNetworks){
         var availability = true;
-        for (Network network : ((Plan)switchNetworks).getSwitchNetworks()) {
+        for (Cobertura network : ((Plan)switchNetworks).getSwitchNetworks()) {
             if(network.getNetworkAddress().equals(address) &&
                     network.getNetworkName().equals(name) &&
                     network.getNetworkCidr() == cidr)

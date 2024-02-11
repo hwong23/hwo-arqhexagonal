@@ -6,7 +6,7 @@ import dev.davivieira.topologyinventory.application.usecases.NetworkManagementUs
 import dev.davivieira.topologyinventory.application.usecases.SwitchManagementUseCase;
 import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.Id;
-import dev.davivieira.topologyinventory.domain.vo.Network;
+import dev.davivieira.topologyinventory.domain.vo.Cobertura;
 import dev.davivieira.topologyinventory.framework.adapters.output.h2.RouterManagementH2Adapter;
 import dev.davivieira.topologyinventory.framework.adapters.output.h2.SwitchManagementH2Adapter;
 
@@ -27,7 +27,7 @@ public class NetworkManagementGenericAdapter {
     /**
      * POST /network/add
      * */
-    public Plan addNetworkToSwitch(Network network, Id switchId) {
+    public Plan addNetworkToSwitch(Cobertura network, Id switchId) {
         Plan networkSwitch = switchManagementUseCase.retrieveSwitch(switchId);
         return networkManagementUseCase.addNetworkToSwitch(network, networkSwitch);
     }

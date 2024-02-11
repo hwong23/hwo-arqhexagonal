@@ -12,7 +12,7 @@ public interface RouterManagementUseCase {
             Model model,
             IP ip,
             Location location,
-            RouterType routerType);
+            PrimaType routerType);
 
     Prima removeRouter(Id id);
 

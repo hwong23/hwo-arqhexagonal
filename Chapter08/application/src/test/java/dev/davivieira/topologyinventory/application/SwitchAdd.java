@@ -22,7 +22,7 @@ public class SwitchAdd extends ApplicationTestData {
                 model(Model.XYZ0004).
                 ip(IP.fromAddress("20.0.0.100")).
                 location(locationA).
-                switchType(SwitchType.LAYER3).
+                switchType(PlanType.LAYER3).
                 build();
         assertNotNull(networkSwitch);
     }

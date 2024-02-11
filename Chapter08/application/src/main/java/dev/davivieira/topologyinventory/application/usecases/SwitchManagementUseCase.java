@@ -11,7 +11,7 @@ public interface SwitchManagementUseCase {
             Model model,
             IP ip,
             Location location,
-            SwitchType switchType
+            PlanType switchType
     );
 
     Plan retrieveSwitch(Id id);

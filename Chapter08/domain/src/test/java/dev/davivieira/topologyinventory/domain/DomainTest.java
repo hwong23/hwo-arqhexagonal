@@ -151,14 +151,14 @@ public class DomainTest {
         routers.add(edgeRouter);
 
         var coreRouters = PrimaService.filterAndRetrieveRouter(routers,
-                Prima.getRouterTypePredicate(RouterType.CORE));
+                Prima.getRouterTypePredicate(PrimaType.CORE));
         var actualCoreType = coreRouters.get(0).getRouterType();
-        assertEquals(RouterType.CORE, actualCoreType);
+        assertEquals(PrimaType.CORE, actualCoreType);
 
         var edgeRouters = PrimaService.filterAndRetrieveRouter(routers,
-                Prima.getRouterTypePredicate(RouterType.EDGE));
+                Prima.getRouterTypePredicate(PrimaType.EDGE));
         var actualEdgeType = edgeRouters.get(0).getRouterType();
-        assertEquals(RouterType.EDGE, actualEdgeType);
+        assertEquals(PrimaType.EDGE, actualEdgeType);
     }
 
     @Test
@@ -217,8 +217,8 @@ public class DomainTest {
         switches.add(networkSwitch);
 
         var actualSwitchType = PlanService.filterAndRetrieveSwitch(switches,
-                Plan.getSwitchTypePredicate(SwitchType.LAYER3)).get(0).getSwitchType();
-        assertEquals(SwitchType.LAYER3, actualSwitchType);
+                Plan.getSwitchTypePredicate(PlanType.LAYER3)).get(0).getSwitchType();
+        assertEquals(PlanType.LAYER3, actualSwitchType);
     }
 
     @Test
@@ -263,8 +263,8 @@ public class DomainTest {
         assertEquals(expectedId, actualId);
     }
 
-    private Network createTestNetwork(String address, int CIDR){
-        return Network.builder().
+    private Cobertura createTestNetwork(String address, int CIDR){
+        return Cobertura.builder().
                 networkAddress(IP.fromAddress(address)).
                 networkName("NewNetwork").
                 networkCidr(CIDR).
@@ -283,8 +283,8 @@ public class DomainTest {
                 );
     }
 
-    private List<Network> createNetworks(Network network){
-        List<Network> networks = new ArrayList<>();
+    private List<Cobertura> createNetworks(Cobertura network){
+        List<Cobertura> networks = new ArrayList<>();
         networks.add(network);
         return networks;
     }
@@ -296,14 +296,14 @@ public class DomainTest {
         return networkSwitch;
     }
 
-    private Plan createNetworkSwitch(Location location, List<Network> networks){
+    private Plan createNetworkSwitch(Location location, List<Cobertura> networks){
         return Plan.builder().
                 id(Id.withId("f8c3de3d-1fea-4d7c-a8b0-29f63c4c3490")).
                 vendor(Vendor.CISCO).
                 model(Model.XYZ0004).
                 ip(IP.fromAddress("20.0.0.100")).
                 location(location).
-                switchType(SwitchType.LAYER3).
+                switchType(PlanType.LAYER3).
                 switchNetworks(networks).
                 build();
     }
@@ -316,7 +316,7 @@ public class DomainTest {
                 model(Model.XYZ0002).
                 ip(IP.fromAddress(address)).
                 location(location).
-                routerType(RouterType.EDGE).
+                routerType(PrimaType.EDGE).
                 switches(switchesOfEdgeRouter).
                 build();
     }
@@ -329,7 +329,7 @@ public class DomainTest {
                 model(Model.XYZ0001).
                 ip(IP.fromAddress(address)).
                 location(location).
-                routerType(RouterType.CORE).
+                routerType(PrimaType.CORE).
                 routers(routersOfCoreRouter).
                 build();
     }

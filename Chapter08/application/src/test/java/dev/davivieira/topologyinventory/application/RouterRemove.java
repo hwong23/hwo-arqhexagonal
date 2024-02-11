@@ -7,8 +7,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-import static dev.davivieira.topologyinventory.domain.vo.RouterType.CORE;
-import static dev.davivieira.topologyinventory.domain.vo.RouterType.EDGE;
+import static dev.davivieira.topologyinventory.domain.vo.PrimaType.CORE;
+import static dev.davivieira.topologyinventory.domain.vo.PrimaType.EDGE;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 

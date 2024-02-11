@@ -1,6 +1,6 @@
 package dev.davivieira.topologyinventory.domain.vo;
 
-public enum RouterType {
-    EDGE,
-    CORE;
+public enum PlanType {
+    LAYER2,
+    LAYER3;
 }

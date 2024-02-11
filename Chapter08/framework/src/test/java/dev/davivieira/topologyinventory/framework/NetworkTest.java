@@ -3,7 +3,7 @@ package dev.davivieira.topologyinventory.framework;
 import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.service.CoberturaService;
 import dev.davivieira.topologyinventory.domain.vo.Id;
-import dev.davivieira.topologyinventory.domain.vo.Network;
+import dev.davivieira.topologyinventory.domain.vo.Cobertura;
 import dev.davivieira.topologyinventory.framework.adapters.input.generic.NetworkManagementGenericAdapter;
 import dev.davivieira.topologyinventory.framework.adapters.input.generic.SwitchManagementGenericAdapter;
 import org.junit.jupiter.api.MethodOrderer;
@@ -32,8 +32,8 @@ public class NetworkTest extends FrameworkTestData {
     public void addNetworkToSwitch(){
         Id switchId = Id.withId("922dbcd5-d071-41bd-920b-00f83eb4bb46");
         Plan networkSwitch = networkManagementGenericAdapter.addNetworkToSwitch(network, switchId);
-        Predicate<Network> predicate = Network.getNetworkNamePredicate("TestNetwork");
-        Network actualNetwork = CoberturaService.findNetwork(networkSwitch.getSwitchNetworks(), predicate);
+        Predicate<Cobertura> predicate = Cobertura.getNetworkNamePredicate("TestNetwork");
+        Cobertura actualNetwork = CoberturaService.findNetwork(networkSwitch.getSwitchNetworks(), predicate);
         assertEquals(network, actualNetwork);
     }
     @Test
@@ -41,9 +41,9 @@ public class NetworkTest extends FrameworkTestData {
     public void removeNetworkFromSwitch(){
         Id switchId = Id.withId("922dbcd5-d071-41bd-920b-00f83eb4bb46");
         var networkName = "HR";
-        Predicate<Network> predicate = Network.getNetworkNamePredicate(networkName);
+        Predicate<Cobertura> predicate = Cobertura.getNetworkNamePredicate(networkName);
         Plan networkSwitch = switchManagementGenericAdapter.retrieveSwitch(switchId);
-        Network existentNetwork = CoberturaService.findNetwork(networkSwitch.getSwitchNetworks(), predicate);
+        Cobertura existentNetwork = CoberturaService.findNetwork(networkSwitch.getSwitchNetworks(), predicate);
         assertNotNull(existentNetwork);
         networkSwitch = networkManagementGenericAdapter.removeNetworkFromSwitch(networkName, switchId);
         assertNull(networkSwitch);

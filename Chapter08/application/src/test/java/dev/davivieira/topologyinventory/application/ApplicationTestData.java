@@ -31,13 +31,13 @@ public class ApplicationTestData {
 
     protected List<Plan> switches = new ArrayList<>();
 
-    protected List<Network> networks = new ArrayList<>();
+    protected List<Cobertura> networks = new ArrayList<>();
 
     protected Map<Id, Prima> routersOfCoreRouter = new HashMap<>();
 
     protected Map<Id, Plan> switchesOfEdgeRouter = new HashMap<>();
 
-    protected Network network;
+    protected Cobertura network;
 
     protected Plan networkSwitch;
 
@@ -73,7 +73,7 @@ public class ApplicationTestData {
                 "Brazil",
                 11F,
                 -11F);
-        this.network  = Network.builder().
+        this.network  = Cobertura.builder().
                 networkAddress(IP.fromAddress("20.0.0.0")).
                 networkName("TestNetwork").
                 networkCidr(8).
@@ -85,7 +85,7 @@ public class ApplicationTestData {
                 model(Model.XYZ0004).
                 ip(IP.fromAddress("20.0.0.100")).
                 location(locationA).
-                switchType(SwitchType.LAYER3).
+                switchType(PlanType.LAYER3).
                 switchNetworks(networks).
                 build();
         this.switchesOfEdgeRouter.put(networkSwitch.getId(), networkSwitch);
@@ -95,7 +95,7 @@ public class ApplicationTestData {
                 model(Model.XYZ0002).
                 ip(IP.fromAddress("20.0.0.1")).
                 location(locationA).
-                routerType(RouterType.EDGE).
+                routerType(PrimaType.EDGE).
                 switches(switchesOfEdgeRouter).
                 build();
         this.routersOfCoreRouter.put(edgeRouter.getId(), edgeRouter);
@@ -105,7 +105,7 @@ public class ApplicationTestData {
                 model(Model.XYZ0001).
                 ip(IP.fromAddress("10.0.0.1")).
                 location(locationA).
-                routerType(RouterType.CORE).
+                routerType(PrimaType.CORE).
                 routers(routersOfCoreRouter).
                 build();
         this.newCoreRouter = CorePrima.builder().
@@ -114,7 +114,7 @@ public class ApplicationTestData {
                 model(Model.XYZ0001).
                 ip(IP.fromAddress("10.1.0.1")).
                 location(locationA).
-                routerType(RouterType.CORE).
+                routerType(PrimaType.CORE).
                 build();
         this.coreRouter.addRouter(newCoreRouter);
         this.newEdgeRouter = EdgePrima.builder().
@@ -123,7 +123,7 @@ public class ApplicationTestData {
                 model(Model.XYZ0002).
                 ip(IP.fromAddress("20.1.0.1")).
                 location(locationA).
-                routerType(RouterType.EDGE).
+                routerType(PrimaType.EDGE).
                 build();
     }
 }

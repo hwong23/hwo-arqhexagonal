@@ -8,7 +8,7 @@ import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Location;
 import dev.davivieira.topologyinventory.domain.vo.Model;
-import dev.davivieira.topologyinventory.domain.vo.SwitchType;
+import dev.davivieira.topologyinventory.domain.vo.PlanType;
 import dev.davivieira.topologyinventory.domain.vo.Vendor;
 import lombok.NoArgsConstructor;
 
@@ -27,7 +27,7 @@ public class SwitchManagementInputPort implements SwitchManagementUseCase {
             Model model,
             IP ip,
             Location location,
-            SwitchType switchType) {
+            PlanType switchType) {
         return Plan
                 .builder()
                 .id(Id.withoutId())

@@ -7,7 +7,7 @@ import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Location;
 import dev.davivieira.topologyinventory.domain.vo.Model;
-import dev.davivieira.topologyinventory.domain.vo.RouterType;
+import dev.davivieira.topologyinventory.domain.vo.PrimaType;
 import dev.davivieira.topologyinventory.domain.vo.Vendor;
 
 public class RouterFactory {
@@ -17,7 +17,7 @@ public class RouterFactory {
                                    Model model,
                                    IP ip,
                                    Location location,
-                                   RouterType routerType){
+                                   PrimaType routerType){
 
         switch (routerType) {
             case CORE -> {

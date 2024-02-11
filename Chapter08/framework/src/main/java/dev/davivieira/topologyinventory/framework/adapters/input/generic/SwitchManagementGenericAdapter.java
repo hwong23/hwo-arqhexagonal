@@ -44,12 +44,12 @@ public class SwitchManagementGenericAdapter {
             Model model,
             IP ip,
             Location location,
-            SwitchType switchType,
+            PlanType switchType,
             Id routerId
     ) {
         Plan newSwitch = switchManagementUseCase.createSwitch(vendor, model, ip, location, switchType);
         Prima edgeRouter = routerManagementUseCase.retrieveRouter(routerId);
-        if(!edgeRouter.getRouterType().equals(RouterType.EDGE))
+        if(!edgeRouter.getRouterType().equals(PrimaType.EDGE))
             throw new UnsupportedOperationException("Please inform the id of an edge router to add a switch");
         Prima router = switchManagementUseCase.addSwitchToEdgeRouter(newSwitch, (EdgePrima) edgeRouter);
         return (EdgePrima) routerManagementUseCase.persistRouter(router);
