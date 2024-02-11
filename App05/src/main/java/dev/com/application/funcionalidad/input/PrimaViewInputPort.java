@@ -6,7 +6,7 @@ import dev.com.application.funcionalidad.output.PrimaViewOutputPort;
 import dev.com.application.usecases.PrimaViewUseCase;
 import dev.com.domain.entity.Prima;
 import dev.com.domain.service.PrimaSearch;
-import dev.com.domain.vo.RouterType;
+import dev.com.domain.vo.PrimaType;
 
 public class PrimaViewInputPort implements PrimaViewUseCase {
 
@@ -23,7 +23,7 @@ public class PrimaViewInputPort implements PrimaViewUseCase {
         return fetchRelatedEdgeRouters(type, routers);
     }
 
-    private List<Prima> fetchRelatedEdgeRouters(RouterType type, List<Prima> routers){
+    private List<Prima> fetchRelatedEdgeRouters(PrimaType type, List<Prima> routers){
         return PrimaSearch.getRouters(type, routers);
     }
 }

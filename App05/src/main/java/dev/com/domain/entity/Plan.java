@@ -4,26 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.com.domain.vo.IP;
-import dev.com.domain.vo.Network;
-import dev.com.domain.vo.SwitchId;
-import dev.com.domain.vo.SwitchType;
+import dev.com.domain.vo.Cobertura;
+import dev.com.domain.vo.PlanId;
+import dev.com.domain.vo.PlanType;
 
 public class Plan {
 
-    private SwitchId switchId;
-    private SwitchType switchType;
-    private List<Network> networks;
+    private PlanId switchId;
+    private PlanType switchType;
+    private List<Cobertura> networks;
     private IP address;
 
-    public Plan (SwitchId switchId, SwitchType switchType, List<Network> networks, IP address){
+    public Plan (PlanId switchId, PlanType switchType, List<Cobertura> networks, IP address){
         this.switchId = switchId;
         this.switchType = switchType;
         this.networks = networks;
         this.address = address;
     }
 
-    public Plan addNetwork(Network network, Prima router){
-        List<Network> newNetworks = new ArrayList<>();
+    public Plan addNetwork(Cobertura network, Prima router){
+        List<Cobertura> newNetworks = new ArrayList<>();
 
         router.retrieveNetworks().forEach(net ->{
             newNetworks.add(net);
@@ -33,15 +33,15 @@ public class Plan {
         return new Plan(this.switchId, this.switchType, newNetworks, this.address);
     }
 
-    public List<Network> getNetworks() {
+    public List<Cobertura> getNetworks() {
         return networks;
     }
 
-    public SwitchId getSwitchId() {
+    public PlanId getSwitchId() {
         return switchId;
     }
 
-    public SwitchType getSwitchType() {
+    public PlanType getSwitchType() {
         return switchType;
     }
 

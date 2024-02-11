@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.eclipse.persistence.annotations.Convert;
 import org.eclipse.persistence.annotations.Converter;
 
-import dev.com.domain.vo.Network;
+import dev.com.domain.vo.Cobertura;
 
 import java.io.Serializable;
 import java.util.UUID;

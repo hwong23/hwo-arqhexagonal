@@ -1,8 +1,8 @@
 package dev.com.domain.vo;
 
-public record Network(IP address, String name, int cidr) {
+public record Cobertura(IP address, String name, int cidr) {
 
-    public Network {
+    public Cobertura {
         if (cidr < 1 || cidr > 32) {
             throw new IllegalArgumentException("Invalid CIDR value");
         }

@@ -9,8 +9,8 @@ import java.util.stream.Stream;
 
 import dev.com.application.funcionalidad.output.PrimaViewOutputPort;
 import dev.com.domain.entity.Prima;
-import dev.com.domain.vo.RouterId;
-import dev.com.domain.vo.RouterType;
+import dev.com.domain.vo.PrimaId;
+import dev.com.domain.vo.PrimaType;
 
 public class RouterViewFileAdapter implements PrimaViewOutputPort {
 
@@ -29,7 +29,7 @@ public class RouterViewFileAdapter implements PrimaViewOutputPort {
                 String[] routerEntry = line.split(";");
                 var id = routerEntry[0];
                 var type = routerEntry[1];
-                Prima router = new Prima(RouterType.valueOf(type),RouterId.withId(id));
+                Prima router = new Prima(PrimaType.valueOf(type),PrimaId.withId(id));
                 routers.add(router);
             });
         } catch (IOException e){

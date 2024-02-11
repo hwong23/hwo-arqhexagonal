@@ -6,7 +6,7 @@ import dev.com.application.funcionalidad.input.PrimaCoberturaInputPort;
 import dev.com.application.funcionalidad.output.NotifyEventOutputPort;
 import dev.com.application.funcionalidad.output.PrimaCoberturaOutputPort;
 import dev.com.application.usecases.PrimaCoberturaUseCase;
-import dev.com.framework.adapters.input.RouterNetworkAdapter;
+import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
 import dev.com.framework.adapters.input.rest.PrimaCoberturaRestAdapter;
 import dev.com.framework.adapters.input.stdin.RouterNetworkCLIAdapter;
 import dev.com.framework.adapters.input.websocket.NotifyEventWebSocketAdapter;
@@ -20,7 +20,7 @@ import java.util.Scanner;
 
 public class App {
 
-    private RouterNetworkAdapter inputAdapter;
+    private PrimaCoberturaAdapter inputAdapter;
     private PrimaCoberturaUseCase usecase;
     private PrimaCoberturaOutputPort primaOutputPort;
     private NotifyEventOutputPort notifyOutputPort;

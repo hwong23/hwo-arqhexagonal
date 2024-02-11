@@ -2,16 +2,16 @@ package dev.com.domain.vo;
 
 import java.util.UUID;
 
-public class SwitchId {
+public class PlanId {
 
     private final UUID id;
 
-    private SwitchId(UUID id){
+    private PlanId(UUID id){
         this.id = id;
     }
 
-    public static SwitchId withId(String id){
-        return new SwitchId(UUID.fromString(id));
+    public static PlanId withId(String id){
+        return new PlanId(UUID.fromString(id));
     }
 
     public UUID getUUID() {

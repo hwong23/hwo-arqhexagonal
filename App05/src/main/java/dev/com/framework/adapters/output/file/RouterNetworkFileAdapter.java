@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dev.com.application.funcionalidad.output.PrimaCoberturaOutputPort;
 import dev.com.domain.entity.Prima;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.output.file.json.RouterJson;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
 
@@ -23,7 +23,7 @@ public class RouterNetworkFileAdapter implements PrimaCoberturaOutputPort {
     private ObjectMapper objectMapper;
 
     @Override
-    public Prima fetchRouterById(RouterId routerId) {
+    public Prima fetchRouterById(PrimaId routerId) {
         var router = new Prima();
         for(RouterJson routerJson: routers){
             if(routerJson.getRouterId().equals(routerId.getUUID())){

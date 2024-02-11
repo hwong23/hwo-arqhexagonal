@@ -5,8 +5,8 @@ import dev.com.application.funcionalidad.output.PrimaCoberturaOutputPort;
 import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Prima;
 import dev.com.domain.service.CoberturaOperation;
-import dev.com.domain.vo.Network;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.Cobertura;
+import dev.com.domain.vo.PrimaId;
 
 public class PrimaCoberturaInputPort implements PrimaCoberturaUseCase {
 
@@ -25,23 +25,23 @@ public class PrimaCoberturaInputPort implements PrimaCoberturaUseCase {
     }
 
     @Override
-    public Prima addNetworkToRouter(RouterId routerId, Network network) {
+    public Prima addNetworkToRouter(PrimaId routerId, Cobertura network) {
         var router = fetchRouter(routerId);
         notifyEventOutputPort.sendEvent("Adding "+network.getName()+" network to router "+router.getRouterId().getUUID());
         return createNetwork(router, network);
     }
 
     @Override
-    public Prima getRouter(RouterId routerId) {
+    public Prima getRouter(PrimaId routerId) {
         notifyEventOutputPort.sendEvent("Retrieving router ID "+routerId.getUUID());
         return fetchRouter(routerId);
     }
 
-    private Prima fetchRouter(RouterId routerId) {
+    private Prima fetchRouter(PrimaId routerId) {
         return routerNetworkOutputPort.fetchRouterById(routerId);
     }
 
-    private Prima createNetwork(Prima router, Network network) {
+    private Prima createNetwork(Prima router, Cobertura network) {
         try {
             var routerWithNewNetwork = CoberturaOperation.createNewNetwork(router, network);
             return persistNetwork(routerWithNewNetwork) ?

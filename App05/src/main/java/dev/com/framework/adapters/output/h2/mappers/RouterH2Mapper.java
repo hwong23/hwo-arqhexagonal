@@ -12,11 +12,11 @@ import dev.com.framework.adapters.output.h2.data.*;
 public class RouterH2Mapper {
 
     public static Prima toDomain(RouterData routerData){
-        var routerType = RouterType.valueOf(routerData.getRouterType().name());
+        var routerType = PrimaType.valueOf(routerData.getRouterType().name());
 
-        var routerId = RouterId.withId(routerData.getRouterId().toString());
-        var switchId = SwitchId.withId(routerData.getNetworkSwitch().getSwitchId().toString());
-        var switchType = SwitchType.valueOf(routerData.getNetworkSwitch().getSwitchType().toString());
+        var routerId = PrimaId.withId(routerData.getRouterId().toString());
+        var switchId = PlanId.withId(routerData.getNetworkSwitch().getSwitchId().toString());
+        var switchType = PlanType.valueOf(routerData.getNetworkSwitch().getSwitchType().toString());
         var ip = IP.fromAddress(routerData.getNetworkSwitch().getIp().getAddress());
         var networks =  getNetworksFromData(routerData.getNetworkSwitch().getNetworks());
 
@@ -42,10 +42,10 @@ public class RouterH2Mapper {
 
 
 
-    private static List<Network> getNetworksFromData(List<NetworkData> networkData){
-        List<Network> networks = new ArrayList<>();
+    private static List<Cobertura> getNetworksFromData(List<NetworkData> networkData){
+        List<Cobertura> networks = new ArrayList<>();
         networkData.forEach(data ->{
-            var network = new Network(
+            var network = new Cobertura(
                     IP.fromAddress(data.getIp().getAddress()),
                     data.getName(),
                     data.getCidr());
@@ -54,7 +54,7 @@ public class RouterH2Mapper {
         return networks;
     }
 
-    private static List<NetworkData>  getNetworksFromDomain(List<Network> networks, UUID routerId){
+    private static List<NetworkData>  getNetworksFromDomain(List<Cobertura> networks, UUID routerId){
         List<NetworkData> networkDataList = new ArrayList<>();
         networks.forEach(network -> {
             var networkData = new NetworkData(
