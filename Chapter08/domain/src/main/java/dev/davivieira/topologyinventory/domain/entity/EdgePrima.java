@@ -1,6 +1,6 @@
 package dev.davivieira.topologyinventory.domain.entity;
 
-import dev.davivieira.topologyinventory.domain.specification.EmptyNetworkSpec;
+import dev.davivieira.topologyinventory.domain.specification.CoberturaNulaSpec;
 import dev.davivieira.topologyinventory.domain.specification.SameCountrySpec;
 import dev.davivieira.topologyinventory.domain.specification.SameIpSpec;
 import dev.davivieira.topologyinventory.domain.vo.IP;
@@ -40,7 +40,7 @@ public final class EdgePrima extends Prima {
     }
 
     public Plan removeSwitch(Plan anySwitch) {
-        var emptyNetworkSpec = new EmptyNetworkSpec();
+        var emptyNetworkSpec = new CoberturaNulaSpec();
         emptyNetworkSpec.check(anySwitch);
 
         return this.switches.remove(anySwitch.id);

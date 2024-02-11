@@ -1,7 +1,7 @@
 package dev.davivieira.topologyinventory.domain.entity;
 
-import dev.davivieira.topologyinventory.domain.specification.EmptyRouterSpec;
-import dev.davivieira.topologyinventory.domain.specification.EmptySwitchSpec;
+import dev.davivieira.topologyinventory.domain.specification.PrimaNulaSpec;
+import dev.davivieira.topologyinventory.domain.specification.PlanNuloSpec;
 import dev.davivieira.topologyinventory.domain.specification.SameCountrySpec;
 import dev.davivieira.topologyinventory.domain.specification.SameIpSpec;
 import dev.davivieira.topologyinventory.domain.vo.IP;
@@ -44,8 +44,8 @@ public final class CorePrima extends Prima {
     }
 
     public Prima removeRouter(Prima anyRouter) {
-        var emptyRoutersSpec = new EmptyRouterSpec();
-        var emptySwitchSpec = new EmptySwitchSpec();
+        var emptyRoutersSpec = new PrimaNulaSpec();
+        var emptySwitchSpec = new PlanNuloSpec();
 
         switch (anyRouter.routerType) {
             case CORE:

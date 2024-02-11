@@ -3,7 +3,7 @@ package dev.davivieira.topologyinventory.domain.specification;
 import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
 import dev.davivieira.topologyinventory.domain.exception.GenericSpecificationException;
 
-public final class EmptySwitchSpec extends AbstractSpecification<EdgePrima> {
+public final class PlanNuloSpec extends AbstractSpecification<EdgePrima> {
 
     @Override
     public boolean isSatisfiedBy(EdgePrima edgeRouter) {

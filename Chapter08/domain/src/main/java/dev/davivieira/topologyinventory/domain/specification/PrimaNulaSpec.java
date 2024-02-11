@@ -3,7 +3,7 @@ package dev.davivieira.topologyinventory.domain.specification;
 import dev.davivieira.topologyinventory.domain.entity.CorePrima;
 import dev.davivieira.topologyinventory.domain.exception.GenericSpecificationException;
 
-public final class EmptyRouterSpec extends AbstractSpecification<CorePrima> {
+public final class PrimaNulaSpec extends AbstractSpecification<CorePrima> {
 
     @Override
     public boolean isSatisfiedBy(CorePrima coreRouter) {

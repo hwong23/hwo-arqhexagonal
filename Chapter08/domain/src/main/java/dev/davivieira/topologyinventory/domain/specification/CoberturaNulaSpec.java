@@ -3,7 +3,7 @@ package dev.davivieira.topologyinventory.domain.specification;
 import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.exception.GenericSpecificationException;
 
-public final class EmptyNetworkSpec extends AbstractSpecification<Plan> {
+public final class CoberturaNulaSpec extends AbstractSpecification<Plan> {
 
     @Override
     public boolean isSatisfiedBy(Plan switchNetwork) {

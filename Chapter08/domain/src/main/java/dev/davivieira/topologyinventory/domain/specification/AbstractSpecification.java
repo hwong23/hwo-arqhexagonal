@@ -5,9 +5,9 @@ import dev.davivieira.topologyinventory.domain.exception.GenericSpecificationExc
 public abstract sealed class AbstractSpecification<T> implements Specification<T> permits
         AndSpecification,
         CIDRSpecification,
-        EmptyNetworkSpec,
-        EmptyRouterSpec,
-        EmptySwitchSpec,
+        CoberturaNulaSpec,
+        PrimaNulaSpec,
+        PlanNuloSpec,
         NetworkAmountSpec,
         NetworkAvailabilitySpec,
         SameCountrySpec,
