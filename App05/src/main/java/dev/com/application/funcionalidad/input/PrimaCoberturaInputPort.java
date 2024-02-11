@@ -27,13 +27,13 @@ public class PrimaCoberturaInputPort implements PrimaCoberturaUseCase {
     @Override
     public Prima addNetworkToRouter(PrimaId routerId, Cobertura network) {
         var router = fetchRouter(routerId);
-        notifyEventOutputPort.sendEvent("Adding "+network.getName()+" network to router "+router.getRouterId().getUUID());
+        notifyEventOutputPort.sendEvent("Adding "+network.getName()+" cobertura to prima "+router.getRouterId().getUUID());
         return createNetwork(router, network);
     }
 
     @Override
     public Prima getRouter(PrimaId routerId) {
-        notifyEventOutputPort.sendEvent("Retrieving router ID "+routerId.getUUID());
+        notifyEventOutputPort.sendEvent("Retrieving prima ID "+routerId.getUUID());
         return fetchRouter(routerId);
     }
 

@@ -43,7 +43,7 @@ public class NotifyEventWebSocketAdapter extends WebSocketServer {
                 new InetSocketAddress("localhost", 8887));
         ws.setReuseAddr(true);
         ws.start();
-        System.out.println("Topology & Inventory" +
+        System.out.println("App05" +
                 " webSocket started on port: " + ws.getPort());
         BufferedReader sysin =
                 new BufferedReader(new InputStreamReader(System.in));
