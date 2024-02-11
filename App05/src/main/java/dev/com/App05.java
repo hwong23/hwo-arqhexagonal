@@ -61,6 +61,7 @@ public class App05 {
     private void rest() {
         try {
             System.out.println("REST endpoint listening on port 8090...");
+            
             var httpserver = HttpServer.create(new InetSocketAddress(8090), 0);
             inputAdapter.processRequest(httpserver);
         } catch (IOException e){

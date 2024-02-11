@@ -28,6 +28,7 @@ public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
     @Override
     public Prima processRequest(Object requestParams){
         Map<String, String> params = new HashMap<>();
+
         if(requestParams instanceof HttpServer) {
             var httpserver = (HttpServer) requestParams;
             httpserver.createContext("/network", (exchange -> {
@@ -38,7 +39,8 @@ public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
                     exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
                     if(exchange.getRequestURI().getPath().equals("/network/add")) {
                         try {
-                            router = this.addNetworkToRouter(params);
+                            // ejecuta petición 'GET'
+                            prima = this.addCoberturaToPrima(params);
                         } catch (Exception e){
                             exchange.sendResponseHeaders(400, e.getMessage().getBytes().length);
                             OutputStream output = exchange.getResponseBody();
@@ -46,11 +48,13 @@ public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
                             output.flush();
                         }
                     }
+                    
                     if(exchange.getRequestURI().getPath().contains("/network/get")) {
-                        router = this.getRouter(params);
+                        prima = this.getPrima(params);
                     }
+        
                     ObjectMapper mapper = new ObjectMapper();
-                    var routerJson = mapper.writeValueAsString(RouterJsonFileMapper.toJson(router));
+                    var routerJson = mapper.writeValueAsString(RouterJsonFileMapper.toJson(prima));
                     exchange.sendResponseHeaders(200, routerJson.getBytes().length);
                     OutputStream output = exchange.getResponseBody();
                     output.write(routerJson.getBytes());
@@ -63,7 +67,7 @@ public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
             httpserver.setExecutor(null); // creates a default executor
             httpserver.start();
         }
-        return router;
+        return prima;
     }
 
     private void httpParams(String query, Map<String, String> params) {

@@ -130,7 +130,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>dev.com.App</mainClass>
+                            <mainClass>dev.com.App05</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -148,7 +148,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        dev.com.App
+                                        dev.com.App05
                                     </mainClass>
                                 </manifest>
                             </archive>

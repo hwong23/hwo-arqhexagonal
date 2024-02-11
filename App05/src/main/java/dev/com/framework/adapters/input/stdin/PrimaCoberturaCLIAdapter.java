@@ -20,17 +20,20 @@ public class PrimaCoberturaCLIAdapter extends PrimaCoberturaAdapter {
 
     @Override
     public Prima processRequest(Object requestParams){
+        
         var params = stdinParams(requestParams);
-        router = this.addNetworkToRouter(params);
+        
+        // mapeo externo a dominio
+        prima = this.addCoberturaToPrima(params);
         ObjectMapper mapper = new ObjectMapper();
         try {
-            var routerJson = mapper.writeValueAsString(RouterJsonFileMapper.toJson(router));
+            var routerJson = mapper.writeValueAsString(RouterJsonFileMapper.toJson(prima));
             System.out.println(routerJson);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
 
-        return router;
+        return prima;
     }
 
     private Map<String, String> stdinParams(Object requestParams){

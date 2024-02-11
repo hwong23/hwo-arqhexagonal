@@ -10,10 +10,10 @@ import dev.com.domain.vo.PrimaId;
 
 public abstract class PrimaCoberturaAdapter {
 
-    protected Prima router;
+    protected Prima prima;
     protected PrimaCoberturaUseCase routerNetworkUseCase;
 
-    public Prima addNetworkToRouter(Map<String, String> params){
+    public Prima addCoberturaToPrima(Map<String, String> params){
         var routerId = PrimaId.withId(params.get("routerId"));
         var network = new Cobertura(IP.fromAddress(params.get("address")),
                 params.get("name"),
@@ -21,7 +21,7 @@ public abstract class PrimaCoberturaAdapter {
         return routerNetworkUseCase.addNetworkToRouter(routerId, network);
     }
 
-    public Prima getRouter(Map<String, String> params) {
+    public Prima getPrima(Map<String, String> params) {
         var routerId = PrimaId.withId(params.get("routerId"));
         return routerNetworkUseCase.getRouter(routerId);
     }
