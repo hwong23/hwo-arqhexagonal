@@ -2,7 +2,7 @@ package dev.com;
 
 import dev.com.framework.adapters.input.stdin.PrimaViewCLIAdapter;
 
-public class App {
+public class App02 {
 
     public static void main(String... args) {
         var cli = new PrimaViewCLIAdapter();

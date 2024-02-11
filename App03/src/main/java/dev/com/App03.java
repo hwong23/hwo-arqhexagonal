@@ -5,7 +5,7 @@ import dev.com.domain.vo.Cobertura;
 import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.input.stdin.PrimaCoberturaCLIAdapter;
 
-public class App {
+public class App03 {
 
     public static void main(String... args) {
         var cli = new PrimaCoberturaCLIAdapter();
