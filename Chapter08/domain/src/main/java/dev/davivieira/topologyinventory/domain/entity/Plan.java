@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 @Getter
-public final class Switch extends Equipment {
+public final class Plan extends Equipment {
 
     private SwitchType switchType;
     private List<Network> switchNetworks;
@@ -28,7 +28,7 @@ public final class Switch extends Equipment {
     private Id routerId;
 
     @Builder
-    public Switch(Id id, Id routerId, Vendor vendor, Model model, IP ip, Location location, SwitchType switchType, List<Network> switchNetworks){
+    public Plan(Id id, Id routerId, Vendor vendor, Model model, IP ip, Location location, SwitchType switchType, List<Network> switchNetworks){
         super(id, vendor, model, ip, location);
         this.switchType = switchType;
         this.switchNetworks = switchNetworks;
@@ -39,7 +39,7 @@ public final class Switch extends Equipment {
         return s -> s.getNetworkAddress().getProtocol().equals(protocol);
     }
 
-    public static Predicate<Switch> getSwitchTypePredicate(SwitchType switchType){
+    public static Predicate<Plan> getSwitchTypePredicate(SwitchType switchType){
         return s -> s.switchType .equals(switchType);
     }
 

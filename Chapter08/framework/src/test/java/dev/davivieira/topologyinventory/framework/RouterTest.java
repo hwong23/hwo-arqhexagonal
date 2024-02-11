@@ -1,6 +1,6 @@
 package dev.davivieira.topologyinventory.framework;
 
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import dev.davivieira.topologyinventory.framework.adapters.input.generic.RouterManagementGenericAdapter;
 import org.junit.jupiter.api.Test;
@@ -48,7 +48,7 @@ public class RouterTest extends FrameworkTestData {
     public void addRouterToCoreRouter() {
         var routerId = Id.withId("b832ef4f-f894-4194-8feb-a99c2cd4be0b");
         var coreRouterId = Id.withId("b832ef4f-f894-4194-8feb-a99c2cd4be0c");
-        var actualRouter = (CoreRouter)this.routerManagementGenericAdapter.
+        var actualRouter = (CorePrima)this.routerManagementGenericAdapter.
                addRouterToCoreRouter(routerId,coreRouterId);
         assertEquals(routerId, actualRouter.getRouters().get(routerId).getId());
     }
@@ -59,7 +59,7 @@ public class RouterTest extends FrameworkTestData {
         var coreRouterId = Id.withId("b832ef4f-f894-4194-8feb-a99c2cd4be0c");
         var removedRouter = this.routerManagementGenericAdapter.
                 removeRouterFromCoreRouter(routerId, coreRouterId);
-        var coreRouter = (CoreRouter)this.routerManagementGenericAdapter
+        var coreRouter = (CorePrima)this.routerManagementGenericAdapter
                 .retrieveRouter(coreRouterId);
         assertEquals(routerId, removedRouter.getId());
         assertFalse(coreRouter.getRouters().containsKey(routerId));

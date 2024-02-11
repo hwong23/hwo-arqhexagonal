@@ -1,6 +1,6 @@
 package dev.davivieira.topologyinventory.domain.specification;
 
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
 import dev.davivieira.topologyinventory.domain.entity.Equipment;
 import dev.davivieira.topologyinventory.domain.exception.GenericSpecificationException;
 
@@ -14,7 +14,7 @@ public final class SameCountrySpec extends AbstractSpecification<Equipment> {
 
     @Override
     public boolean isSatisfiedBy(Equipment anyEquipment) {
-        if(anyEquipment instanceof CoreRouter) {
+        if(anyEquipment instanceof CorePrima) {
             return true;
         } else if (anyEquipment != null && this.equipment != null) {
             return this.equipment.getLocation().country().

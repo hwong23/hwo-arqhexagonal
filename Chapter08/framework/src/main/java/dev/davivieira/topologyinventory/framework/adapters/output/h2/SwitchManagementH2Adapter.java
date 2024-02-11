@@ -1,7 +1,7 @@
 package dev.davivieira.topologyinventory.framework.adapters.output.h2;
 
 import dev.davivieira.topologyinventory.application.ports.output.SwitchManagementOutputPort;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.framework.adapters.output.h2.data.SwitchData;
 import dev.davivieira.topologyinventory.framework.adapters.output.h2.mappers.RouterH2Mapper;
@@ -22,7 +22,7 @@ public class SwitchManagementH2Adapter implements SwitchManagementOutputPort {
     }
 
     @Override
-    public Switch retrieveSwitch(Id id) {
+    public Plan retrieveSwitch(Id id) {
         var switchData = em.getReference(SwitchData.class, id.getUuid());
         return RouterH2Mapper.switchDataToDomain(switchData);
     }

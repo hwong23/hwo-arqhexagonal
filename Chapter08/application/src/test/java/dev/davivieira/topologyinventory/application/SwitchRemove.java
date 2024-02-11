@@ -1,6 +1,6 @@
 package dev.davivieira.topologyinventory.application;
 
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class SwitchRemove extends ApplicationTestData{
 
     Id id;
-    Switch switchToBeRemoved;
+    Plan switchToBeRemoved;
 
     public SwitchRemove(){
         loadData();

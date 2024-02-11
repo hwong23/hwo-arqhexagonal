@@ -18,18 +18,18 @@ import java.util.Map;
 
 @Getter
 @ToString
-public final class EdgeRouter extends Router {
+public final class EdgePrima extends Prima {
 
     @Setter
-    private Map<Id, Switch> switches;
+    private Map<Id, Plan> switches;
 
     @Builder
-    public EdgeRouter(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType, Map<Id, Switch> switches) {
+    public EdgePrima(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType, Map<Id, Plan> switches) {
         super(id, vendor, model, ip, location, routerType);
         this.switches = switches;
     }
 
-    public void addSwitch(Switch anySwitch) {
+    public void addSwitch(Plan anySwitch) {
         var sameCountryRouterSpec = new SameCountrySpec(this);
         var sameIpSpec = new SameIpSpec(this);
 
@@ -39,7 +39,7 @@ public final class EdgeRouter extends Router {
         this.switches.put(anySwitch.id,anySwitch);
     }
 
-    public Switch removeSwitch(Switch anySwitch) {
+    public Plan removeSwitch(Plan anySwitch) {
         var emptyNetworkSpec = new EmptyNetworkSpec();
         emptyNetworkSpec.check(anySwitch);
 

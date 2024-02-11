@@ -1,10 +1,10 @@
 package dev.davivieira.topologyinventory.framework.adapters.output.h2.mappers;
 
 
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
-import dev.davivieira.topologyinventory.domain.entity.Router;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
+import dev.davivieira.topologyinventory.domain.entity.Prima;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.entity.factory.RouterFactory;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import dev.davivieira.topologyinventory.framework.adapters.output.h2.data.*;
@@ -13,7 +13,7 @@ import java.util.*;
 
 public class RouterH2Mapper {
 
-    public static Router routerDataToDomain(RouterData routerData){
+    public static Prima routerDataToDomain(RouterData routerData){
         var router = RouterFactory.getRouter(
                 Id.withId(routerData.getRouterId().toString()),
                 Vendor.valueOf(routerData.getRouterVendor().toString()),
@@ -22,17 +22,17 @@ public class RouterH2Mapper {
                 locationDataToLocation(routerData.getRouterLocation()),
                 RouterType.valueOf(routerData.getRouterType().name()));
         if(routerData.getRouterType().equals(RouterTypeData.CORE)){
-            var coreRouter = (CoreRouter) router;
+            var coreRouter = (CorePrima) router;
             coreRouter.setRouters(getRoutersFromData(routerData.getRouters()));
             return coreRouter;
         } else {
-            var edgeRouter = (EdgeRouter) router;
+            var edgeRouter = (EdgePrima) router;
             edgeRouter.setSwitches(getSwitchesFromData(routerData.getSwitches()));
             return edgeRouter;
         }
     }
 
-    public static RouterData routerDomainToData(Router router){
+    public static RouterData routerDomainToData(Prima router){
         var routerData = RouterData.builder().
                 routerId(router.getId().getUuid()).
                 routerVendor(VendorData.valueOf(router.getVendor().toString())).
@@ -42,17 +42,17 @@ public class RouterH2Mapper {
                 routerType(RouterTypeData.valueOf(router.getRouterType().toString())).
                 build();
         if(router.getRouterType().equals(RouterType.CORE)) {
-            var coreRouter = (CoreRouter) router;
+            var coreRouter = (CorePrima) router;
             routerData.setRouters(getRoutersFromDomain(coreRouter.getRouters()));
         } else {
-            var edgeRouter = (EdgeRouter) router;
+            var edgeRouter = (EdgePrima) router;
             routerData.setSwitches(getSwitchesFromDomain(edgeRouter.getSwitches()));
         }
         return routerData;
     }
 
-    public static Switch switchDataToDomain(SwitchData switchData) {
-        return Switch.builder().
+    public static Plan switchDataToDomain(SwitchData switchData) {
+        return Plan.builder().
                 id(Id.withId(switchData.getSwitchId().toString())).
                 routerId(Id.withId(switchData.getRouterId().toString())).
                 vendor(Vendor.valueOf(switchData.getSwitchVendor().toString())).
@@ -64,7 +64,7 @@ public class RouterH2Mapper {
                 build();
     }
 
-    public static SwitchData switchDomainToData(Switch aSwitch){
+    public static SwitchData switchDomainToData(Plan aSwitch){
         return  SwitchData.builder().
                 switchId(aSwitch.getId().getUuid()).
                 routerId(aSwitch.getRouterId().getUuid()).
@@ -100,8 +100,8 @@ public class RouterH2Mapper {
                 .build();
     }
 
-    private static Map<Id, Router> getRoutersFromData(List<RouterData> routerDataList){
-        Map<Id,Router> routerMap = new HashMap<>();
+    private static Map<Id, Prima> getRoutersFromData(List<RouterData> routerDataList){
+        Map<Id,Prima> routerMap = new HashMap<>();
         for (RouterData routerData : routerDataList) {
             routerMap.put(
                     Id.withId(routerData.getRouterId().toString()),
@@ -110,7 +110,7 @@ public class RouterH2Mapper {
         return routerMap;
     }
 
-    private static List<RouterData>  getRoutersFromDomain(Map<Id, Router> routers){
+    private static List<RouterData>  getRoutersFromDomain(Map<Id, Prima> routers){
         List<RouterData> routerDataList = new ArrayList<>();
          routers.values().stream().forEach(router -> {
              var routerData = routerDomainToData(router);
@@ -119,8 +119,8 @@ public class RouterH2Mapper {
         return routerDataList;
     }
 
-    private static Map<Id, Switch> getSwitchesFromData(List<SwitchData> switchDataList){
-        Map<Id,Switch> switchMap = new HashMap<>();
+    private static Map<Id, Plan> getSwitchesFromData(List<SwitchData> switchDataList){
+        Map<Id,Plan> switchMap = new HashMap<>();
         for (SwitchData switchData : switchDataList) {
             switchMap.put(
                     Id.withId(switchData.getSwitchId().toString()),
@@ -129,7 +129,7 @@ public class RouterH2Mapper {
         return switchMap;
     }
 
-    private static List<SwitchData>  getSwitchesFromDomain(Map<Id, Switch> switches){
+    private static List<SwitchData>  getSwitchesFromDomain(Map<Id, Plan> switches){
         List<SwitchData> switchDataList = new ArrayList<>();
         if(switches!=null) {
             switches.values().stream().forEach(aSwitch -> {

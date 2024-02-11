@@ -1,7 +1,7 @@
 package dev.davivieira.topologyinventory.framework;
 
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import dev.davivieira.topologyinventory.framework.adapters.input.generic.SwitchManagementGenericAdapter;
 import org.junit.jupiter.api.MethodOrderer;
@@ -25,7 +25,7 @@ public class SwitchTest extends FrameworkTestData {
     @Order(1)
     public void retrieveSwitch(){
         Id switchId = Id.withId("922dbcd5-d071-41bd-920b-00f83eb4bb47");
-        Switch networkSwitch = switchManagementGenericAdapter.retrieveSwitch(switchId);
+        Plan networkSwitch = switchManagementGenericAdapter.retrieveSwitch(switchId);
         assertNotNull(networkSwitch);
     }
 
@@ -34,7 +34,7 @@ public class SwitchTest extends FrameworkTestData {
     public void createAndAddSwitchToEdgeRouter(){
         var expectedSwitchIP = "15.0.0.1";
         var id = Id.withId("b07f5187-2d82-4975-a14b-bdbad9a8ad46");
-        EdgeRouter edgeRouter = switchManagementGenericAdapter.createAndAddSwitchToEdgeRouter(
+        EdgePrima edgeRouter = switchManagementGenericAdapter.createAndAddSwitchToEdgeRouter(
                 Vendor.HP,
                 Model.XYZ0004,
                 IP.fromAddress(expectedSwitchIP),
@@ -57,7 +57,7 @@ public class SwitchTest extends FrameworkTestData {
     public void removeSwitchFromEdgeRouter(){
         Id switchId = Id.withId("922dbcd5-d071-41bd-920b-00f83eb4bb47");
         Id edgerRouterId = Id.withId("b07f5187-2d82-4975-a14b-bdbad9a8ad46");
-        EdgeRouter edgeRouter = switchManagementGenericAdapter
+        EdgePrima edgeRouter = switchManagementGenericAdapter
                 .removeSwitchFromEdgeRouter(switchId, edgerRouterId);
         assertNull(edgeRouter.getSwitches().get(switchId));
     }

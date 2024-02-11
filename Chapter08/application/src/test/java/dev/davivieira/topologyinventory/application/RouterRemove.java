@@ -1,8 +1,8 @@
 package dev.davivieira.topologyinventory.application;
 
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
-import dev.davivieira.topologyinventory.domain.entity.Router;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
+import dev.davivieira.topologyinventory.domain.entity.Prima;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class RouterRemove extends ApplicationTestData {
 
-    CoreRouter coreRouterToBeRemoved;
+    CorePrima coreRouterToBeRemoved;
 
     public RouterRemove(){
         loadData();
@@ -23,8 +23,8 @@ public class RouterRemove extends ApplicationTestData {
     //Removing an edge router from a core router
     @Given("The core router has at least one edge router connected to it")
     public void the_core_router_has_at_least_one_edge_router_connected_to_it(){
-        var predicate = Router.getRouterTypePredicate(EDGE);
-        edgeRouter = (EdgeRouter) this.coreRouter.
+        var predicate = Prima.getRouterTypePredicate(EDGE);
+        edgeRouter = (EdgePrima) this.coreRouter.
                 getRouters().
                 entrySet().
                 stream().
@@ -61,8 +61,8 @@ public class RouterRemove extends ApplicationTestData {
     //Removing a core router from another core router
     @Given("The core router has at least one core router connected to it")
     public void the_core_router_has_at_least_one_core_router_connected_to_it(){
-        var predicate = Router.getRouterTypePredicate(CORE);
-        coreRouterToBeRemoved = (CoreRouter) this.coreRouter.
+        var predicate = Prima.getRouterTypePredicate(CORE);
+        coreRouterToBeRemoved = (CorePrima) this.coreRouter.
                 getRouters().
                 entrySet().
                 stream().

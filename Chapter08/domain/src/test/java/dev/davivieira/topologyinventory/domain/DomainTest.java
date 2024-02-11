@@ -1,9 +1,9 @@
 package dev.davivieira.topologyinventory.domain;
 
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
-import dev.davivieira.topologyinventory.domain.entity.Router;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
+import dev.davivieira.topologyinventory.domain.entity.Prima;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.exception.GenericSpecificationException;
 import dev.davivieira.topologyinventory.domain.service.RouterService;
 import dev.davivieira.topologyinventory.domain.service.NetworkService;
@@ -142,7 +142,7 @@ public class DomainTest {
 
     @Test
     public void filterRouterByType(){
-        List<Router> routers = new ArrayList<>();
+        List<Prima> routers = new ArrayList<>();
         var location = createLocation("US");
         var coreRouter = createCoreRouter(location, "30.0.0.1");
         var edgeRouter = createEdgeRouter(location, "40.0.0.1");
@@ -151,19 +151,19 @@ public class DomainTest {
         routers.add(edgeRouter);
 
         var coreRouters = RouterService.filterAndRetrieveRouter(routers,
-                Router.getRouterTypePredicate(RouterType.CORE));
+                Prima.getRouterTypePredicate(RouterType.CORE));
         var actualCoreType = coreRouters.get(0).getRouterType();
         assertEquals(RouterType.CORE, actualCoreType);
 
         var edgeRouters = RouterService.filterAndRetrieveRouter(routers,
-                Router.getRouterTypePredicate(RouterType.EDGE));
+                Prima.getRouterTypePredicate(RouterType.EDGE));
         var actualEdgeType = edgeRouters.get(0).getRouterType();
         assertEquals(RouterType.EDGE, actualEdgeType);
     }
 
     @Test
     public void filterRouterByVendor(){
-        List<Router> routers = new ArrayList<>();
+        List<Prima> routers = new ArrayList<>();
         var location = createLocation("US");
         var coreRouter = createCoreRouter(location, "30.0.0.1");
         var edgeRouter = createEdgeRouter(location, "40.0.0.1");
@@ -172,30 +172,30 @@ public class DomainTest {
         routers.add(edgeRouter);
 
         var actualVendor = RouterService.filterAndRetrieveRouter(routers,
-                Router.getVendorPredicate(Vendor.HP)).get(0).getVendor();
+                Prima.getVendorPredicate(Vendor.HP)).get(0).getVendor();
         assertEquals(Vendor.HP, actualVendor);
 
         actualVendor = RouterService.filterAndRetrieveRouter(routers,
-                Router.getVendorPredicate(Vendor.CISCO)).get(0).getVendor();
+                Prima.getVendorPredicate(Vendor.CISCO)).get(0).getVendor();
         assertEquals(Vendor.CISCO, actualVendor);
     }
 
     @Test
     public void filterRouterByLocation(){
-        List<Router> routers = new ArrayList<>();
+        List<Prima> routers = new ArrayList<>();
         var location = createLocation("US");
         var coreRouter = createCoreRouter(location, "30.0.0.1");
 
         routers.add(coreRouter);
 
         var actualCountry = RouterService.filterAndRetrieveRouter(routers,
-                Router.getCountryPredicate(location)).get(0).getLocation().country();
+                Prima.getCountryPredicate(location)).get(0).getLocation().country();
         assertEquals(location.country(), actualCountry);
     }
 
     @Test
     public void filterRouterByModel(){
-        List<Router> routers = new ArrayList<>();
+        List<Prima> routers = new ArrayList<>();
         var location = createLocation("US");
         var coreRouter = createCoreRouter(location, "30.0.0.1");
         var newCoreRouter = createCoreRouter(location, "40.0.0.1");
@@ -204,20 +204,20 @@ public class DomainTest {
         routers.add(coreRouter);
 
         var actualModel= RouterService.filterAndRetrieveRouter(routers,
-                Router.getModelPredicate(Model.XYZ0001)).get(0).getModel();
+                Prima.getModelPredicate(Model.XYZ0001)).get(0).getModel();
         assertEquals(Model.XYZ0001, actualModel);
     }
 
     @Test
     public void filterSwitchByType(){
-        List<Switch> switches = new ArrayList<>();
+        List<Plan> switches = new ArrayList<>();
         var location = createLocation("US");
         var networkSwitch = createSwitch("30.0.0.0", 8, location);
 
         switches.add(networkSwitch);
 
         var actualSwitchType = SwitchService.filterAndRetrieveSwitch(switches,
-                Switch.getSwitchTypePredicate(SwitchType.LAYER3)).get(0).getSwitchType();
+                Plan.getSwitchTypePredicate(SwitchType.LAYER3)).get(0).getSwitchType();
         assertEquals(SwitchType.LAYER3, actualSwitchType);
     }
 
@@ -228,14 +228,14 @@ public class DomainTest {
 
         var expectedProtocol = Protocol.IPV4;
         var actualProtocol = NetworkService.filterAndRetrieveNetworks(networks,
-                Switch.getNetworkProtocolPredicate(Protocol.IPV4)).get(0).getNetworkAddress().getProtocol();
+                Plan.getNetworkProtocolPredicate(Protocol.IPV4)).get(0).getNetworkAddress().getProtocol();
         assertEquals(expectedProtocol, actualProtocol);
     }
 
     @Test
     public void findRouterById(){
-        List<Router> routers = new ArrayList<>();
-        Map<Id, Router> routersOfCoreRouter = new HashMap<>();
+        List<Prima> routers = new ArrayList<>();
+        Map<Id, Prima> routersOfCoreRouter = new HashMap<>();
         var location = createLocation("US");
         var coreRouter = createCoreRouter(location, "30.0.0.1");
         var newCoreRouter = createCoreRouter(location, "40.0.0.1");
@@ -251,8 +251,8 @@ public class DomainTest {
 
     @Test
     public void findSwitchById(){
-        List<Switch> switches = new ArrayList<>();
-        Map<Id, Switch> switchesOfEdgeRouter = new HashMap<>();
+        List<Plan> switches = new ArrayList<>();
+        Map<Id, Plan> switchesOfEdgeRouter = new HashMap<>();
         var location = createLocation("US");
         var networkSwitch = createSwitch("30.0.0.0", 8, location);
 
@@ -289,15 +289,15 @@ public class DomainTest {
         return networks;
     }
 
-    private Switch createSwitch(String address, int cidr, Location location){
+    private Plan createSwitch(String address, int cidr, Location location){
         var newNetwork = createTestNetwork(address, cidr);
         var networks = createNetworks(newNetwork);
         var networkSwitch = createNetworkSwitch(location, networks);
         return networkSwitch;
     }
 
-    private Switch createNetworkSwitch(Location location, List<Network> networks){
-        return Switch.builder().
+    private Plan createNetworkSwitch(Location location, List<Network> networks){
+        return Plan.builder().
                 id(Id.withId("f8c3de3d-1fea-4d7c-a8b0-29f63c4c3490")).
                 vendor(Vendor.CISCO).
                 model(Model.XYZ0004).
@@ -308,9 +308,9 @@ public class DomainTest {
                 build();
     }
 
-    private EdgeRouter createEdgeRouter(Location location, String address){
-        Map<Id, Switch> switchesOfEdgeRouter = new HashMap<>();
-        return EdgeRouter.builder().
+    private EdgePrima createEdgeRouter(Location location, String address){
+        Map<Id, Plan> switchesOfEdgeRouter = new HashMap<>();
+        return EdgePrima.builder().
                 id(Id.withoutId()).
                 vendor(Vendor.CISCO).
                 model(Model.XYZ0002).
@@ -321,9 +321,9 @@ public class DomainTest {
                 build();
     }
 
-    private CoreRouter createCoreRouter(Location location, String address){
-        Map<Id, Router> routersOfCoreRouter = new HashMap<>();
-        return CoreRouter.builder().
+    private CorePrima createCoreRouter(Location location, String address){
+        Map<Id, Prima> routersOfCoreRouter = new HashMap<>();
+        return CorePrima.builder().
                 id(Id.withoutId()).
                 vendor(Vendor.HP).
                 model(Model.XYZ0001).

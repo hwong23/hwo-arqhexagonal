@@ -1,12 +1,12 @@
 package dev.davivieira.topologyinventory.application.usecases;
 
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.*;
 
 public interface SwitchManagementUseCase {
 
-    Switch createSwitch(
+    Plan createSwitch(
             Vendor vendor,
             Model model,
             IP ip,
@@ -14,10 +14,10 @@ public interface SwitchManagementUseCase {
             SwitchType switchType
     );
 
-    Switch retrieveSwitch(Id id);
+    Plan retrieveSwitch(Id id);
 
-    EdgeRouter addSwitchToEdgeRouter(Switch networkSwitch, EdgeRouter edgeRouter);
+    EdgePrima addSwitchToEdgeRouter(Plan networkSwitch, EdgePrima edgeRouter);
 
-    EdgeRouter removeSwitchFromEdgeRouter(Switch networkSwitch, EdgeRouter edgeRouter);
+    EdgePrima removeSwitchFromEdgeRouter(Plan networkSwitch, EdgePrima edgeRouter);
 }
 

@@ -2,8 +2,8 @@ package dev.davivieira.topologyinventory.application.ports.input;
 
 import dev.davivieira.topologyinventory.application.ports.output.SwitchManagementOutputPort;
 import dev.davivieira.topologyinventory.application.usecases.SwitchManagementUseCase;
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Location;
@@ -22,13 +22,13 @@ public class SwitchManagementInputPort implements SwitchManagementUseCase {
     }
 
     @Override
-    public Switch createSwitch(
+    public Plan createSwitch(
             Vendor vendor,
             Model model,
             IP ip,
             Location location,
             SwitchType switchType) {
-        return Switch
+        return Plan
                 .builder()
                 .id(Id.withoutId())
                 .vendor(vendor)
@@ -39,19 +39,19 @@ public class SwitchManagementInputPort implements SwitchManagementUseCase {
                 .build();
     }
 
-    public Switch retrieveSwitch(Id id){
+    public Plan retrieveSwitch(Id id){
         return switchManagementOutputPort.retrieveSwitch(id);
     }
 
     @Override
-    public EdgeRouter addSwitchToEdgeRouter(Switch networkSwitch, EdgeRouter edgeRouter) {
+    public EdgePrima addSwitchToEdgeRouter(Plan networkSwitch, EdgePrima edgeRouter) {
         networkSwitch.setRouterId(edgeRouter.getId());
         edgeRouter.addSwitch(networkSwitch);
         return edgeRouter;
     }
 
     @Override
-    public EdgeRouter removeSwitchFromEdgeRouter(Switch networkSwitch, EdgeRouter edgeRouter) {
+    public EdgePrima removeSwitchFromEdgeRouter(Plan networkSwitch, EdgePrima edgeRouter) {
         edgeRouter.removeSwitch(networkSwitch);
         return edgeRouter;
     }

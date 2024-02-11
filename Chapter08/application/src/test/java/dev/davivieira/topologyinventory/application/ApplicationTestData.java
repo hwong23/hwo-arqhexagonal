@@ -6,10 +6,10 @@ import dev.davivieira.topologyinventory.application.ports.input.SwitchManagement
 import dev.davivieira.topologyinventory.application.usecases.NetworkManagementUseCase;
 import dev.davivieira.topologyinventory.application.usecases.RouterManagementUseCase;
 import dev.davivieira.topologyinventory.application.usecases.SwitchManagementUseCase;
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
-import dev.davivieira.topologyinventory.domain.entity.Router;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
+import dev.davivieira.topologyinventory.domain.entity.Prima;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.*;
 
 import java.util.ArrayList;
@@ -25,29 +25,29 @@ public class ApplicationTestData {
 
     protected NetworkManagementUseCase networkManagementUseCase;
 
-    protected Router router;
+    protected Prima router;
 
-    protected List<Router> routers = new ArrayList<>();
+    protected List<Prima> routers = new ArrayList<>();
 
-    protected List<Switch> switches = new ArrayList<>();
+    protected List<Plan> switches = new ArrayList<>();
 
     protected List<Network> networks = new ArrayList<>();
 
-    protected Map<Id, Router> routersOfCoreRouter = new HashMap<>();
+    protected Map<Id, Prima> routersOfCoreRouter = new HashMap<>();
 
-    protected Map<Id, Switch> switchesOfEdgeRouter = new HashMap<>();
+    protected Map<Id, Plan> switchesOfEdgeRouter = new HashMap<>();
 
     protected Network network;
 
-    protected Switch networkSwitch;
+    protected Plan networkSwitch;
 
-    protected CoreRouter coreRouter;
+    protected CorePrima coreRouter;
 
-    protected CoreRouter newCoreRouter;
+    protected CorePrima newCoreRouter;
 
-    protected EdgeRouter edgeRouter;
+    protected EdgePrima edgeRouter;
 
-    protected EdgeRouter newEdgeRouter;
+    protected EdgePrima newEdgeRouter;
 
     protected Location locationA;
 
@@ -79,7 +79,7 @@ public class ApplicationTestData {
                 networkCidr(8).
                 build();
         this.networks.add(network);
-        this.networkSwitch = Switch.builder().
+        this.networkSwitch = Plan.builder().
                 id(Id.withId("f8c3de3d-1fea-4d7c-a8b0-29f63c4c3490")).
                 vendor(Vendor.CISCO).
                 model(Model.XYZ0004).
@@ -89,7 +89,7 @@ public class ApplicationTestData {
                 switchNetworks(networks).
                 build();
         this.switchesOfEdgeRouter.put(networkSwitch.getId(), networkSwitch);
-        this.edgeRouter = EdgeRouter.builder().
+        this.edgeRouter = EdgePrima.builder().
                 id(Id.withoutId()).
                 vendor(Vendor.CISCO).
                 model(Model.XYZ0002).
@@ -99,7 +99,7 @@ public class ApplicationTestData {
                 switches(switchesOfEdgeRouter).
                 build();
         this.routersOfCoreRouter.put(edgeRouter.getId(), edgeRouter);
-        this.coreRouter = CoreRouter.builder().
+        this.coreRouter = CorePrima.builder().
                 id(Id.withoutId()).
                 vendor(Vendor.HP).
                 model(Model.XYZ0001).
@@ -108,7 +108,7 @@ public class ApplicationTestData {
                 routerType(RouterType.CORE).
                 routers(routersOfCoreRouter).
                 build();
-        this.newCoreRouter = CoreRouter.builder().
+        this.newCoreRouter = CorePrima.builder().
                 id(Id.withId("81579b05-4b4e-4b9b-91f4-75a5a8561296")).
                 vendor(Vendor.HP).
                 model(Model.XYZ0001).
@@ -117,7 +117,7 @@ public class ApplicationTestData {
                 routerType(RouterType.CORE).
                 build();
         this.coreRouter.addRouter(newCoreRouter);
-        this.newEdgeRouter = EdgeRouter.builder().
+        this.newEdgeRouter = EdgePrima.builder().
                 id(Id.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003")).
                 vendor(Vendor.CISCO).
                 model(Model.XYZ0002).

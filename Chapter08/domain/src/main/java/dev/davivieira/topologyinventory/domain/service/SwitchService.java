@@ -1,6 +1,6 @@
 package dev.davivieira.topologyinventory.domain.service;
 
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 
 import java.util.List;
@@ -10,14 +10,14 @@ import java.util.stream.Collectors;
 
 public class SwitchService {
 
-    public static List<Switch> filterAndRetrieveSwitch(List<Switch> switches, Predicate<Switch> switchPredicate){
+    public static List<Plan> filterAndRetrieveSwitch(List<Plan> switches, Predicate<Plan> switchPredicate){
         return switches
                 .stream()
                 .filter(switchPredicate)
-                .collect(Collectors.<Switch>toList());
+                .collect(Collectors.<Plan>toList());
     }
 
-    public static Switch findById(Map<Id,Switch> switches, Id id){
+    public static Plan findById(Map<Id,Plan> switches, Id id){
         return switches.get(id);
     }
 }

@@ -2,8 +2,8 @@ package dev.davivieira.topologyinventory.framework.adapters.input.generic;
 
 import dev.davivieira.topologyinventory.application.ports.input.RouterManagementInputPort;
 import dev.davivieira.topologyinventory.application.usecases.RouterManagementUseCase;
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
-import dev.davivieira.topologyinventory.domain.entity.Router;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
+import dev.davivieira.topologyinventory.domain.entity.Prima;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import dev.davivieira.topologyinventory.framework.adapters.output.h2.RouterManagementH2Adapter;
 
@@ -24,21 +24,21 @@ public class RouterManagementGenericAdapter {
     /**
      * GET /router/retrieve/{id}
      * */
-    public Router retrieveRouter(Id id){
+    public Prima retrieveRouter(Id id){
         return routerManagementUseCase.retrieveRouter(id);
     }
 
     /**
      * GET /router/remove/{id}
      * */
-    public Router removeRouter(Id id){
+    public Prima removeRouter(Id id){
         return routerManagementUseCase.removeRouter(id);
     }
 
     /**
      * POST /router/create
      * */
-    public Router createRouter(Vendor vendor,
+    public Prima createRouter(Vendor vendor,
                                    Model model,
                                    IP ip,
                                    Location location,
@@ -58,9 +58,9 @@ public class RouterManagementGenericAdapter {
     /**
      * POST /router/add
      * */
-    public Router addRouterToCoreRouter(Id routerId, Id coreRouterId){
-        Router router = routerManagementUseCase.retrieveRouter(routerId);
-        CoreRouter coreRouter = (CoreRouter) routerManagementUseCase.retrieveRouter(coreRouterId);
+    public Prima addRouterToCoreRouter(Id routerId, Id coreRouterId){
+        Prima router = routerManagementUseCase.retrieveRouter(routerId);
+        CorePrima coreRouter = (CorePrima) routerManagementUseCase.retrieveRouter(coreRouterId);
         return routerManagementUseCase.
                 addRouterToCoreRouter(router, coreRouter);
     }
@@ -68,9 +68,9 @@ public class RouterManagementGenericAdapter {
     /**
      * POST /router/remove
      * */
-    public Router removeRouterFromCoreRouter(Id routerId, Id coreRouterId){
-        Router router = routerManagementUseCase.retrieveRouter(routerId);
-        CoreRouter coreRouter = (CoreRouter) routerManagementUseCase.retrieveRouter(coreRouterId);
+    public Prima removeRouterFromCoreRouter(Id routerId, Id coreRouterId){
+        Prima router = routerManagementUseCase.retrieveRouter(routerId);
+        CorePrima coreRouter = (CorePrima) routerManagementUseCase.retrieveRouter(coreRouterId);
         return routerManagementUseCase.
                 removeRouterFromCoreRouter(router, coreRouter);
     }

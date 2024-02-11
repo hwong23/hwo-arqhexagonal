@@ -2,8 +2,8 @@ package dev.davivieira.topologyinventory.application.ports.input;
 
 import dev.davivieira.topologyinventory.application.ports.output.RouterManagementOutputPort;
 import dev.davivieira.topologyinventory.application.usecases.NetworkManagementUseCase;
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.service.NetworkService;
 import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
@@ -33,12 +33,12 @@ public class NetworkManagementInputPort implements NetworkManagementUseCase {
     }
 
     @Override
-    public Switch addNetworkToSwitch(Network network, Switch networkSwitch) {
+    public Plan addNetworkToSwitch(Network network, Plan networkSwitch) {
         Id routerId = networkSwitch.getRouterId();
         Id switchId = networkSwitch.getId();
-        EdgeRouter edgeRouter = (EdgeRouter) routerManagementOutputPort
+        EdgePrima edgeRouter = (EdgePrima) routerManagementOutputPort
                 .retrieveRouter(routerId);
-        Switch switchToAddNetwork = edgeRouter
+        Plan switchToAddNetwork = edgeRouter
                 .getSwitches()
                 .get(switchId);
         switchToAddNetwork.addNetworkToSwitch(network);
@@ -47,12 +47,12 @@ public class NetworkManagementInputPort implements NetworkManagementUseCase {
     }
 
     @Override
-    public Switch removeNetworkFromSwitch(String networkName, Switch networkSwitch) {
+    public Plan removeNetworkFromSwitch(String networkName, Plan networkSwitch) {
         Id routerId = networkSwitch.getRouterId();
         Id switchId = networkSwitch.getId();
-        EdgeRouter edgeRouter = (EdgeRouter) routerManagementOutputPort
+        EdgePrima edgeRouter = (EdgePrima) routerManagementOutputPort
                 .retrieveRouter(routerId);
-        Switch switchToRemoveNetwork = edgeRouter
+        Plan switchToRemoveNetwork = edgeRouter
                 .getSwitches()
                 .get(switchId);
         Predicate<Network> networkPredicate = Network.getNetworkNamePredicate(networkName);

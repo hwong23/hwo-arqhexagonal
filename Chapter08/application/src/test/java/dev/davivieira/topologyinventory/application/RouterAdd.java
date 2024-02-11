@@ -1,7 +1,7 @@
 package dev.davivieira.topologyinventory.application;
 
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
-import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
+import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
 import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Model;
 import dev.davivieira.topologyinventory.domain.vo.Vendor;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class RouterAdd extends ApplicationTestData {
 
-    CoreRouter anotherCoreRouter;
+    CorePrima anotherCoreRouter;
 
     public RouterAdd(){
         loadData();
@@ -24,7 +24,7 @@ public class RouterAdd extends ApplicationTestData {
     //Adding an edge router to a core router
     @Given("I have an edge router")
     public void assert_edge_router_exists(){
-        edgeRouter = (EdgeRouter) this.routerManagementUseCase.createRouter(
+        edgeRouter = (EdgePrima) this.routerManagementUseCase.createRouter(
                 null,
                 Vendor.HP,
                 Model.XYZ0004,
@@ -36,7 +36,7 @@ public class RouterAdd extends ApplicationTestData {
     }
     @And("I have a core router")
     public void assert_core_router_exists(){
-        coreRouter = (CoreRouter) this.routerManagementUseCase.createRouter(
+        coreRouter = (CorePrima) this.routerManagementUseCase.createRouter(
                 null,
                 Vendor.CISCO,
                 Model.XYZ0001,
@@ -49,7 +49,7 @@ public class RouterAdd extends ApplicationTestData {
     @Then("I add an edge router to a core router")
     public void add_edge_to_core_router(){
         var actualEdgeId = edgeRouter.getId();
-        var routerWithEdge = (CoreRouter) this.routerManagementUseCase.
+        var routerWithEdge = (CorePrima) this.routerManagementUseCase.
                 addRouterToCoreRouter(edgeRouter, coreRouter);
         var expectedEdgeId = routerWithEdge.getRouters().get(actualEdgeId).getId();
         assertEquals(actualEdgeId, expectedEdgeId);
@@ -57,7 +57,7 @@ public class RouterAdd extends ApplicationTestData {
     //Adding a core router to another core router
     @Given("I have this core router")
     public void assert_this_core_router_exists(){
-        coreRouter = (CoreRouter) this.routerManagementUseCase.createRouter(
+        coreRouter = (CorePrima) this.routerManagementUseCase.createRouter(
                 null,
                 Vendor.CISCO,
                 Model.XYZ0001,
@@ -69,7 +69,7 @@ public class RouterAdd extends ApplicationTestData {
     }
     @And("I have another core router")
     public void assert_another_core_router_exists(){
-        anotherCoreRouter = (CoreRouter) this.routerManagementUseCase.createRouter(
+        anotherCoreRouter = (CorePrima) this.routerManagementUseCase.createRouter(
                 null,
                 Vendor.CISCO,
                 Model.XYZ0001,
@@ -82,7 +82,7 @@ public class RouterAdd extends ApplicationTestData {
     @Then("I add a core router to another core router")
     public void add_core_to_core_router(){
         var coreRouterId = coreRouter.getId();
-        var routerWithCore = (CoreRouter) this.routerManagementUseCase.
+        var routerWithCore = (CorePrima) this.routerManagementUseCase.
                 addRouterToCoreRouter(coreRouter, anotherCoreRouter);
         var expectedCoreId = routerWithCore.
                 getRouters().get(coreRouterId).getId();

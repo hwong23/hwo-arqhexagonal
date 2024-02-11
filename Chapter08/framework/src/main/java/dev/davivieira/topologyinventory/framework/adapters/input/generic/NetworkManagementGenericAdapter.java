@@ -4,7 +4,7 @@ import dev.davivieira.topologyinventory.application.ports.input.NetworkManagemen
 import dev.davivieira.topologyinventory.application.ports.input.SwitchManagementInputPort;
 import dev.davivieira.topologyinventory.application.usecases.NetworkManagementUseCase;
 import dev.davivieira.topologyinventory.application.usecases.SwitchManagementUseCase;
-import dev.davivieira.topologyinventory.domain.entity.Switch;
+import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Network;
 import dev.davivieira.topologyinventory.framework.adapters.output.h2.RouterManagementH2Adapter;
@@ -27,16 +27,16 @@ public class NetworkManagementGenericAdapter {
     /**
      * POST /network/add
      * */
-    public Switch addNetworkToSwitch(Network network, Id switchId) {
-        Switch networkSwitch = switchManagementUseCase.retrieveSwitch(switchId);
+    public Plan addNetworkToSwitch(Network network, Id switchId) {
+        Plan networkSwitch = switchManagementUseCase.retrieveSwitch(switchId);
         return networkManagementUseCase.addNetworkToSwitch(network, networkSwitch);
     }
 
     /**
      * POST /network/remove
      * */
-    public Switch removeNetworkFromSwitch(String networkName, Id switchId) {
-        Switch networkSwitch = switchManagementUseCase.retrieveSwitch(switchId);
+    public Plan removeNetworkFromSwitch(String networkName, Id switchId) {
+        Plan networkSwitch = switchManagementUseCase.retrieveSwitch(switchId);
         return networkManagementUseCase.removeNetworkFromSwitch(networkName, networkSwitch);
     }
 }

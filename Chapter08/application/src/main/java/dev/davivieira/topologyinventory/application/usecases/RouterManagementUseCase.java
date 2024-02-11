@@ -1,12 +1,12 @@
 package dev.davivieira.topologyinventory.application.usecases;
 
-import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
-import dev.davivieira.topologyinventory.domain.entity.Router;
+import dev.davivieira.topologyinventory.domain.entity.CorePrima;
+import dev.davivieira.topologyinventory.domain.entity.Prima;
 import dev.davivieira.topologyinventory.domain.vo.*;
 
 public interface RouterManagementUseCase {
 
-    Router createRouter(
+    Prima createRouter(
             Id id,
             Vendor vendor,
             Model model,
@@ -14,15 +14,15 @@ public interface RouterManagementUseCase {
             Location location,
             RouterType routerType);
 
-    Router removeRouter(Id id);
+    Prima removeRouter(Id id);
 
-    Router retrieveRouter(Id id);
+    Prima retrieveRouter(Id id);
 
-    Router persistRouter(Router router);
+    Prima persistRouter(Prima router);
 
-    Router addRouterToCoreRouter(
-            Router router, CoreRouter coreRouter);
+    Prima addRouterToCoreRouter(
+            Prima router, CorePrima coreRouter);
 
-    Router removeRouterFromCoreRouter(
-            Router router, CoreRouter coreRouter);
+    Prima removeRouterFromCoreRouter(
+            Prima router, CorePrima coreRouter);
 }
