@@ -1,6 +1,6 @@
 package dev.davivieira.topologyinventory.application;
 
-import dev.davivieira.topologyinventory.domain.service.NetworkService;
+import dev.davivieira.topologyinventory.domain.service.CoberturaService;
 import dev.davivieira.topologyinventory.domain.vo.Network;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -24,7 +24,7 @@ public class NetworkRemove extends ApplicationTestData{
     public void i_know_the_network_i_want_to_remove(){
         predicate = Network.
                 getNetworkNamePredicate("TestNetwork");
-        network = NetworkService.
+        network = CoberturaService.
                 findNetwork(networks, predicate);
         assertEquals("TestNetwork", network.getNetworkName());
     }
@@ -38,7 +38,7 @@ public class NetworkRemove extends ApplicationTestData{
     public void i_remove_the_network_from_the_switch(){
         this.networkManagementUseCase.
                 removeNetworkFromSwitch("Marketing", networkSwitch);
-        network = NetworkService.
+        network = CoberturaService.
                 findNetwork(networks, predicate);
         assertNull(network);
     }

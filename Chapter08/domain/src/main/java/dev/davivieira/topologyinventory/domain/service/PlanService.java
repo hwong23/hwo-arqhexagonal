@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class SwitchService {
+public class PlanService {
 
     public static List<Plan> filterAndRetrieveSwitch(List<Plan> switches, Predicate<Plan> switchPredicate){
         return switches

@@ -4,7 +4,7 @@ import dev.davivieira.topologyinventory.application.ports.output.RouterManagemen
 import dev.davivieira.topologyinventory.application.usecases.NetworkManagementUseCase;
 import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
 import dev.davivieira.topologyinventory.domain.entity.Plan;
-import dev.davivieira.topologyinventory.domain.service.NetworkService;
+import dev.davivieira.topologyinventory.domain.service.CoberturaService;
 import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Network;
@@ -56,7 +56,7 @@ public class NetworkManagementInputPort implements NetworkManagementUseCase {
                 .getSwitches()
                 .get(switchId);
         Predicate<Network> networkPredicate = Network.getNetworkNamePredicate(networkName);
-        var network = NetworkService.
+        var network = CoberturaService.
                 findNetwork(switchToRemoveNetwork.getSwitchNetworks(), networkPredicate);
         switchToRemoveNetwork.removeNetworkFromSwitch(network);
         routerManagementOutputPort.persistRouter(edgeRouter);

@@ -1,7 +1,7 @@
 package dev.davivieira.topologyinventory.framework;
 
 import dev.davivieira.topologyinventory.domain.entity.Plan;
-import dev.davivieira.topologyinventory.domain.service.NetworkService;
+import dev.davivieira.topologyinventory.domain.service.CoberturaService;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Network;
 import dev.davivieira.topologyinventory.framework.adapters.input.generic.NetworkManagementGenericAdapter;
@@ -33,7 +33,7 @@ public class NetworkTest extends FrameworkTestData {
         Id switchId = Id.withId("922dbcd5-d071-41bd-920b-00f83eb4bb46");
         Plan networkSwitch = networkManagementGenericAdapter.addNetworkToSwitch(network, switchId);
         Predicate<Network> predicate = Network.getNetworkNamePredicate("TestNetwork");
-        Network actualNetwork = NetworkService.findNetwork(networkSwitch.getSwitchNetworks(), predicate);
+        Network actualNetwork = CoberturaService.findNetwork(networkSwitch.getSwitchNetworks(), predicate);
         assertEquals(network, actualNetwork);
     }
     @Test
@@ -43,7 +43,7 @@ public class NetworkTest extends FrameworkTestData {
         var networkName = "HR";
         Predicate<Network> predicate = Network.getNetworkNamePredicate(networkName);
         Plan networkSwitch = switchManagementGenericAdapter.retrieveSwitch(switchId);
-        Network existentNetwork = NetworkService.findNetwork(networkSwitch.getSwitchNetworks(), predicate);
+        Network existentNetwork = CoberturaService.findNetwork(networkSwitch.getSwitchNetworks(), predicate);
         assertNotNull(existentNetwork);
         networkSwitch = networkManagementGenericAdapter.removeNetworkFromSwitch(networkName, switchId);
         assertNull(networkSwitch);

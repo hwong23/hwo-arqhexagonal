@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class RouterService {
+public class PrimaService {
 
     public static List<Prima> filterAndRetrieveRouter(List<Prima> routers, Predicate<Equipment> routerPredicate){
         return routers

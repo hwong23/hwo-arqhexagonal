@@ -1,6 +1,6 @@
 package dev.davivieira.topologyinventory.application;
 
-import dev.davivieira.topologyinventory.domain.service.NetworkService;
+import dev.davivieira.topologyinventory.domain.service.CoberturaService;
 import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Network;
 import io.cucumber.java.en.And;
@@ -38,7 +38,7 @@ public class NetworkAdd extends ApplicationTestData {
                 networkManagementUseCase.
                 addNetworkToSwitch(network, networkSwitch).
                 getSwitchNetworks();
-        var network = NetworkService.
+        var network = CoberturaService.
                 findNetwork(networks, predicate).getNetworkName();
         assertEquals("Finance", network);
     }

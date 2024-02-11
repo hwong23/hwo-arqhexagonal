@@ -5,9 +5,9 @@ import dev.davivieira.topologyinventory.domain.entity.EdgePrima;
 import dev.davivieira.topologyinventory.domain.entity.Prima;
 import dev.davivieira.topologyinventory.domain.entity.Plan;
 import dev.davivieira.topologyinventory.domain.exception.GenericSpecificationException;
-import dev.davivieira.topologyinventory.domain.service.RouterService;
-import dev.davivieira.topologyinventory.domain.service.NetworkService;
-import dev.davivieira.topologyinventory.domain.service.SwitchService;
+import dev.davivieira.topologyinventory.domain.service.PrimaService;
+import dev.davivieira.topologyinventory.domain.service.CoberturaService;
+import dev.davivieira.topologyinventory.domain.service.PlanService;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import org.junit.jupiter.api.Test;
 
@@ -150,12 +150,12 @@ public class DomainTest {
         routers.add(coreRouter);
         routers.add(edgeRouter);
 
-        var coreRouters = RouterService.filterAndRetrieveRouter(routers,
+        var coreRouters = PrimaService.filterAndRetrieveRouter(routers,
                 Prima.getRouterTypePredicate(RouterType.CORE));
         var actualCoreType = coreRouters.get(0).getRouterType();
         assertEquals(RouterType.CORE, actualCoreType);
 
-        var edgeRouters = RouterService.filterAndRetrieveRouter(routers,
+        var edgeRouters = PrimaService.filterAndRetrieveRouter(routers,
                 Prima.getRouterTypePredicate(RouterType.EDGE));
         var actualEdgeType = edgeRouters.get(0).getRouterType();
         assertEquals(RouterType.EDGE, actualEdgeType);
@@ -171,11 +171,11 @@ public class DomainTest {
         routers.add(coreRouter);
         routers.add(edgeRouter);
 
-        var actualVendor = RouterService.filterAndRetrieveRouter(routers,
+        var actualVendor = PrimaService.filterAndRetrieveRouter(routers,
                 Prima.getVendorPredicate(Vendor.HP)).get(0).getVendor();
         assertEquals(Vendor.HP, actualVendor);
 
-        actualVendor = RouterService.filterAndRetrieveRouter(routers,
+        actualVendor = PrimaService.filterAndRetrieveRouter(routers,
                 Prima.getVendorPredicate(Vendor.CISCO)).get(0).getVendor();
         assertEquals(Vendor.CISCO, actualVendor);
     }
@@ -188,7 +188,7 @@ public class DomainTest {
 
         routers.add(coreRouter);
 
-        var actualCountry = RouterService.filterAndRetrieveRouter(routers,
+        var actualCountry = PrimaService.filterAndRetrieveRouter(routers,
                 Prima.getCountryPredicate(location)).get(0).getLocation().country();
         assertEquals(location.country(), actualCountry);
     }
@@ -203,7 +203,7 @@ public class DomainTest {
         coreRouter.addRouter(newCoreRouter);
         routers.add(coreRouter);
 
-        var actualModel= RouterService.filterAndRetrieveRouter(routers,
+        var actualModel= PrimaService.filterAndRetrieveRouter(routers,
                 Prima.getModelPredicate(Model.XYZ0001)).get(0).getModel();
         assertEquals(Model.XYZ0001, actualModel);
     }
@@ -216,7 +216,7 @@ public class DomainTest {
 
         switches.add(networkSwitch);
 
-        var actualSwitchType = SwitchService.filterAndRetrieveSwitch(switches,
+        var actualSwitchType = PlanService.filterAndRetrieveSwitch(switches,
                 Plan.getSwitchTypePredicate(SwitchType.LAYER3)).get(0).getSwitchType();
         assertEquals(SwitchType.LAYER3, actualSwitchType);
     }
@@ -227,7 +227,7 @@ public class DomainTest {
         var networks = createNetworks(testNetwork);
 
         var expectedProtocol = Protocol.IPV4;
-        var actualProtocol = NetworkService.filterAndRetrieveNetworks(networks,
+        var actualProtocol = CoberturaService.filterAndRetrieveNetworks(networks,
                 Plan.getNetworkProtocolPredicate(Protocol.IPV4)).get(0).getNetworkAddress().getProtocol();
         assertEquals(expectedProtocol, actualProtocol);
     }
@@ -245,7 +245,7 @@ public class DomainTest {
         routersOfCoreRouter.put(newCoreRouter.getId(), newCoreRouter);
 
         var expectedId = newCoreRouter.getId();
-        var actualId = RouterService.findById(routersOfCoreRouter, expectedId).getId();
+        var actualId = PrimaService.findById(routersOfCoreRouter, expectedId).getId();
         assertEquals(expectedId, actualId);
     }
 
@@ -259,7 +259,7 @@ public class DomainTest {
         switchesOfEdgeRouter.put(networkSwitch.getId(), networkSwitch);
 
         var expectedId = Id.withId("f8c3de3d-1fea-4d7c-a8b0-29f63c4c3490");
-        var actualId = SwitchService.findById(switchesOfEdgeRouter, expectedId).getId();
+        var actualId = PlanService.findById(switchesOfEdgeRouter, expectedId).getId();
         assertEquals(expectedId, actualId);
     }
 
