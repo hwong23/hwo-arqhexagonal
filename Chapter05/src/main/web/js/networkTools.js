@@ -4,7 +4,7 @@ function addNetworkToRouter() {
     const name = document.getElementById("name").value;
     const cidr = document.getElementById("cidr").value;
     const xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://localhost:8080/network/add?routerId="+routerId+"&"+
+    xhttp.open("GET", "http://localhost:8090/network/add?routerId="+routerId+"&"+
         "address="+address+"&"+
         "name="+name+"&"+
         "cidr="+cidr, true);
@@ -29,7 +29,7 @@ function getRouter() {
             createTree(json)
         }
     };
-    xhttp.open("GET", "http://localhost:8080/network/get?routerId="+routerId, true);
+    xhttp.open("GET", "http://localhost:8090/network/get?routerId="+routerId, true);
     xhttp.send();
 }
 
