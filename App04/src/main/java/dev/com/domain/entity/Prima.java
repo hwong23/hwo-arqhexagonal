@@ -6,46 +6,46 @@ import dev.com.domain.vo.*;
 
 public class Prima {
 
-    private RouterType routerType;
-    private RouterId routerId;
+    private PrimaType routerType;
+    private PrimaId routerId;
     private Plan networkSwitch;
 
     public Prima(){
 
     }
 
-    public Prima(RouterType routerType, RouterId routerId) {
+    public Prima(PrimaType routerType, PrimaId routerId) {
         this.routerType = routerType;
         this.routerId = routerId;
     }
 
-    public Prima(RouterType routerType, RouterId routerId, Plan networkSwitch) {
+    public Prima(PrimaType routerType, PrimaId routerId, Plan networkSwitch) {
         this.routerType = routerType;
         this.routerId = routerId;
         this.networkSwitch = networkSwitch;
     }
 
-    public boolean isType(RouterType type){
+    public boolean isType(PrimaType type){
         return this.routerType == type;
     }
 
-    public void addNetworkToSwitch(Network network){
+    public void addNetworkToSwitch(Cobertura network){
         this.networkSwitch = networkSwitch.addNetwork(network, this);
     }
 
-    public Network createNetwork(IP address, String name, int cidr){
-        return new Network(address, name, cidr);
+    public Cobertura createNetwork(IP address, String name, int cidr){
+        return new Cobertura(address, name, cidr);
     }
 
-    public List<Network> retrieveNetworks(){
+    public List<Cobertura> retrieveNetworks(){
         return networkSwitch.getNetworks();
     }
 
-    public RouterType getRouterType() {
+    public PrimaType getRouterType() {
         return routerType;
     }
 
-    public RouterId getRouterId() {
+    public PrimaId getRouterId() {
         return routerId;
     }
 

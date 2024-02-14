@@ -3,7 +3,7 @@ package dev.com.application.usecases;
 import java.util.List;
 
 import dev.com.domain.entity.Prima;
-import dev.com.domain.vo.RouterType;
+import dev.com.domain.vo.PrimaType;
 
 public interface PrimaViewUseCase {
 
@@ -11,13 +11,13 @@ public interface PrimaViewUseCase {
 
     class RelatedRoutersCommand {
 
-        private RouterType type;
+        private PrimaType type;
 
         public RelatedRoutersCommand(String type){
-            this.type = RouterType.valueOf(type);
+            this.type = PrimaType.valueOf(type);
         }
 
-        public RouterType getType() {
+        public PrimaType getType() {
             return type;
         }
     }

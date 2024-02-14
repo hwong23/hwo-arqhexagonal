@@ -5,16 +5,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Prima;
-import dev.com.framework.adapters.input.RouterNetworkAdapter;
+import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class RouterNetworkCLIAdapter extends RouterNetworkAdapter {
+public class PrimaCoberturaCLIAdapter extends PrimaCoberturaAdapter {
 
-    public RouterNetworkCLIAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
+    public PrimaCoberturaCLIAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 

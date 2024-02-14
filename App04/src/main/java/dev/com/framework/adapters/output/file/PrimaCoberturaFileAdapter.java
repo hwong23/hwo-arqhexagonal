@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
 import dev.com.domain.entity.Prima;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.output.file.json.RouterJson;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
 
@@ -15,15 +15,15 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class RouterNetworkFileAdapter implements PrimaFuncionalidadOutputFuncionalidad {
+public class PrimaCoberturaFileAdapter implements PrimaFuncionalidadOutputFuncionalidad {
 
-    private static RouterNetworkFileAdapter instance;
+    private static PrimaCoberturaFileAdapter instance;
     private List<RouterJson> routers;
     private InputStream resource;
     private ObjectMapper objectMapper;
 
     @Override
-    public Prima fetchRouterById(RouterId routerId) {
+    public Prima fetchRouterById(PrimaId routerId) {
         var router = new Prima();
         for(RouterJson routerJson: routers){
             if(routerJson.getRouterId().equals(routerId.getUUID())){
@@ -59,7 +59,7 @@ public class RouterNetworkFileAdapter implements PrimaFuncionalidadOutputFuncion
         }
     }
 
-    private RouterNetworkFileAdapter() {
+    private PrimaCoberturaFileAdapter() {
         this.objectMapper = new ObjectMapper();
         this.resource = getClass().
                 getClassLoader().
@@ -67,9 +67,9 @@ public class RouterNetworkFileAdapter implements PrimaFuncionalidadOutputFuncion
         readJsonFile();
     }
 
-    public static RouterNetworkFileAdapter getInstance() {
+    public static PrimaCoberturaFileAdapter getInstance() {
         if (instance == null) {
-            instance = new RouterNetworkFileAdapter();
+            instance = new PrimaCoberturaFileAdapter();
         }
         return instance;
     }

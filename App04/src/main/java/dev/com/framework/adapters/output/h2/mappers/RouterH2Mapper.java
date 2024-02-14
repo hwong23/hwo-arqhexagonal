@@ -12,10 +12,10 @@ import dev.com.framework.adapters.output.h2.data.*;
 public class RouterH2Mapper {
 
         public static Prima toDomain(RouterData routerData){
-            var routerType = RouterType.valueOf(routerData.getRouterType().name());
-            var routerId = RouterId.withId(routerData.getRouterId().toString());
-            var switchId = SwitchId.withId(routerData.getNetworkSwitch().getSwitchId().toString());
-            var switchType = SwitchType.valueOf(routerData.getNetworkSwitch().getSwitchType().toString());
+            var routerType = PrimaType.valueOf(routerData.getRouterType().name());
+            var routerId = PrimaId.withId(routerData.getRouterId().toString());
+            var switchId = PlanId.withId(routerData.getNetworkSwitch().getSwitchId().toString());
+            var switchType = PlanType.valueOf(routerData.getNetworkSwitch().getSwitchType().toString());
             var ip = IP.fromAddress(routerData.getNetworkSwitch().getIp().getAddress());
             var networks =  getNetworksFromData(routerData.getNetworkSwitch().getNetworks());
 
@@ -41,17 +41,17 @@ public class RouterH2Mapper {
             return new RouterData(routerId, routerTypeData, switchData);
         }
 
-        private static List<Network> getNetworksFromData(List<NetworkData> networkData){
+        private static List<Cobertura> getNetworksFromData(List<NetworkData> networkData){
             return networkData
                     .stream()
-                    .map(network -> new Network(
+                    .map(network -> new Cobertura(
                             IP.fromAddress(network.getIp().getAddress()),
                             network.getName(),
                             network.getCidr()))
                     .collect(Collectors.toList());
         }
 
-        private static List<NetworkData> getNetworksFromDomain(List<Network> networks, UUID switchId){
+        private static List<NetworkData> getNetworksFromDomain(List<Cobertura> networks, UUID switchId){
             return  networks
                      .stream()
                      .map(network -> new NetworkData(

@@ -5,10 +5,10 @@ import com.sun.net.httpserver.HttpServer;
 import dev.com.application.funcionalidad.entrada.PrimaCoberturaInputFuncionalidad;
 import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
 import dev.com.application.usecases.PrimaCoberturaUseCase;
-import dev.com.framework.adapters.input.RouterNetworkAdapter;
-import dev.com.framework.adapters.input.rest.RouterNetworkRestAdapter;
-import dev.com.framework.adapters.input.stdin.RouterNetworkCLIAdapter;
-import dev.com.framework.adapters.output.file.RouterNetworkFileAdapter;
+import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
+import dev.com.framework.adapters.input.rest.PrimaCoberturaRestAdapter;
+import dev.com.framework.adapters.input.stdin.PrimaCoberturaCLIAdapter;
+import dev.com.framework.adapters.output.file.PrimaCoberturaFileAdapter;
 import dev.com.framework.adapters.output.h2.RouterNetworkH2Adapter;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 public class App {
 
-    private RouterNetworkAdapter inputAdapter;
+    private PrimaCoberturaAdapter inputAdapter;
     private PrimaCoberturaUseCase usecase;
     private PrimaFuncionalidadOutputFuncionalidad outputPort;
 
@@ -34,13 +34,13 @@ public class App {
             case "rest" -> {
                 outputPort = RouterNetworkH2Adapter.getInstance();
                 usecase = new PrimaCoberturaInputFuncionalidad(outputPort);
-                inputAdapter = new RouterNetworkRestAdapter(usecase);
+                inputAdapter = new PrimaCoberturaRestAdapter(usecase);
                 rest();
             }
             default -> {
-                outputPort = RouterNetworkFileAdapter.getInstance();
+                outputPort = PrimaCoberturaFileAdapter.getInstance();
                 usecase = new PrimaCoberturaInputFuncionalidad(outputPort);
-                inputAdapter = new RouterNetworkCLIAdapter(usecase);
+                inputAdapter = new PrimaCoberturaCLIAdapter(usecase);
                 cli();
             }
         }

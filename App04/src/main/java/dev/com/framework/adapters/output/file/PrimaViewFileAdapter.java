@@ -9,12 +9,12 @@ import java.util.stream.Stream;
 
 import dev.com.application.funcionalidad.salida.PrimaViewOutputFuncionalidad;
 import dev.com.domain.entity.Prima;
-import dev.com.domain.vo.RouterId;
-import dev.com.domain.vo.RouterType;
+import dev.com.domain.vo.PrimaId;
+import dev.com.domain.vo.PrimaType;
 
-public class RouterViewFileAdapter implements PrimaViewOutputFuncionalidad {
+public class PrimaViewFileAdapter implements PrimaViewOutputFuncionalidad {
 
-    private static RouterViewFileAdapter instance;
+    private static PrimaViewFileAdapter instance;
 
     @Override
     public List<Prima> fetchRelatedRouters() {
@@ -24,12 +24,12 @@ public class RouterViewFileAdapter implements PrimaViewOutputFuncionalidad {
     private static List<Prima> readFileAsString() {
         List<Prima> routers = new ArrayList<>();
 
-        try (Stream<String> stream = Files.lines(Paths.get(RouterViewFileAdapter.class.getResource("/routers.txt").getPath()))) {
+        try (Stream<String> stream = Files.lines(Paths.get(PrimaViewFileAdapter.class.getResource("/routers.txt").getPath()))) {
             stream.forEach(line ->{
                 String[] routerEntry = line.split(";");
                 var id = routerEntry[0];
                 var type = routerEntry[1];
-                Prima router = new Prima(RouterType.valueOf(type),RouterId.withId(id));
+                Prima router = new Prima(PrimaType.valueOf(type),PrimaId.withId(id));
                 routers.add(router);
             });
         } catch (IOException e){
@@ -39,12 +39,12 @@ public class RouterViewFileAdapter implements PrimaViewOutputFuncionalidad {
     }
 
 
-    private RouterViewFileAdapter() {
+    private PrimaViewFileAdapter() {
     }
 
-    public static RouterViewFileAdapter getInstance() {
+    public static PrimaViewFileAdapter getInstance() {
         if (instance == null) {
-            instance = new RouterViewFileAdapter();
+            instance = new PrimaViewFileAdapter();
         }
         return instance;
     }

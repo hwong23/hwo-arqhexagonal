@@ -4,8 +4,8 @@ import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFunciona
 import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Prima;
 import dev.com.domain.service.CoberturaOperation;
-import dev.com.domain.vo.Network;
-import dev.com.domain.vo.RouterId;
+import dev.com.domain.vo.Cobertura;
+import dev.com.domain.vo.PrimaId;
 
 public class PrimaCoberturaInputFuncionalidad implements PrimaCoberturaUseCase {
 
@@ -16,16 +16,16 @@ public class PrimaCoberturaInputFuncionalidad implements PrimaCoberturaUseCase {
     }
 
     @Override
-    public Prima addNetworkToRouter(RouterId routerId, Network network) {
+    public Prima addNetworkToRouter(PrimaId routerId, Cobertura network) {
         var router = fetchRouter(routerId);
         return createNetwork(router, network);
     }
 
-    private Prima fetchRouter(RouterId routerId) {
+    private Prima fetchRouter(PrimaId routerId) {
         return routerNetworkOutputPort.fetchRouterById(routerId);
     }
 
-    private Prima createNetwork(Prima router, Network network) {
+    private Prima createNetwork(Prima router, Cobertura network) {
         var newRouter = CoberturaOperation.createNewNetwork(router, network);
         return persistNetwork(router) ? newRouter :
                 router;

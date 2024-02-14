@@ -5,7 +5,7 @@ import com.sun.net.httpserver.HttpServer;
 
 import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Prima;
-import dev.com.framework.adapters.input.RouterNetworkAdapter;
+import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
 
 import java.io.OutputStream;
@@ -16,9 +16,9 @@ import java.util.regex.Pattern;
 import static java.util.stream.Collectors.*;
 import java.net.URLDecoder;
 
-public class RouterNetworkRestAdapter extends RouterNetworkAdapter {
+public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
 
-    public RouterNetworkRestAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
+    public PrimaCoberturaRestAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 

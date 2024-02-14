@@ -11,10 +11,10 @@ import dev.com.framework.adapters.output.file.json.*;
 public class RouterJsonFileMapper {
 
     public static Prima toDomain(RouterJson routerJson){
-        var routerId = RouterId.withId(routerJson.getRouterId().toString());
-        var routerType = RouterType.valueOf(routerJson.getRouterType().name());
-        var switchId = SwitchId.withId(routerJson.getNetworkSwitch().getSwitchId().toString());
-        var switchType = SwitchType.valueOf(routerJson.getNetworkSwitch().getSwitchType().toString());
+        var routerId = PrimaId.withId(routerJson.getRouterId().toString());
+        var routerType = PrimaType.valueOf(routerJson.getRouterType().name());
+        var switchId = PlanId.withId(routerJson.getNetworkSwitch().getSwitchId().toString());
+        var switchType = PlanType.valueOf(routerJson.getNetworkSwitch().getSwitchType().toString());
         var ip = IP.fromAddress(routerJson.getNetworkSwitch().getIp().getAddress());
         var networks =  getNetworksFromJson(routerJson.getNetworkSwitch().getNetworks());
 
@@ -36,17 +36,17 @@ public class RouterJsonFileMapper {
         return new RouterJson(routerId, routerTypeJson, switchJson);
     }
 
-    private static List<Network> getNetworksFromJson(List<NetworkJson> networkJson){
+    private static List<Cobertura> getNetworksFromJson(List<NetworkJson> networkJson){
         return networkJson
                 .stream()
-                .map(json ->  new Network(
+                .map(json ->  new Cobertura(
                         IP.fromAddress(json.getIp().getAddress()),
                         json.getNetworkName(),
                         Integer.valueOf(json.getCidr())))
                 .collect(Collectors.toList());
     }
 
-    private static List<NetworkJson>  getNetworksFromDomain(List<Network> networks){
+    private static List<NetworkJson>  getNetworksFromDomain(List<Cobertura> networks){
         return networks
                 .stream()
                 .map(network -> new NetworkJson(
