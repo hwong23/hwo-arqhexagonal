@@ -1,4 +1,4 @@
-package dev.davivieira;
+package dev.com;
 
 import dev.com.domain.entity.Router;
 import dev.com.domain.specification.CIDRSpecification;
