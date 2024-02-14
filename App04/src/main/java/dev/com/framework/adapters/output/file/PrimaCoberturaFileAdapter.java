@@ -7,7 +7,7 @@ import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFunciona
 import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.output.file.json.RouterJson;
-import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
+import dev.com.framework.adapters.output.file.mappers.PrimaJsonFileMapper;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class PrimaCoberturaFileAdapter implements PrimaFuncionalidadOutputFuncio
         var router = new Prima();
         for(RouterJson routerJson: routers){
             if(routerJson.getRouterId().equals(routerId.getUUID())){
-                router = RouterJsonFileMapper.toDomain(routerJson);
+                router = PrimaJsonFileMapper.toDomain(routerJson);
                 break;
             }
         }
@@ -36,7 +36,7 @@ public class PrimaCoberturaFileAdapter implements PrimaFuncionalidadOutputFuncio
 
     @Override
     public boolean persistRouter(Prima router) {
-        var routerJson = RouterJsonFileMapper.toJson(router);
+        var routerJson = PrimaJsonFileMapper.toJson(router);
         try {
             String localDir = Paths.get("").toAbsolutePath().toString();
             File file = new File(localDir + "/inventory.json");

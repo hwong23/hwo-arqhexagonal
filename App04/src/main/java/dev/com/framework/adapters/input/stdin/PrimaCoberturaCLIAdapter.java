@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Prima;
 import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
-import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
+import dev.com.framework.adapters.output.file.mappers.PrimaJsonFileMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +24,7 @@ public class PrimaCoberturaCLIAdapter extends PrimaCoberturaAdapter {
         router = this.addNetworkToRouter(params);
         ObjectMapper mapper = new ObjectMapper();
         try {
-            var routerJson = mapper.writeValueAsString(RouterJsonFileMapper.toJson(router));
+            var routerJson = mapper.writeValueAsString(PrimaJsonFileMapper.toJson(router));
             System.out.println(routerJson);
         } catch (JsonProcessingException e) {
             e.printStackTrace();

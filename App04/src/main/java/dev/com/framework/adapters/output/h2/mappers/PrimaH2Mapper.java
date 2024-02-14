@@ -9,7 +9,7 @@ import dev.com.domain.entity.Plan;
 import dev.com.domain.vo.*;
 import dev.com.framework.adapters.output.h2.data.*;
 
-public class RouterH2Mapper {
+public class PrimaH2Mapper {
 
         public static Prima toDomain(RouterData routerData){
             var routerType = PrimaType.valueOf(routerData.getRouterType().name());

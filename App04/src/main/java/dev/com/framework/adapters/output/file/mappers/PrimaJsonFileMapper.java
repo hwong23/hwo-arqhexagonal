@@ -8,7 +8,7 @@ import dev.com.domain.entity.Plan;
 import dev.com.domain.vo.*;
 import dev.com.framework.adapters.output.file.json.*;
 
-public class RouterJsonFileMapper {
+public class PrimaJsonFileMapper {
 
     public static Prima toDomain(RouterJson routerJson){
         var routerId = PrimaId.withId(routerJson.getRouterId().toString());

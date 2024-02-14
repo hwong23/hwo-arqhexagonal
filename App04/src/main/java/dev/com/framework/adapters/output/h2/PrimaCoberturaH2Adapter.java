@@ -4,32 +4,32 @@ import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFunciona
 import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.PrimaId;
 import dev.com.framework.adapters.output.h2.data.RouterData;
-import dev.com.framework.adapters.output.h2.mappers.RouterH2Mapper;
+import dev.com.framework.adapters.output.h2.mappers.PrimaH2Mapper;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
 
-public class RouterNetworkH2Adapter implements PrimaFuncionalidadOutputFuncionalidad {
+public class PrimaCoberturaH2Adapter implements PrimaFuncionalidadOutputFuncionalidad {
 
-    private static RouterNetworkH2Adapter instance;
+    private static PrimaCoberturaH2Adapter instance;
 
     @PersistenceContext
     private EntityManager em;
 
-    private RouterNetworkH2Adapter(){
+    private PrimaCoberturaH2Adapter(){
         setUpH2Database();
     }
 
     @Override
     public Prima fetchRouterById(PrimaId routerId) {
         var routerData = em.getReference(RouterData.class, routerId.getUUID());
-        return RouterH2Mapper.toDomain(routerData);
+        return PrimaH2Mapper.toDomain(routerData);
     }
 
     @Override
     public boolean persistRouter(Prima router) {
-        var routerData = RouterH2Mapper.toH2(router);
+        var routerData = PrimaH2Mapper.toH2(router);
         em.persist(routerData);
         return true;
     }
@@ -40,9 +40,9 @@ public class RouterNetworkH2Adapter implements PrimaFuncionalidadOutputFuncional
         this.em = em;
     }
 
-    public static RouterNetworkH2Adapter getInstance() {
+    public static PrimaCoberturaH2Adapter getInstance() {
         if (instance == null) {
-            instance = new RouterNetworkH2Adapter();
+            instance = new PrimaCoberturaH2Adapter();
         }
         return instance;
     }

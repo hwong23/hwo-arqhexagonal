@@ -6,7 +6,7 @@ import com.sun.net.httpserver.HttpServer;
 import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.domain.entity.Prima;
 import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
-import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
+import dev.com.framework.adapters.output.file.mappers.PrimaJsonFileMapper;
 
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -37,7 +37,7 @@ public class PrimaCoberturaRestAdapter extends PrimaCoberturaAdapter {
                     httpParams(query, params);
                     router = this.addNetworkToRouter(params);
                     ObjectMapper mapper = new ObjectMapper();
-                    var routerJson = mapper.writeValueAsString(RouterJsonFileMapper.toJson(router));
+                    var routerJson = mapper.writeValueAsString(PrimaJsonFileMapper.toJson(router));
                     exchange.getResponseHeaders().set("Content-Type", "application/json");
                     exchange.sendResponseHeaders(200, routerJson.getBytes().length);
                     OutputStream output = exchange.getResponseBody();

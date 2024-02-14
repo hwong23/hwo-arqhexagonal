@@ -9,7 +9,7 @@ import dev.com.framework.adapters.input.PrimaCoberturaAdapter;
 import dev.com.framework.adapters.input.rest.PrimaCoberturaRestAdapter;
 import dev.com.framework.adapters.input.stdin.PrimaCoberturaCLIAdapter;
 import dev.com.framework.adapters.output.file.PrimaCoberturaFileAdapter;
-import dev.com.framework.adapters.output.h2.RouterNetworkH2Adapter;
+import dev.com.framework.adapters.output.h2.PrimaCoberturaH2Adapter;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -32,7 +32,7 @@ public class App {
     void setAdapter(String adapter) {
         switch (adapter) {
             case "rest" -> {
-                outputPort = RouterNetworkH2Adapter.getInstance();
+                outputPort = PrimaCoberturaH2Adapter.getInstance();
                 usecase = new PrimaCoberturaInputFuncionalidad(outputPort);
                 inputAdapter = new PrimaCoberturaRestAdapter(usecase);
                 rest();
