@@ -1,7 +1,7 @@
 package dev.com.framework.adapters.output.h2;
 
 import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
-import dev.com.domain.entity.Router;
+import dev.com.domain.entity.Prima;
 import dev.com.domain.vo.RouterId;
 import dev.com.framework.adapters.output.h2.data.RouterData;
 import dev.com.framework.adapters.output.h2.mappers.RouterH2Mapper;
@@ -22,13 +22,13 @@ public class RouterNetworkH2Adapter implements PrimaFuncionalidadOutputFuncional
     }
 
     @Override
-    public Router fetchRouterById(RouterId routerId) {
+    public Prima fetchRouterById(RouterId routerId) {
         var routerData = em.getReference(RouterData.class, routerId.getUUID());
         return RouterH2Mapper.toDomain(routerData);
     }
 
     @Override
-    public boolean persistRouter(Router router) {
+    public boolean persistRouter(Prima router) {
         var routerData = RouterH2Mapper.toH2(router);
         em.persist(routerData);
         return true;

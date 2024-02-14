@@ -1,13 +1,13 @@
 package dev.com.application.funcionalidad.entrada;
 
 import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
-import dev.com.application.usecases.RouterNetworkUseCase;
-import dev.com.domain.entity.Router;
-import dev.com.domain.service.NetworkOperation;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
+import dev.com.domain.entity.Prima;
+import dev.com.domain.service.CoberturaOperation;
 import dev.com.domain.vo.Network;
 import dev.com.domain.vo.RouterId;
 
-public class PrimaCoberturaInputFuncionalidad implements RouterNetworkUseCase {
+public class PrimaCoberturaInputFuncionalidad implements PrimaCoberturaUseCase {
 
     private final PrimaFuncionalidadOutputFuncionalidad routerNetworkOutputPort;
 
@@ -16,22 +16,22 @@ public class PrimaCoberturaInputFuncionalidad implements RouterNetworkUseCase {
     }
 
     @Override
-    public Router addNetworkToRouter(RouterId routerId, Network network) {
+    public Prima addNetworkToRouter(RouterId routerId, Network network) {
         var router = fetchRouter(routerId);
         return createNetwork(router, network);
     }
 
-    private Router fetchRouter(RouterId routerId) {
+    private Prima fetchRouter(RouterId routerId) {
         return routerNetworkOutputPort.fetchRouterById(routerId);
     }
 
-    private Router createNetwork(Router router, Network network) {
-        var newRouter = NetworkOperation.createNewNetwork(router, network);
+    private Prima createNetwork(Prima router, Network network) {
+        var newRouter = CoberturaOperation.createNewNetwork(router, network);
         return persistNetwork(router) ? newRouter :
                 router;
     }
 
-    private boolean persistNetwork(Router router) {
+    private boolean persistNetwork(Prima router) {
         return routerNetworkOutputPort.persistRouter(router);
     }
 }

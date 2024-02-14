@@ -7,4 +7,5 @@ Feature: Agregar cobertura a la prima
     When encuentro la prima
     And el valor de la cobertura es válido y este no existe ya
     And El CIDR es válido
-    Then Agregar la cobertura a la addCoberturaToPrima
+    Then Agregar la cobertura a la prima
+    

@@ -4,22 +4,22 @@ import java.util.List;
 
 import dev.com.domain.vo.*;
 
-public class Router {
+public class Prima {
 
     private RouterType routerType;
     private RouterId routerId;
-    private Switch networkSwitch;
+    private Plan networkSwitch;
 
-    public Router(){
+    public Prima(){
 
     }
 
-    public Router(RouterType routerType, RouterId routerId) {
+    public Prima(RouterType routerType, RouterId routerId) {
         this.routerType = routerType;
         this.routerId = routerId;
     }
 
-    public Router(RouterType routerType, RouterId routerId, Switch networkSwitch) {
+    public Prima(RouterType routerType, RouterId routerId, Plan networkSwitch) {
         this.routerType = routerType;
         this.routerId = routerId;
         this.networkSwitch = networkSwitch;
@@ -49,7 +49,7 @@ public class Router {
         return routerId;
     }
 
-    public Switch getNetworkSwitch() {
+    public Plan getNetworkSwitch() {
         return networkSwitch;
     }
 

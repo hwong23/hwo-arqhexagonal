@@ -4,7 +4,7 @@ import com.sun.net.httpserver.HttpServer;
 
 import dev.com.application.funcionalidad.entrada.PrimaCoberturaInputFuncionalidad;
 import dev.com.application.funcionalidad.salida.PrimaFuncionalidadOutputFuncionalidad;
-import dev.com.application.usecases.RouterNetworkUseCase;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
 import dev.com.framework.adapters.input.rest.RouterNetworkRestAdapter;
 import dev.com.framework.adapters.input.stdin.RouterNetworkCLIAdapter;
@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class App {
 
     private RouterNetworkAdapter inputAdapter;
-    private RouterNetworkUseCase usecase;
+    private PrimaCoberturaUseCase usecase;
     private PrimaFuncionalidadOutputFuncionalidad outputPort;
 
     public static void main(String... args)  {

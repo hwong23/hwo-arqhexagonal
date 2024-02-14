@@ -8,21 +8,21 @@ import dev.com.domain.vo.Network;
 import dev.com.domain.vo.SwitchId;
 import dev.com.domain.vo.SwitchType;
 
-public class Switch {
+public class Plan {
 
     private SwitchId switchId;
     private SwitchType switchType;
     private List<Network> networks;
     private IP address;
 
-    public Switch (SwitchId switchId, SwitchType switchType, List<Network> networks, IP address){
+    public Plan (SwitchId switchId, SwitchType switchType, List<Network> networks, IP address){
         this.switchId = switchId;
         this.switchType = switchType;
         this.networks = networks;
         this.address = address;
     }
 
-    public Switch addNetwork(Network network, Router router){
+    public Plan addNetwork(Network network, Prima router){
         List<Network> newNetworks = new ArrayList<>();
 
         router.retrieveNetworks().forEach(net ->{
@@ -30,7 +30,7 @@ public class Switch {
         });
 
         newNetworks.add(network);
-        return new Switch(this.switchId, this.switchType, newNetworks, this.address);
+        return new Plan(this.switchId, this.switchType, newNetworks, this.address);
     }
 
     public List<Network> getNetworks() {

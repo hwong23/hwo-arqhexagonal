@@ -3,8 +3,8 @@ package dev.com.framework.adapters.input.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
 
-import dev.com.application.usecases.RouterNetworkUseCase;
-import dev.com.domain.entity.Router;
+import dev.com.application.usecases.PrimaCoberturaUseCase;
+import dev.com.domain.entity.Prima;
 import dev.com.framework.adapters.input.RouterNetworkAdapter;
 import dev.com.framework.adapters.output.file.mappers.RouterJsonFileMapper;
 
@@ -18,7 +18,7 @@ import java.net.URLDecoder;
 
 public class RouterNetworkRestAdapter extends RouterNetworkAdapter {
 
-    public RouterNetworkRestAdapter(RouterNetworkUseCase routerNetworkUseCase){
+    public RouterNetworkRestAdapter(PrimaCoberturaUseCase routerNetworkUseCase){
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 
@@ -27,7 +27,7 @@ public class RouterNetworkRestAdapter extends RouterNetworkAdapter {
      * that is always cast to an HttpServer type.
      */
     @Override
-    public Router processRequest(Object requestParams){
+    public Prima processRequest(Object requestParams){
         Map<String, String> params = new HashMap<>();
         if(requestParams instanceof HttpServer) {
             var httpserver = (HttpServer) requestParams;
