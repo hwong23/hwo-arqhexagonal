@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: dev.com.RunCucumberTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.915 s <<< FAILURE! -- in dev.com.RunCucumberTest
-Agregar cobertura a la prima.Agregar cobertura a una prima existente -- Time elapsed: 0.226 s <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.193 s <<< FAILURE! -- in dev.com.RunCucumberTest
+Agregar cobertura a la prima.Agregar cobertura a una prima existente -- Time elapsed: 0.391 s <<< ERROR!
 io.cucumber.junit.UndefinedStepException: 
 The step 'que tengo una prima ID y el detalle de una cobertura' and 4 other step(s) are undefined.
 You can implement these steps using the snippet(s) below:
