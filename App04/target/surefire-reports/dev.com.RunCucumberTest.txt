@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: dev.com.RunCucumberTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.193 s <<< FAILURE! -- in dev.com.RunCucumberTest
+Agregar cobertura a la prima.Agregar cobertura a una prima existente -- Time elapsed: 0.391 s <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'que tengo una prima ID y el detalle de una cobertura' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("que tengo una prima ID y el detalle de una cobertura")
+public void que_tengo_una_prima_id_y_el_detalle_de_una_cobertura() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("encuentro la prima")
+public void encuentro_la_prima() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("el valor de la cobertura es válido y este no existe ya")
+public void el_valor_de_la_cobertura_es_válido_y_este_no_existe_ya() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("El CIDR es válido")
+public void el_cidr_es_válido() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("Agregar la cobertura a la prima")
+public void agregar_la_cobertura_a_la_prima() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
