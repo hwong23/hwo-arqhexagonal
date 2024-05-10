@@ -54,3 +54,5 @@ public class Event implements Comparable<Event> {
         return Objects.hash(timestamp, id, protocol, activity) + 31;
     }
 }
+
+
