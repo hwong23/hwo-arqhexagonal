@@ -8,6 +8,7 @@ public class App02 {
         var cli = new PrimaViewCLIAdapter();
         var type = "CORE";
 
+        System.out.println( "Desde devcontainer vsc-vscode-remote tyr java");
         System.out.println( "App02.Referencia");
         System.out.println(cli.obtainRelatedPrimas(type));
 
