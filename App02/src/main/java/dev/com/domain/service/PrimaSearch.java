@@ -8,6 +8,9 @@ import dev.com.domain.entity.Prima;
 
 public class PrimaSearch {
 
+    // retrieve method can now be consumed as a service 
+    // by other objects in the domain 
+    // and in other hexagons
     public static List<Prima> retrievePrima(List<Prima> primas, Predicate<Prima> predicate) {
         return primas.stream()
                 .filter(predicate)

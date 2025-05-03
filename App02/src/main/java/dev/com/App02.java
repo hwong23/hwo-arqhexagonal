@@ -1,6 +1,7 @@
 package dev.com;
 
 import dev.com.framework.adapters.input.stdin.PrimaViewCLIAdapter;
+import java.util.function.Predicate;
 
 public class App02 {
 
