@@ -6,6 +6,9 @@ import java.util.function.Predicate;
 import dev.com.domain.vo.*;
 
 public class Prima {
+    // la entidad Prima es un agregado: 
+    // 1. tiene Id
+    // 2. se compone de Plan (networkSwitch)
 
     private final PrimaType routerType;
     private final PrimaId routerId;

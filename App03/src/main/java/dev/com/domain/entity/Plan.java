@@ -23,6 +23,8 @@ public class Plan {
     }
 
     public Plan addNetwork(Cobertura network, Prima router) {
+        // Note: addNetwork does not change the current Switch object, 
+        // rather, creates a new Plan instance containing the network we added
         List<Cobertura> newNetworks = new ArrayList<>(router.retrieveNetworks());
         newNetworks.add(network);
 
